@@ -32,4 +32,10 @@ public class HelloController {
         BeanUtils.copyProperties(userConfig, user);
         return new ResponseData().success(user);
     }
+
+    @RequestMapping("/test/globalException")
+    public ResponseData globalException() {
+        int i = 1 / 0;
+        return new ResponseData().success(null);
+    }
 }

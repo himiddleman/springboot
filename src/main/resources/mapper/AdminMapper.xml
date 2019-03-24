@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.allinpay.repository.mapper.AdminMapper">
+    <resultMap id="BaseResultMap" type="com.allinpay.repository.domain.Admin">
+        <id column="KID" property="kid" jdbcType="VARCHAR"/>
+        <result column="EMAIL" property="email" jdbcType="VARCHAR"/>
+        <result column="PASSWORD" property="password" jdbcType="VARCHAR"/>
+        <result column="NICKNAME" property="nickname" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+        <result column="IS_VERIFY" property="isVerify" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    KID,EMAIL,PASSWORD,NICKNAME,STATUS,IS_VERIFY
+  </sql>
+
+    <select id="getAdmin" resultMap="BaseResultMap">
+    select kid,email,password,nickname,status from admin where email=#{email}
+    and password=#{password}
+  </select>
+</mapper>

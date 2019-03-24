@@ -1,0 +1,28 @@
+#tomcat端口号 根路径配置
+server:
+  port: 8080
+  context-path: /allinpay
+
+#数据源配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ssm
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.allinpay.repository.domain
+
+# 分页配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+
+#配置文件
+config:
+  path: resource.properties
