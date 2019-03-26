@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--设置log4j2的自身log级别为warn-->
+<configuration status="INFO">
+    <properties>
+        <property name="LOG_HOME">SpringBoot_log/logs</property>
+        <property name="INFO_LOG_FILE_NAME">SpringBoot_info</property>
+        <property name="WARN_LOG_FILE_NAME">SpringBoot_warn</property>
+        <property name="ERROR_LOG_FILE_NAME">SpringBoot_error</property>
+    </properties>
+    <appenders>
+        <console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%yellow{AllinPay.SpringBoot}||%blue{%d{yyyy-MM-dd HH:mm:ss:SSS}}||%highlight{%p}||%t||%cyan{%c{1.}}|| || || || || || || || || ||%m%n"/>
+        </console>
+
+        <RollingFile name="RollingFileInfo" fileName="${LOG_HOME}/${INFO_LOG_FILE_NAME}.log"
+                     filePattern="${LOG_HOME}/${INFO_LOG_FILE_NAME}.%d{yyyy-MM-dd}.log.gz">
+            <Filters>
+                <ThresholdFilter level="INFO"/>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
+            <PatternLayout
+                    pattern="AllinPay.SpringBoot||%d{yyyy-MM-dd HH:mm:ss:SSS}||%p||%t||%c{1.}|| || || || || || || || || ||%m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="RollingFileWarn" fileName="${LOG_HOME}/${WARN_LOG_FILE_NAME}.log"
+                     filePattern="${LOG_HOME}/${WARN_LOG_FILE_NAME}.%d{yyyy-MM-dd}.log.gz">
+            <!--<Filters>-->
+            <!--<ThresholdFilter level="WARN"/>-->
+            <!--<ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>-->
+            <!--</Filters>-->
+            <PatternLayout
+                    pattern="AllinPay.SpringBoot||%d{yyyy-MM-dd HH:mm:ss:SSS}||%p||%t||%c{1.}|| || || || || || || || || ||%m%n"/>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="RollingFileError" fileName="${LOG_HOME}/${ERROR_LOG_FILE_NAME}.log"
+                     filePattern="${LOG_HOME}/${ERROR_LOG_FILE_NAME}.%d{yyyy-MM-dd}.log.gz">
+            <ThresholdFilter level="ERROR"/>
+            <PatternLayout
+                    pattern="AllinPay.SpringBoot||%d{yyyy-MM-dd HH:mm:ss:SSS}||%p||%t||%c{1.}|| || || || || || || || || ||%m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
+
+    </appenders>
+
+    <loggers>
+        <logger name="org.hibernate" level="ERROR"></logger>
+        <logger name="org.springframework" level="ERROR"></logger>
+        <logger name="org.apache" level="ERROR"></logger>
+        <logger name="com.netflix" level="ERROR"></logger>
+        <logger name="org.mybatis" level="ERROR"></logger>
+        <logger name="springfox.documentation" level="ERROR"></logger>
+
+        <root level="DEBUG">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="RollingFileInfo"/>
+            <appender-ref ref="RollingFileWarn"/>
+            <appender-ref ref="RollingFileError"/>
+        </root>
+    </loggers>
+
+</configuration>

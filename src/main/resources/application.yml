@@ -3,8 +3,21 @@ server:
   port: 8080
   context-path: /allinpay
 
-#数据源配置
+
 spring:
+  #使用redis
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    timeout: 0
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+  #数据源配置
   datasource:
     url: jdbc:mysql://localhost:3306/ssm
     username: root
@@ -38,7 +51,15 @@ pagehelper:
   reasonable: false
   supportMethodsArguments: true
   params: count=countSql
+# druid控制台相关参数设置
+druid:
+  config:
+    username: root
+    password: root
+    allow: 127.0.0.1
+    deny: 192.168.1.103
+    resetEnable: false
+    logSlowSql: true
 
-#配置文件
-config:
-  path: resource.properties
+logging:
+  classpath: log4j2.xml

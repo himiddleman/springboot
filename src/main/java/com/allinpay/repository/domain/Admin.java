@@ -5,11 +5,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Setter
 @Getter
 @ToString
-public class Admin {
+public class Admin implements Serializable {
     @Id
     private String kid;
     private String email;
