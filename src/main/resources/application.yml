@@ -1,10 +1,12 @@
 #tomcat端口号 根路径配置
 server:
   port: 8080
-  context-path: /allinpay
-
+#  context-path: /allinpay
 
 spring:
+  #设置页面页面静态资源位置
+  mvc:
+    static-path-pattern: /static/**
   #使用redis
   redis:
     database: 0
@@ -19,7 +21,7 @@ spring:
       min-idle: 0
   #数据源配置
   datasource:
-    url: jdbc:mysql://localhost:3306/ssm
+    url: jdbc:mysql://47.99.172.60:3306/ssm
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
@@ -61,5 +63,9 @@ druid:
     resetEnable: false
     logSlowSql: true
 
+#配置日志文件路径
 logging:
   classpath: log4j2.xml
+  level:
+    #控制单个包下日志输出级别
+    org.thymeleaf: info

@@ -106,6 +106,12 @@
             <version>1.2.47</version>
         </dependency>
 
+        <!-- 页面整合-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
