@@ -1,8 +1,13 @@
+$(function () {
+    $("#username").val($.trim(localStorage.getItem("username")));
+    $("#password").val($.trim(localStorage.getItem("password")));
+})
+
 function login() {
     var email, password;
     //用户保存的账号信息
-    var storedUsername = $.trim(sessionStorage.getItem("username"));
-    var storedPassword = $.trim(sessionStorage.getItem("password"));
+    var storedUsername = $.trim(localStorage.getItem("username"));
+    var storedPassword = $.trim(localStorage.getItem("password"));
     if (storedUsername != "" && storedPassword != "") {
         email = storedUsername;
         password = storedPassword;
@@ -31,8 +36,8 @@ function login() {
             if (data.code == "200") {
                 //勾选了
                 if (($("input[name='remember']")).is(":checked")) {
-                    sessionStorage.setItem("username", data.data.email);
-                    sessionStorage.setItem("password", data.data.password);
+                    localStorage.setItem("username", data.data.email);
+                    localStorage.setItem("password", data.data.password);
                 }
                 window.location.href = "/web/home";
             } else {
