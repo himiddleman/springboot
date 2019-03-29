@@ -4,8 +4,12 @@ server:
 #  context-path: /allinpay
 
 spring:
-  #设置页面页面静态资源位置
+  #设置视图的前后缀格式
   mvc:
+    view:
+      prefix: /static/html/
+      suffix: .html
+    #设置静态资源位置
     static-path-pattern: /static/**
   #使用redis
   redis:
