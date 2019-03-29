@@ -4,6 +4,9 @@ server:
 #  context-path: /allinpay
 
 spring:
+  http:
+    multipart:
+      max-request-size: 40Mb
   #设置视图的前后缀格式
   mvc:
     view:
@@ -73,3 +76,5 @@ logging:
   level:
     #控制单个包下日志输出级别
     org.thymeleaf: info
+
+#文件上传设置大小

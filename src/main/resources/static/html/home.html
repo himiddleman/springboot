@@ -5,6 +5,22 @@
     <title>首页</title>
 </head>
 <body>
-恭喜你，登录成功！
+<form id="uploadForm" method="post" enctype="multipart/form-data">
+    <div style="margin-left: 300px;">
+        <span><input style="width: 400px;height: 30px;" type="text" name="aaa"/></span>
+        <span><input style="height: 30px;" type="file" name="upload"
+                     accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                     multiple="multiple"/></span>
+    </div>
+</form>
+<br/>
+<div>
+    <button style="height: 30px;margin-left: 560px" onclick="multiUpload()">文件上传</button>
+    <button style="height: 30px;" onclick="syncData()">数据同步</button>
+</div>
 </body>
+<script type="text/javascript" src="/static/js/upload/upload.js"></script>
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/plugins/layer/layer.js"></script>
 </html>
