@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.allinpay.repository.mapper.AllinOrderMapper">
+    <resultMap id="BaseResultMap" type="com.allinpay.repository.domain.AllinOrder">
+        <id column="ORDER_NO" property="orderNo" jdbcType="VARCHAR"/>
+        <result column="CREATE_TIME" property="createTime" jdbcType="DATE"/>
+        <result column="PRO_DESC" property="proDesc" jdbcType="VARCHAR"/>
+        <result column="PRICE" property="price" jdbcType="DECIMAL"/>
+        <result column="COUNT" property="count" jdbcType="NUMERIC"/>
+        <result column="BUYER" property="buyer" jdbcType="VARCHAR"/>
+        <result column="AMOUNT" property="amount" jdbcType="DECIMAL"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ORDER_NO,CREATE_TIME,PRO_DESC,PRICE,COUNT,BUYER,AMOUNT
+  </sql>
+
+    <insert id="insert" parameterType="com.allinpay.repository.domain.AllinOrder">
+        INSERT INTO allinpay_order (ORDER_NO,CREATE_TIME,PRO_DESC,PRICE,COUNT,BUYER,AMOUNT)
+        VALUES (#{allinOrder.orderNo},#{allinOrder.createTime},#{allinOrder.proDesc},#{allinOrder.price},#{allinOrder.count},#{allinOrder.buyer},#{allinOrder.amount})
+    </insert>
+
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO allinpay_order (ORDER_NO,CREATE_TIME,PRO_DESC,PRICE,COUNT,BUYER,AMOUNT)
+        VALUES
+        <foreach collection="list" item="order" separator=",">
+            (#{order.orderNo},
+            #{order.createTime},
+            #{order.proDesc},
+            #{order.price},
+            #{order.count},
+            #{order.buyer},
+            #{order.amount})
+        </foreach>
+    </insert>
+</mapper>

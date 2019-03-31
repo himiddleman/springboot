@@ -7,7 +7,7 @@ function multiUpload() {
         alert("请选择文件！");
         return;
     }
-    if (fileArray.length > 200) {
+    if (fileArray.length > 256) {
         alert("文件数量超过200个！");
         return;
     }

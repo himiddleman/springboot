@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * 订单增量数据采集
@@ -24,8 +25,8 @@ public class FileController {
     @PostMapping("/collect")
     public ResponseData collectData(HttpServletRequest request) {
         log.info("上传文件个数：{}", 1);
-        fileService.doCollect(request);
-        return null;
+        Map<String, String> resultMap = fileService.doCollect(request);
+        return new ResponseData().success(resultMap);
     }
 
     @RequestMapping("/sync")
