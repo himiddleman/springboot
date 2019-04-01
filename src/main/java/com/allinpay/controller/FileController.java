@@ -24,7 +24,6 @@ public class FileController {
 
     @PostMapping("/collect")
     public ResponseData collectData(HttpServletRequest request) {
-        log.info("上传文件个数：{}", 1);
         Map<String, String> resultMap = fileService.doCollect(request);
         return new ResponseData().success(resultMap);
     }

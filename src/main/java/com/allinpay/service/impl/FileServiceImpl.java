@@ -28,8 +28,6 @@ import java.util.Map;
 @Service
 @Slf4j
 public class FileServiceImpl implements IFileService {
-    //    @Autowired
-//    private AllinOrderMapper allinOrderMapper;
     @Autowired
     private SqlSessionFactory sqlSessionFactory;
 
@@ -116,10 +114,7 @@ public class FileServiceImpl implements IFileService {
                 resultList.add(allinOrder);
             }
             //往数据库批量新增数据
-            batchInsert(resultList);
-//            for (int i = 0; i < resultList.size(); i++) {
-//                allinOrderMapper.insert(resultList.get(i));
-//            }
+            batchInsert(resultList, resultMap, file);
             resultMap.put(file.getOriginalFilename(), "文件处理成功,文件订单个数：" + resultList.size());
         } catch (Exception e) {
             log.error("文件处理异常", e);
@@ -128,26 +123,29 @@ public class FileServiceImpl implements IFileService {
 
 
     //使用批量的方式进行插入数据 40w条 5min
-    public void batchInsert(List<AllinOrder> list) {
-        SqlSession session = sqlSessionFactory.openSession(ExecutorType.BATCH);
+    public void batchInsert(List<AllinOrder> list, Map<String, String> resultMap, MultipartFile file) {
+        SqlSession session = sqlSessionFactory.openSession(ExecutorType.BATCH, false);
         int batchCount = 1000;// 每批commit的个数
         int batchLastIndex = batchCount;// 每批最后一个的下标
-        //list 7200
         try {
             for (int index = 0; index < list.size(); ) {
                 if (batchLastIndex >= list.size()) {
                     batchLastIndex = list.size();
                     session.insert("com.allinpay.repository.mapper.AllinOrderMapper.insertBatch", list.subList(index, batchLastIndex));
-                    session.commit();
+//                    session.commit();
                     break;// 数据插入完毕，退出循环
                 } else {
                     session.insert("com.allinpay.repository.mapper.AllinOrderMapper.insertBatch", list.subList(index, batchLastIndex));
-                    session.commit();
+//                    session.commit();
                     index = batchLastIndex;// 设置下一批下标
                     batchLastIndex = index + batchCount;
                 }
             }
             session.commit();
+        } catch (Exception e) {
+            log.error("文件处理失败", e);
+            session.rollback();
+            resultMap.put(file.getOriginalFilename(), "文件批量插入数据库失败");
         } finally {
             session.close();
         }
