@@ -7,7 +7,7 @@ spring:
   http:
     multipart:
       max-request-size: 40Mb
-      max-file-size: 4Mb
+      max-file-size: 6Mb
   #设置视图的前后缀格式
   mvc:
     view:
@@ -78,4 +78,3 @@ logging:
     #控制单个包下日志输出级别
     org.thymeleaf: info
 
-#文件上传设置大小

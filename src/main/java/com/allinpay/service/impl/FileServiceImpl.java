@@ -3,6 +3,7 @@ package com.allinpay.service.impl;
 import com.allinpay.repository.domain.AllinOrder;
 import com.allinpay.service.IFileService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,13 +11,14 @@ import org.apache.poi.ss.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.InputStream;
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,16 +58,20 @@ public class FileServiceImpl implements IFileService {
 
     /**
      * 文件操作
-     *
+     * 40w条 5min
+     * 支持单个文件行数3w, 超过可能会有堆内存溢出问题
+     * 2010版本 xls,xlsx测试成功
+     * 2003版最大行数是65536行，最大列数是256列，2007版及以后的版本最大行数是1048576行，最大列数是16384列
      * @param file
      * @param resultMap
      */
     private void dealFile(MultipartFile file, Map<String, String> resultMap) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             InputStream inputStream = file.getInputStream();
             Workbook workbook = WorkbookFactory.create(inputStream);
-            //校验成功的数据，存入数据库
-            List<AllinOrder> resultList = new ArrayList<>();
+            //校验成功的数据，存入数据库 增量数据更新200单左右
+            List<AllinOrder> resultList = new ArrayList<>(200);
             //对列名校验
             Sheet headSheet = workbook.getSheetAt(0);
             Row headRow = headSheet.getRow(0);
@@ -77,6 +83,7 @@ public class FileServiceImpl implements IFileService {
                 return;
             }
             //对内容校验
+            AllinOrder allinOrder;
             for (int i = 1; i < headSheet.getPhysicalNumberOfRows(); i++) {
                 Row contentRow = headSheet.getRow(i);
                 Cell orderCell = contentRow.getCell(0);
@@ -95,17 +102,17 @@ public class FileServiceImpl implements IFileService {
                 countCell.setCellType(Cell.CELL_TYPE_STRING);
                 buyerCell.setCellType(Cell.CELL_TYPE_STRING);
                 amountCell.setCellType(Cell.CELL_TYPE_STRING);
-                if (StringUtils.isEmpty(orderCell.getStringCellValue()) ||
-                        StringUtils.isEmpty(timeCell.getDateCellValue()) ||
-                        StringUtils.isEmpty(amountCell.getStringCellValue())) {
+                if (StringUtils.isBlank(orderCell.getStringCellValue()) ||
+                        StringUtils.isBlank(timeCell.getStringCellValue()) ||
+                        StringUtils.isBlank(amountCell.getStringCellValue())) {
                     log.error("订单记录信息不全！请检查第" + i + "行数据");
                     resultMap.put(file.getOriginalFilename(), "订单记录信息不全！请检查第" + i + "行数据");
                     return;
                 }
                 //将信息存入list集合
-                AllinOrder allinOrder = new AllinOrder();
+                allinOrder = new AllinOrder();
                 allinOrder.setOrderNo(orderCell.getStringCellValue());
-                allinOrder.setCreateTime(timeCell.getDateCellValue());
+                allinOrder.setCreateTime(dateFormat.parse(timeCell.getStringCellValue()));
                 allinOrder.setProDesc(productCell.getStringCellValue());
                 allinOrder.setPrice(new BigDecimal(priceCell.getStringCellValue()));
                 allinOrder.setCount(Integer.valueOf(countCell.getStringCellValue()));
@@ -118,6 +125,7 @@ public class FileServiceImpl implements IFileService {
             resultMap.put(file.getOriginalFilename(), "文件处理成功,文件订单个数：" + resultList.size());
         } catch (Exception e) {
             log.error("文件处理异常", e);
+            resultMap.put(file.getOriginalFilename(), "文件处理失败，请检查数据格式");
         }
     }
 

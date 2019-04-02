@@ -63,7 +63,8 @@
         <logger name="org.mybatis" level="ERROR"></logger>
         <logger name="springfox.documentation" level="ERROR"></logger>
 
-        <root level="DEBUG">
+        <!-- 可设置spring, mybatis等框架的日志输出级别-->
+        <root level="INFO">
             <appender-ref ref="Console"/>
             <appender-ref ref="RollingFileInfo"/>
             <appender-ref ref="RollingFileWarn"/>
