@@ -1,4 +1,4 @@
-package com.allinpay.core.util;
+package com.allinpay.core.util.syb;
 
 import com.alibaba.fastjson.JSON;
 import com.allinpay.repository.domain.Admin;
