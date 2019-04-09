@@ -1,4 +1,4 @@
-package com.allinpay.controller;
+package com.allinpay.controller.ali;
 
 import com.allinpay.core.common.ResponseData;
 import com.allinpay.core.constant.CommonConstant;

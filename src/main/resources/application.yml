@@ -33,6 +33,11 @@ spring:
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
+    #oracle config
+    #    url: jdbc:
+    #    username: c##datamanager
+    #    password: datamanager123
+    #    driverClassName: oracle.jdbc.OracleDriver
     #连接池的配置信息
     initialSize: 5
     minIdle: 5
@@ -46,8 +51,9 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxPoolPreparedStatementPerConnectionSize: 20
-    #配置该过滤器StatFilter druid后台才能看到SQL监控记录
-    filters: stat,wall,slf4j,config
+    multiStatementAllow: true
+    #配置该过滤器StatFilter druid后台才能看到SQL监控记录,为支持oracle批量出入，暂时去除wall过滤器
+    filters: stat,slf4j,config
     #connectionProperties: config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL4bOnHeX9yIZv0t3i+WPsMszD01jpEEsHbdLY2Sy9akFSe0ShkLwelz/s/EP2mVpLe3V3stSG0/lecXDRA1RGUCAwEAAQ==
 
 #mybatis配置

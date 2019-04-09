@@ -1,4 +1,4 @@
-package com.allinpay.controller;
+package com.allinpay.controller.ali;
 
 import com.allinpay.core.util.WebServiceUtil;
 import com.sun.jersey.core.util.MultivaluedMapImpl;

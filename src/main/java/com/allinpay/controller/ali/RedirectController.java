@@ -1,4 +1,4 @@
-package com.allinpay.controller;
+package com.allinpay.controller.ali;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
