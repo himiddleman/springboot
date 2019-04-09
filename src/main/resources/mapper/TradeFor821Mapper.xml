@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.allinpay.repository.mapper.TradeFor821Mapper">
+    <resultMap id="BaseResultMap" type="com.allinpay.repository.domain.TradeFor821">
+        <id column="ORDER_NO" property="orderNo" jdbcType="VARCHAR"/>
+        <result column="MCHT_ID" property="merchantId" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectList" resultMap="BaseResultMap">
+      select ORDER_NO,MCHT_ID from t_trade_list_821 where MCHT_ID=#{merchantId}
+    </select>
+    <insert id="insertBatch" parameterType="java.util.List" useGeneratedKeys="false">
+        INSERT ALL
+        <foreach collection="list" item="trade">
+            INTO TEMP_T_TRADE_LIST_821 (
+            SUB_COMPANY_CODE,
+            ACQUIRER_CODE,
+            CODE32,
+            SEND_ORG_CODE,
+            MCHT_ID,
+            MCHT_NAME,
+            BUSINESSNAME,
+            MCC18,
+            MCC42,
+            MCC,
+            TRADE_TIME,
+            SETT_DATE,
+            TRADE_CLASS,
+            TRADE_TYPE,
+            TRADE_STATUS,
+            SETT_STATUS,
+            AMOUNT,
+            CARD_NO,
+            CARD_TYPE,
+            ISSUING_CODE,
+            ISSUING_BANK,
+            BRANCH_ID,
+            BRANCH_NAME,
+            TERM_ID,
+            FEE,
+            PRODUCT_FEE,
+            SETT_AMT,
+            GROUP_CODE,
+            INNER_FOREIN_FLAG,
+            SPECIAL_FEE_TYPE,
+            SPECIAL_FEE_LEVEL,
+            TOUCH_MODEL,
+            TRACK_CODE,
+            YIELD,
+            SERVICE_FEE,
+            TRADE_CHANNEL,
+            REFER_NO,
+            KEYWORD1,
+            KEYWORD2,
+            KEYWORD3,
+            KEYWORD4,
+            KEYWORD5
+            )
+            VALUES
+
+            (#{trade.subCompanyCode, jdbcType=VARCHAR},
+            #{trade.acquirerCode, jdbcType=VARCHAR},
+            #{trade.code32, jdbcType=VARCHAR},
+            #{trade.sendOrgCode, jdbcType=VARCHAR},
+            #{trade.mchtId, jdbcType=VARCHAR},
+            #{trade.mchtName, jdbcType=VARCHAR},
+            #{trade.businessName, jdbcType=VARCHAR},
+            #{trade.mcc18, jdbcType=VARCHAR},
+            #{trade.mcc42, jdbcType=VARCHAR},
+            #{trade.mcc, jdbcType=VARCHAR},
+            #{trade.tradeTime, jdbcType=VARCHAR},
+            #{trade.settDate, jdbcType=VARCHAR},
+            #{trade.tradeClass, jdbcType=VARCHAR},
+            #{trade.tradeType, jdbcType=VARCHAR},
+            #{trade.tradeStatus, jdbcType=VARCHAR},
+            #{trade.settStatus, jdbcType=VARCHAR},
+            #{trade.amount, jdbcType=VARCHAR},
+            #{trade.cardNo, jdbcType=VARCHAR},
+            #{trade.cardType, jdbcType=VARCHAR},
+            #{trade.issuingCode, jdbcType=VARCHAR},
+            #{trade.issuingBank, jdbcType=VARCHAR},
+            #{trade.branchId, jdbcType=VARCHAR},
+            #{trade.branchName, jdbcType=VARCHAR},
+            #{trade.termId, jdbcType=VARCHAR},
+            #{trade.fee, jdbcType=VARCHAR},
+            #{trade.productFee, jdbcType=VARCHAR},
+            #{trade.settAmt, jdbcType=VARCHAR},
+            #{trade.groupCode, jdbcType=VARCHAR},
+            #{trade.innerForeinFlag, jdbcType=VARCHAR},
+            #{trade.specialFeeType, jdbcType=VARCHAR},
+            #{trade.specialFeeLevel, jdbcType=VARCHAR},
+            #{trade.touchModel, jdbcType=VARCHAR},
+            #{trade.trackCode, jdbcType=VARCHAR},
+            #{trade.yield, jdbcType=VARCHAR},
+            #{trade.serviceFee, jdbcType=VARCHAR},
+            #{trade.tradeChannel, jdbcType=VARCHAR},
+            #{trade.referNo, jdbcType=VARCHAR},
+            #{trade.keyWord1, jdbcType=VARCHAR},
+            #{trade.keyWord2, jdbcType=VARCHAR},
+            #{trade.keyWord3, jdbcType=VARCHAR},
+            #{trade.keyWord4, jdbcType=VARCHAR},
+            #{trade.keyWord5, jdbcType=VARCHAR})
+        </foreach>
+        SELECT 1 FROM DUAL
+    </insert>
+</mapper>
