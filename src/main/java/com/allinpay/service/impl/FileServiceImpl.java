@@ -2,6 +2,9 @@ package com.allinpay.service.impl;
 
 import com.allinpay.repository.domain.AllinOrder;
 import com.allinpay.service.IFileService;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.ExecutorType;
@@ -15,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.text.DateFormat;
@@ -53,7 +57,33 @@ public class FileServiceImpl implements IFileService {
         }
         long end = System.currentTimeMillis();
         log.info("处理上传文件总耗时：{} min", (end - start) * 1.0 / 60000);
+        //将文件操作结果写入excel中
+        resultMap.put("filepath", "F:/a.xls");
+        dealOperateResult(resultMap);
         return resultMap;
+    }
+
+    /**
+     * @param resultMap
+     */
+    private void dealOperateResult(Map<String, String> resultMap) {
+        try {
+            WritableWorkbook workbook = jxl.Workbook.createWorkbook(new File(resultMap.get("filepath")));
+            resultMap.remove("filepath");
+            WritableSheet sheet = workbook.createSheet("sheet1", 0);
+            sheet.addCell(new Label(0, 0, "订单号"));
+            sheet.addCell(new Label(1, 0, "结果"));
+            int i = 1;
+            for (Map.Entry<String, String> entry : resultMap.entrySet()) {
+                sheet.addCell(new Label(0, i, entry.getKey()));
+                sheet.addCell(new Label(1, i, entry.getValue()));
+                i++;
+            }
+            workbook.write();
+            workbook.close();
+        } catch (Exception e) {
+            log.error("文件上传结果写入excel失败！", e);
+        }
     }
 
     /**
@@ -102,6 +132,7 @@ public class FileServiceImpl implements IFileService {
                 countCell.setCellType(Cell.CELL_TYPE_STRING);
                 buyerCell.setCellType(Cell.CELL_TYPE_STRING);
                 amountCell.setCellType(Cell.CELL_TYPE_STRING);
+                //日期格式做特殊处理
                 if (StringUtils.isBlank(orderCell.getStringCellValue()) ||
                         StringUtils.isBlank(timeCell.getStringCellValue()) ||
                         StringUtils.isBlank(amountCell.getStringCellValue())) {
