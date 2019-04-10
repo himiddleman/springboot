@@ -133,8 +133,9 @@ public class FileServiceImpl implements IFileService {
                 buyerCell.setCellType(Cell.CELL_TYPE_STRING);
                 amountCell.setCellType(Cell.CELL_TYPE_STRING);
                 //日期格式做特殊处理
+                String timeStr = dateFormat.format(timeCell.getDateCellValue());
                 if (StringUtils.isBlank(orderCell.getStringCellValue()) ||
-                        StringUtils.isBlank(timeCell.getStringCellValue()) ||
+                        StringUtils.isBlank(timeStr) ||
                         StringUtils.isBlank(amountCell.getStringCellValue())) {
                     log.error("订单记录信息不全！请检查第" + i + "行数据");
                     resultMap.put(file.getOriginalFilename(), "订单记录信息不全！请检查第" + i + "行数据");
@@ -143,7 +144,7 @@ public class FileServiceImpl implements IFileService {
                 //将信息存入list集合
                 allinOrder = new AllinOrder();
                 allinOrder.setOrderNo(orderCell.getStringCellValue());
-                allinOrder.setCreateTime(dateFormat.parse(timeCell.getStringCellValue()));
+                allinOrder.setCreateTime(dateFormat.parse(timeStr));
                 allinOrder.setProDesc(productCell.getStringCellValue());
                 allinOrder.setPrice(new BigDecimal(priceCell.getStringCellValue()));
                 allinOrder.setCount(Integer.valueOf(countCell.getStringCellValue()));
