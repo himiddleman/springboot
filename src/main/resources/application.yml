@@ -34,7 +34,7 @@ spring:
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
     #oracle config
-    #    url: jdbc:
+    #    url: jdbc:oracle:thin:@10.48.1.238:1521:orcl
     #    username: c##datamanager
     #    password: datamanager123
     #    driverClassName: oracle.jdbc.OracleDriver
