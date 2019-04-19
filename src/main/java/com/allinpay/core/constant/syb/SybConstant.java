@@ -20,4 +20,32 @@ public class SybConstant {
     public static final String SYB_APPKEY = "a0ea3fa20dbd7bb4d5abf1d59d63bae8";
     public static final String SYB_APIURL = "https://vsp.allinpay.com/apiweb/unitorder";//生产环境
 
+    /**
+     * 当面付订单支付
+     */
+    public static final String CUSPAY_CUSID = "55133106513C1MJ";
+    public static final String CUSPAY_APPID = "00143572";
+    public static final String CUSPAY_APPKEY = "allinpay888";
+    public static final String CUSPAY_URL = "https://syb.allinpay.com/sappweb/usertrans/cuspay";
+
+    /**
+     * 付款
+     */
+    public static final String PAY_CUSID = "990581007426001";
+    public static final String PAY_APPID = "00000051";
+    public static final String PAY_APPKEY = "allinpay888";
+    public static final String PAY_URL = "https://vsp.allinpay.com/apiweb/payment/singlepay";
+
+    /**
+     * 银行账户验证
+     */
+    public static final String BANK_CUSID = "990440153996000";
+    public static final String BANK_APPID = "00000000";
+    public static final String BANK_APPKEY = "43df939f1e7f5c6909b3f4b63f893994";
+    public static final String BANK_URL = "https://vsp.allinpay.com/apiweb/verify/";
+
+    /**
+     * H5
+     */
+    public static final String H5_URL = "https://syb.allinpay.com/apiweb/h5unionpay/";
 }

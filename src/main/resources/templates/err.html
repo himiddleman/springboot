@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>错误页面</title>
+</head>
+<body>
+<input type="hidden" th:value="${msg}" value="哈哈" id="msg"/>
+系统故障，请联系管理员
+</body>
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        alert($("#msg").val());
+    })
+</script>
+</html>

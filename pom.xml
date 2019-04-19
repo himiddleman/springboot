@@ -108,10 +108,10 @@
         </dependency>
 
         <!-- 页面整合-->
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
         <!--读取excel文件 -->
         <dependency>
             <groupId>org.apache.poi</groupId>

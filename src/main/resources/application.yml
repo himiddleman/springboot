@@ -8,13 +8,21 @@ spring:
     multipart:
       max-request-size: 40Mb
       max-file-size: 6Mb
-  #设置视图的前后缀格式
-  mvc:
-    view:
-      prefix: /static/html/
-      suffix: .html
-    #设置静态资源位置
-    static-path-pattern: /static/**
+  #设置视图的前后缀格式，不使用模板引擎方式
+  #  mvc:
+  #    view:
+  #      prefix: /static/html/
+  #      suffix: .html
+  #    #设置静态资源位置
+  #    static-path-pattern: /static/**
+  thymeleaf:
+    #prefix: /static/html/
+    #    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    #开发模式关闭缓存，看到实时页面
+    cache: false
   #使用redis
   redis:
     database: 0
