@@ -25,7 +25,7 @@ public class SybH5PayController {
         params.put("cusid", SybConstant.CUSID);
         params.put("version", "12");
         params.put("trxamt", "1");
-        params.put("reqsn", "shlh110220");
+        params.put("reqsn", "shlh110222");
         params.put("charset", "utf-8");
         params.put("returl", "www.baidu.com");
         params.put("notify_url", "www.baidu.com");
@@ -68,7 +68,7 @@ public class SybH5PayController {
         params.put("cusid", SybConstant.CUSID);
         params.put("version", "12");
         params.put("reqsn", System.currentTimeMillis() + "");
-        params.put("oldreqsn", "shlh110220");
+        params.put("oldreqsn", "shlh110221");
         params.put("trxamt", "1");
         params.put("randomstr", System.currentTimeMillis() + "");
         params.put("sign", MD5Util.sign(params, SybConstant.APPKEY));
