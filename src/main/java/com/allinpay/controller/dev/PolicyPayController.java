@@ -1,7 +1,9 @@
 package com.allinpay.controller.dev;
 
+import com.allinpay.core.common.ResponseData;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 用于保单支付的controller
@@ -21,8 +23,10 @@ public class PolicyPayController {
     }
 
     @RequestMapping("pay")
-    public String pay() {
-        return null;
+    @ResponseBody
+    public ResponseData pay() {
+        String param = "?appid=00000003&body=谭光&charset=utf-8&cusid=990440148166000&key=a0ea3fa20dbd7bb4d5abf1d59d63bae8&notify_url=www.baidu.com&randomstr=1556029318959&reqsn=shlh110222&returl=www.baidu.com&trxamt=1&version=12&sign=CD4312D1829019EC41B59A0A354272C6";
+        return new ResponseData().success(param);
     }
 
     @RequestMapping("import")
