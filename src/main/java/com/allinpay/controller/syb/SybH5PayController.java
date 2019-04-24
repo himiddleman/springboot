@@ -16,7 +16,8 @@ import java.util.TreeMap;
 @Controller
 public class SybH5PayController {
     @RequestMapping("/pay")
-    public void getQRCode(HttpServletResponse response) throws Exception {
+    public void getQRCode(String param, String merchantId, HttpServletResponse response) throws Exception {
+        System.out.println(merchantId + ":" + param);
         HttpConnectionUtil connection = new HttpConnectionUtil(SybConstant.H5_URL + "unionorder");
         connection.init();
         TreeMap<String, String> params = new TreeMap<>();
@@ -25,11 +26,13 @@ public class SybH5PayController {
         params.put("cusid", SybConstant.CUSID);
         params.put("version", "12");
         params.put("trxamt", "1");
-        params.put("reqsn", "shlh110222");
+        params.put("reqsn", "shlh110224");
         params.put("charset", "utf-8");
         params.put("returl", "www.baidu.com");
         params.put("notify_url", "www.baidu.com");
         params.put("body", "谭光");
+        //上限：150个字符
+        params.put("remark", param);
         params.put("randomstr", System.currentTimeMillis() + "");
         params.put("sign", MD5Util.sign(params, SybConstant.APPKEY));
         byte[] bytes = connection.postParams(params, true);
@@ -48,7 +51,7 @@ public class SybH5PayController {
         //通联分配的二维码编码
         params.put("cusid", SybConstant.CUSID);
         params.put("version", "12");
-        params.put("reqsn", "shlh110220");
+        params.put("reqsn", "shlh110222");
         params.put("randomstr", System.currentTimeMillis() + "");
         params.put("sign", MD5Util.sign(params, SybConstant.APPKEY));
         byte[] bytes = connection.postParams(params, true);
@@ -68,7 +71,7 @@ public class SybH5PayController {
         params.put("cusid", SybConstant.CUSID);
         params.put("version", "12");
         params.put("reqsn", System.currentTimeMillis() + "");
-        params.put("oldreqsn", "shlh110221");
+        params.put("oldreqsn", "shlh110223");
         params.put("trxamt", "1");
         params.put("randomstr", System.currentTimeMillis() + "");
         params.put("sign", MD5Util.sign(params, SybConstant.APPKEY));

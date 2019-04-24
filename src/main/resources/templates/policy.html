@@ -1,31 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>错误页面</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>保险订单支付</title>
+    <!--使用SUI框架必须引用的资源，推荐直接引用远程资源而非下载到本地 -->
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.css"/>
 </head>
+
 <body>
-请输入保险订单信息
-<button onclick="pay()">立即支付</button>
+<!--存储保险商户号-->
+<input type="hidden" th:value="${merchantId}" id="merchantId"/>
+<div class="page-group">
+    <div id="page-layout" class="page">
+        <header class="bar bar-nav">
+            <h3 class="title">保单支付</h3>
+        </header>
+        <div class="content-padded">
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-calendar"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">地区：</div>
+                                <div class="item-input">
+                                    <input type="text" id="city-picker" value="浙江 杭州 上城区" onchange="selectArea()"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">学校：</div>
+                                <div class="item-input">
+                                    <select id="childSchool" onchange="selectSchool()">
+                                        <option>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-email"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">班级：</div>
+                                <div class="item-input">
+                                    <select id="childClass">
+                                        <option>请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-password"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">投保人姓名：</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="" id="policyName"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">身份证号：</div>
+                                <div class="item-input">
+                                    <input type="text" value="" id="idCard"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">家长姓名：</div>
+                                <div class="item-input">
+                                    <input type="text" value="" id="parentName"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">家长电话：</div>
+                                <div class="item-input">
+                                    <input type="text" value="" id="parentPhone"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-block">
+                <div class="row">
+                    <!--<div class="col-25"><a href="#" class="button button-big button-fill button-danger">取消</a></div>-->
+                    <center>
+                        <div onclick="pay()" class="col-25"><a href="#"
+                                                               class="button button-big button-fill button-success">支付</a>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
-<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+<!--如果你用到了拓展包中的组件，还需要引用下面两个-->
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.js' charset='utf-8'></script>
+<script type="text/javascript" src="//g.alicdn.com/msui/sm/0.6.2/js/sm-city-picker.min.js" charset="utf-8"></script>
 <script type="text/javascript">
+    $(function () {
+        $("#city-picker").cityPicker({
+            toolbarTemplate: '<header class="bar bar-nav">\
+            <button class="button button-link pull-right close-picker">确定</button>\
+            <h1 class="title">选择所在区域</h1>\
+            </header>'
+        });
+        $.init();
+    })
+
+    //选择区域,当选定区域时查询出所有的学校名称
+    function selectArea() {
+        $("#childSchool").html("");
+        $("#childClass").html("");
+        var address = $.trim($("#city-picker").val());
+        if ("北京 东城区" == address) {
+            var addOptions = "<option>江南实验中学1号</option><option>江南实验中学2号</option><option>江南实验中学3号</option>";
+            $("#childSchool").html(addOptions);
+        }
+        if ("北京 西城区" == address) {
+            var addOptions = "<option>江南实验中学4号</option><option>江南实验中学5号</option><option>江南实验中学6号</option>";
+            $("#childClass").html(addOptions);
+        }
+    }
+
+    //选择学校，当选定学校时查询出所有的班级信息
+    function selectSchool() {
+        var address = $.trim($("#city-picker").val());
+
+
+    }
+
+    //发起支付
     function pay() {
+        //需要往后台传递的参数
+        var param;
+        var address = $.trim($("#city-picker").val());
+        var childSchool = $.trim($("#childSchool").val());
+        var childClass = $.trim($("#childClass").val());
+        var policyName = $.trim($("#policyName").val());
+        var idCard = $.trim($("#idCard").val());
+        var parentName = $.trim($("#parentName").val());
+        var parentPhone = $.trim($("#parentPhone").val());
+        param = address + "#" + childSchool + "#" + childClass + "#" + policyName + "#" +
+            idCard + "#" + parentName + "#" + parentPhone;
+        alert(param);
         $.ajax({
             url: '/h5/policy/pay',
             type: 'get',
-            data: '',
+            data: {
+                remark: param,
+                merchantId: $.trim($("#merchantId").val())
+            },
             dataType: 'json',
             success: function (data) {
-                alert("成功了");
-                var param = data.data;
-                window.location = "https://syb.allinpay.com/apiweb/h5unionpay/unionorder" + param;
+                alert(data.data);
+                var ret = data.data;
+                window.location = "https://syb.allinpay.com/apiweb/h5unionpay/unionorder" + ret;
             },
             error: function (data) {
                 alert("出错了");
             }
         })
     }
-
 </script>
 </html>
