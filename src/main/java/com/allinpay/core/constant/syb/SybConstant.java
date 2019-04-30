@@ -48,4 +48,20 @@ public class SybConstant {
      * H5
      */
     public static final String H5_URL = "https://syb.allinpay.com/apiweb/h5unionpay/";
+
+    /**
+     * 快捷支付
+     */
+    public static final String QUICKPAY_URL = "http://test.allinpaygd.com/apiweb/qpay";//测试外网
+    public static final String QUICKPAY_CUSID = "990581053996001";
+    public static final String QUICKPAY_APPID = "00000156";
+    public static final String QUICKPAY_APPKEY = "43df939f1e7f5c6909b3f4b63f893994";
+
+    /**
+     * 预支付
+     */
+    public static final String PREPAY_URL = "https://vsp.allinpay.com/apiweb/prescanpay";
+    public static final String PREPAY_CUSID = "990440148166000";
+    public static final String PREPAY_APPID = "00000003";
+    public static final String PREPAY_APPKEY = "a0ea3fa20dbd7bb4d5abf1d59d63bae8";
 }

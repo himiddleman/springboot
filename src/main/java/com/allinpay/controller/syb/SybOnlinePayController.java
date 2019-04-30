@@ -3,14 +3,14 @@ package com.allinpay.controller.syb;
 import com.allinpay.core.constant.syb.SybConstant;
 import com.allinpay.core.util.syb.HttpConnectionUtil;
 import com.allinpay.core.util.syb.MD5Util;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 import java.util.TreeMap;
 
 @RequestMapping("/syb/online")
-@Controller
+@RestController
 public class SybOnlinePayController {
     @RequestMapping("/pay")
     public Map<String, String> pay() throws Exception {
@@ -21,7 +21,7 @@ public class SybOnlinePayController {
         params.put("appid", SybConstant.SYB_APPID);
         params.put("version", "11");
         params.put("trxamt", "1");
-        params.put("reqsn", "shlh110111");
+        params.put("reqsn", "shlh110330");
         params.put("paytype", "W01");
         params.put("body", "网上收银测试");
         params.put("randomstr", System.currentTimeMillis() + "");
