@@ -157,6 +157,23 @@
             <artifactId>javacsv</artifactId>
             <version>2.0</version>
         </dependency>
+
+        <!--云商通相关jar包 -->
+        <dependency>
+            <groupId>com.allinpay</groupId>
+            <artifactId>yunst-sdk</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.46</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
     </dependencies>
 
     <build>
