@@ -19,10 +19,10 @@ public class QueryInExpDetailTest {
         final YunRequest request = new YunRequest("OrderService", "queryInExpDetail");
 
         try {
-            request.put("bizUserId", "TESTBSUSER20180703144959871ffb");
+            request.put("bizUserId", "tg0505");
             request.put("accountSetNo", "200001");
-            request.put("DateStart", "2018-07-01");
-            request.put("DateEnd", "2018-07-05");
+            request.put("DateStart", "2019-05-09");
+            request.put("DateEnd", "2019-05-10");
             request.put("startPosition", 1L);
             request.put("queryNum", 10L);
 

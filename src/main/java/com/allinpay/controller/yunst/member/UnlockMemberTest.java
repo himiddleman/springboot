@@ -19,7 +19,7 @@ public class UnlockMemberTest {
         final YunRequest request = new YunRequest("MemberService", "unlockMember");
 
         try {
-            request.put("bizUserId", "zzh001");
+            request.put("bizUserId", "tg007");
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

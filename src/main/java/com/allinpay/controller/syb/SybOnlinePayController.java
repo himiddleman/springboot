@@ -41,9 +41,11 @@ public class SybOnlinePayController {
         params.put("appid", SybConstant.SYB_APPID);
         params.put("version", "11");
         params.put("trxamt", "1");
-        params.put("reqsn", "shlh110112");
-        params.put("authcode", "");
+        params.put("reqsn", "HU20190509105122170219");
+        params.put("authcode", "134843346364067624");
+//        params.put("paytype", "W04");
         params.put("randomstr", System.currentTimeMillis() + "");
+        params.put("remark", "bosinyPay");
         params.put("sign", MD5Util.sign(params, SybConstant.SYB_APPKEY));
         byte[] bys = http.postParams(params, true);
         String result = new String(bys, "UTF-8");
@@ -83,9 +85,9 @@ public class SybOnlinePayController {
         params.put("appid", SybConstant.SYB_APPID);
         params.put("version", "11");
         params.put("trxamt", "1");
-        params.put("reqsn", "1234567890");
-        params.put("oldtrxid", "111994120000733052");
-        params.put("oldreqsn", "shlh110112");
+        params.put("reqsn", "12345678901");
+        params.put("oldtrxid", "111994120000763381");
+        params.put("oldreqsn", "HU20190509105122170219");
         params.put("randomstr", System.currentTimeMillis() + "");
         params.put("sign", MD5Util.sign(params, SybConstant.SYB_APPKEY));
         byte[] bys = http.postParams(params, true);
@@ -104,8 +106,8 @@ public class SybOnlinePayController {
         params.put("version", "11");
         params.put("trxamt", "1");
         params.put("reqsn", "1234567890");
-        params.put("oldreqsn", "shlh110111");
-        params.put("oldtrxid", "111994120000733014");
+        params.put("oldreqsn", "HU20190509105122170219");
+        params.put("oldtrxid", "111994120000763381");
         params.put("randomstr", System.currentTimeMillis() + "");
         params.put("sign", MD5Util.sign(params, SybConstant.SYB_APPKEY));
         byte[] bys = http.postParams(params, true);
@@ -122,8 +124,8 @@ public class SybOnlinePayController {
         params.put("cusid", SybConstant.SYB_CUSID);
         params.put("appid", SybConstant.SYB_APPID);
         params.put("version", "11");
-        params.put("reqsn", "shlh110110");
-        params.put("trxid", "111994120000733002");
+        params.put("reqsn", "HU20190509105122170219");
+//        params.put("trxid", "111994120000763301");
         params.put("randomstr", System.currentTimeMillis() + "");
         params.put("sign", MD5Util.sign(params, SybConstant.SYB_APPKEY));
         byte[] bys = http.postParams(params, true);
@@ -152,5 +154,21 @@ public class SybOnlinePayController {
         } else {
             throw new Exception(map.get("retmsg").toString());
         }
+    }
+
+    public void dealProcess() throws Exception {
+        HttpConnectionUtil http = new HttpConnectionUtil(SybConstant.SYB_APIURL + "/query");
+        http.init();
+        TreeMap<String, String> params = new TreeMap<String, String>();
+        params.put("cusid", SybConstant.SYB_CUSID);
+        params.put("appid", SybConstant.SYB_APPID);
+        params.put("version", "11");
+        params.put("reqsn", "HU20190509105122170219");
+//        params.put("trxid", "111994120000763301");
+        params.put("randomstr", System.currentTimeMillis() + "");
+        params.put("sign", MD5Util.sign(params, SybConstant.SYB_APPKEY));
+        byte[] bys = http.postParams(params, true);
+        String result = new String(bys, "UTF-8");
+        System.out.println(result);
     }
 }

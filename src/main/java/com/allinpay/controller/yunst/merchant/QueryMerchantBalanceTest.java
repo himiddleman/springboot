@@ -26,18 +26,18 @@ public class QueryMerchantBalanceTest {
         try {
 
 
-            request.put("accountSetNo", "");
+            request.put("accountSetNo", "100002");
 
 
             String res = YunClient.request(request);
-            logger.info("res: " + res);
+            System.out.println("res: " + res);
 
             JSONObject resp = JSON.parseObject(res);
-            logger.info("status=[" + resp.getString("status") + "]");
-            logger.info("signedValue=[" + resp.getString("signedValue") + "]");
-            logger.info("sign=[" + resp.getString("sign") + "]");
-            logger.info("errorCode=[" + resp.getString("errorCode") + "]");
-            logger.info("message=[" + resp.getString("message") + "]");
+            System.out.println("status=[" + resp.getString("status") + "]");
+            System.out.println("signedValue=[" + resp.getString("signedValue") + "]");
+            System.out.println("sign=[" + resp.getString("sign") + "]");
+            System.out.println("errorCode=[" + resp.getString("errorCode") + "]");
+            System.out.println("message=[" + resp.getString("message") + "]");
         } catch (final Exception e) {
             e.printStackTrace();
         }

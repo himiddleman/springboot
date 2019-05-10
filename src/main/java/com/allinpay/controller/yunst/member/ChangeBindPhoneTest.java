@@ -20,10 +20,10 @@ public class ChangeBindPhoneTest {
         final YunRequest request = new YunRequest("MemberService", "changeBindPhone");
 
         try {
-            request.put("bizUserId", "zzh001");
-            request.put("oldPhone", "18717715118");
-            request.put("newPhone", "18717715117");
-            request.put("newVerificationCode", "527436");
+            request.put("bizUserId", "tg007");
+            request.put("oldPhone", "18197704032");
+            request.put("newPhone", "15197704032");
+            request.put("newVerificationCode", "873442");
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

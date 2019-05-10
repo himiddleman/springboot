@@ -79,7 +79,7 @@ public class DepositApplyTest {
 
             //payMethod.put("BALANCE", balancePay);
 
-            request.put("bizUserId", "2018060023");
+            request.put("bizUserId", "tg0505");
             request.put("bizOrderNo", System.currentTimeMillis() + "cz");
             request.put("accountSetNo", "200001");
             request.put("amount", 1);

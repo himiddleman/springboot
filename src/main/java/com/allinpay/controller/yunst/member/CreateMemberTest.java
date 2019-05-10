@@ -12,9 +12,10 @@ public class CreateMemberTest {
     public void testMethod() {
 
         final YunRequest request = new YunRequest("MemberService", "createMember");
-        request.put("bizUserId", "zzh007");//zzh001  xiaoc    zzh007  xiaob
-        request.put("memberType", 2);
-        request.put("source", 2);
+        //userId：d6b83e94-959b-4088-8f66-3fc0a85882d4
+        request.put("bizUserId", "tg0505");//zzh001  xiaoc    zzh007  xiaob tg007
+        request.put("memberType", 3);//个人会员
+        request.put("source", 2);//pc端
 
         try {
             String res = YunClient.request(request);

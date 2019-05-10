@@ -19,9 +19,8 @@ public class QueryBankCardTest {
         final YunRequest request = new YunRequest("MemberService", "queryBankCard");
 
         try {
-            request.put("bizUserId", "zzh001");
+            request.put("bizUserId", "tg0505");
             //request.put("cardNo", YunClient.encrypt("6228480402637874906"));	// 空，查询全部绑卡
-            request.put("source", 2);
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

@@ -20,9 +20,9 @@ public class PayTest {
         final YunRequest request = new YunRequest("OrderService", "pay");
 
         try {
-            request.put("bizUserId", "2018060023");
-            request.put("bizOrderNo", "1537925920097cz");
-            request.put("tradeNo", "");
+            request.put("bizUserId", "tg0505");
+            request.put("bizOrderNo", "1557465879784cz");
+//            request.put("tradeNo", "1126719700428918784");
             request.put("verificationCode", "11111");    //测试环境 充值 实名付 验证码 11111
             request.put("consumerIp", "192.168.11.11");
 

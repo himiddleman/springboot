@@ -19,8 +19,8 @@ public class GetOrderDetailTest {
         final YunRequest request = new YunRequest("OrderService", "getOrderDetail");
 
         try {
-            request.put("bizUserId", "2018070001");
-            request.put("bizOrderNo", "1537925920097cz");
+            request.put("bizUserId", "tg0505");
+            request.put("bizOrderNo", "1557465879784cz");
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

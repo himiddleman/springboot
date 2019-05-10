@@ -30,7 +30,7 @@ public class WithdrawApplyTest {
         String ordErexpireDatetime = sdf.format(date);
 
         try {
-            request.put("bizUserId", "2018060023");
+            request.put("bizUserId", "tg0505");
             request.put("bizOrderNo", System.currentTimeMillis() + "cz1");
             request.put("accountSetNo", "200001");
             request.put("amount", 1L);
@@ -38,7 +38,7 @@ public class WithdrawApplyTest {
             request.put("validateType", 2L);
             request.put("backUrl", UrlConsts.RECIEVEPAYBACK);
             request.put("ordErexpireDatetime", ordErexpireDatetime);
-            //	request.put("bankCardNo", YunClient.encrypt("6228480402637874221"));
+            request.put("bankCardNo", YunClient.encrypt("6228480000000000000"));
             //	request.put("bankCardPro", 0L);
             request.put("withdrawType", "T0");
             request.put("industryCode", "1010");

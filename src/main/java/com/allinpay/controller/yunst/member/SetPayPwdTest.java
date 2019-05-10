@@ -22,12 +22,12 @@ public class SetPayPwdTest {
         final YunRequest request = new YunRequest("MemberPwdService", "setPayPwd");
 
         try {
-            request.put("bizUserId", "zzh001");
-            request.put("phone", "18717715118");
-            request.put("name", "朱大大");
+            request.put("bizUserId", "tg0505");
+            request.put("phone", "15197704032");
+            request.put("name", "谭光");
             request.put("identityType", 1L);
-            request.put("identityNo", YunClient.encrypt("420302199200000000"));
-            request.put("jumpUrl", UrlConsts.TESTFRONT);
+            request.put("identityNo", YunClient.encrypt("430224199301107219"));
+            request.put("jumpUrl", "http://www.baidu.com");
             request.put("backUrl", UrlConsts.TESTFRONT);
 
             String res = YunClient.encodeTwice(request);

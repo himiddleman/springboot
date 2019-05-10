@@ -99,8 +99,8 @@ public class SybQpayPayController {
         params.put("reqtime", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
         params.put("randomstr", System.currentTimeMillis() + "");
 
-        params.put("orderid", "shlh110239");
-        params.put("agreeid", "201904301514141853");
+        params.put("orderid", "shlh110220");
+        params.put("agreeid", "201902261504585431");
         params.put("amount", "1");
         params.put("currency", "CNY");
         params.put("subject", "支付1分钱");
@@ -121,10 +121,12 @@ public class SybQpayPayController {
         params.put("cusid", SybConstant.QUICKPAY_CUSID);
         params.put("version", "11");
         params.put("reqtime", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
-        params.put("randomstr", System.currentTimeMillis() + "");
+        params.put("randomstr", "1557471065");
 
-        params.put("orderid", "shlh110239");
-        params.put("agreeid", "201904301514141853");
+        params.put("orderid", "2019051031128");
+        params.put("agreeid", "201905101037265091");
+        String thpinfo = "{\"sign\":\"\",\"tphtrxcrtime\":\"\",\"tphtrxid\":0,\"trxflag\":\"trx\",\"trxsn\":\"\"}";
+        params.put("thpinfo", thpinfo);
 
         params.put("sign", MD5Util.sign(params, SybConstant.QUICKPAY_APPKEY));
         byte[] bytes = connection.postParams(params, true);
@@ -139,15 +141,29 @@ public class SybQpayPayController {
         TreeMap<String, String> params = new TreeMap<>();
         params.put("appid", SybConstant.QUICKPAY_APPID);
         params.put("cusid", SybConstant.QUICKPAY_CUSID);
-        params.put("version", "11");
-        params.put("reqtime", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
-        params.put("randomstr", System.currentTimeMillis() + "");
+//        params.put("version", "11");
+//        params.put("reqtime", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
+        params.put("randomstr", "1557467668");
 
-        params.put("orderid", "shlh110239");
-        params.put("agreeid", "201904301514141853");
+        params.put("orderid", "shlh110220");
+        params.put("agreeid", "201902261504585431");
         params.put("smscode", "111111");
+
         String thpinfo = "{\"sign\":\"\",\"tphtrxcrtime\":\"\",\"tphtrxid\":0,\"trxflag\":\"trx\",\"trxsn\":\"\"}";
         params.put("thpinfo", thpinfo);
+
+        //测试接受转义符号 直接使用fastJson
+//        Map map = new HashMap<String, Object>();
+//        Map subMap = new HashMap<String, Object>();
+//        subMap.put("sign", "");
+//        subMap.put("tphtrxid", 0);
+//        subMap.put("tphtrxcrtime", "");
+//        subMap.put("trxflag", "trx");
+//        subMap.put("trxsn", "");
+//        map.put("appid", "00000156");
+//        map.put("thpinfo", JSON.toJSONString(subMap));
+//        String ret = JSON.toJSONString(map);
+//        params.put("thpinfo", (String)JSON.parseObject(ret, Map.class).get("thpinfo"));
 
         params.put("sign", MD5Util.sign(params, SybConstant.QUICKPAY_APPKEY));
         byte[] bytes = connection.postParams(params, true);
@@ -248,8 +264,8 @@ public class SybQpayPayController {
         params.put("reqtime", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
         params.put("randomstr", System.currentTimeMillis() + "");
 
-        params.put("orderid", "shlh110239");
-        params.put("trxid", "111979470000270808");
+        params.put("orderid", "2019051031128");
+//        params.put("trxid", "111979470000270808");
 
         params.put("sign", MD5Util.sign(params, SybConstant.QUICKPAY_APPKEY));
         byte[] bytes = connection.postParams(params, true);

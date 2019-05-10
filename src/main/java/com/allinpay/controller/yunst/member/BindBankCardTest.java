@@ -19,11 +19,11 @@ public class BindBankCardTest {
         final YunRequest request = new YunRequest("MemberService", "bindBankCard");
 
         try {
-            request.put("bizUserId", "zzh001");
-            request.put("tranceNum", "D20180925107505");
-            request.put("transDate", "20180925");
-            request.put("phone", "18717715117");
-            request.put("verificationCode", "845571");
+            request.put("bizUserId", "tg0505");
+            request.put("tranceNum", "D2019051054670");
+            request.put("transDate", "20190510");
+            request.put("phone", "15197704032");
+            request.put("verificationCode", "988660");
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

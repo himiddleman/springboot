@@ -56,6 +56,10 @@ public class SybConstant {
     public static final String QUICKPAY_CUSID = "990581053996001";
     public static final String QUICKPAY_APPID = "00000156";
     public static final String QUICKPAY_APPKEY = "43df939f1e7f5c6909b3f4b63f893994";
+//    public static final String QUICKPAY_URL = "https://vsp.allinpay.com/apiweb/qpay";//生产
+//    public static final String QUICKPAY_CUSID = "55133804816M9YQ";
+//    public static final String QUICKPAY_APPID = "00167711";
+//    public static final String QUICKPAY_APPKEY = "dsafd3dxe2";
 
     /**
      * 预支付

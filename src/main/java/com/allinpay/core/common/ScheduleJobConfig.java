@@ -3,6 +3,7 @@ package com.allinpay.core.common;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,10 +13,13 @@ import org.springframework.stereotype.Component;
 @Component
 @PropertySource("classpath:resource.properties")
 public class ScheduleJobConfig implements CommandLineRunner {
-//    @Scheduled(cron = "${cron.test}")
-//    public void print() {
-//        System.out.println("我由定时任务调度打印信息~~");
-//    }
+    //模拟支付处理中状态 定时查询订单状态
+    @Scheduled(cron = "${cron.test}")
+    public void print() throws Exception {
+//        System.out.println("模拟支付处理中状态 定时查询订单状态~~");
+//        SybOnlinePayController controller = new SybOnlinePayController();
+//        controller.dealProcess();
+    }
 
     @Override
     public void run(String... strings) throws Exception {

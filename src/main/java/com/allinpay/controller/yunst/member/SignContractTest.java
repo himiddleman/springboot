@@ -20,9 +20,9 @@ public class SignContractTest {
         final YunRequest request = new YunRequest("MemberService", "signContract");
 
         try {
-            request.put("bizUserId", "2018080001");
+            request.put("bizUserId", "tg0505");
             request.put("memberType", "3");
-            request.put("jumpUrl", UrlConsts.TESTFRONT);
+            request.put("jumpUrl", "https://www.baidu.com");
             request.put("backUrl", UrlConsts.TESTFRONT);
             request.put("source", "2");
 

@@ -19,17 +19,17 @@ public class SetRealNameTest {
         final YunRequest request = new YunRequest("MemberService", "setRealName");
 
         try {
-			/*request.put("bizUserId", "2018089011");
-			request.put("isAuth", "true");
-			request.put("name", "梅西");
-			request.put("identityType", "1");
-			request.put("identityNo", YunClient.encrypt("6228480402637874221"));*/
-
-            request.put("bizUserId", "zzh001");
+            request.put("bizUserId", "tg0505");
             request.put("isAuth", "true");
-            request.put("name", "朱大大");
+            request.put("name", "谭光");
             request.put("identityType", "1");
-            request.put("identityNo", YunClient.encrypt("420302199200000000"));
+            request.put("identityNo", YunClient.encrypt("430224199301107219"));
+
+//            request.put("bizUserId", "zzh001");
+//            request.put("isAuth", "true");
+//            request.put("name", "朱大大");
+//            request.put("identityType", "1");
+//            request.put("identityNo", YunClient.encrypt("420302199200000000"));
 			
 			/*request.put("bizUserId", "2018089007");
 			request.put("isAuth", "true");

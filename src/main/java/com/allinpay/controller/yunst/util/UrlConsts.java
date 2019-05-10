@@ -33,7 +33,7 @@ public class UrlConsts {
     public static final String SETPAYPWD = "http://116.228.64.55:9092/pwd/setPayPwd.html?";
 
 
-    public static final String UPDATEPAYPWD = "http://116.228.64.55:9092/updatePayPwd.html?";
+    public static final String UPDATEPAYPWD = "http://116.228.64.55:9092/pwd/updatePayPwd.html?";
 
 
     /**
