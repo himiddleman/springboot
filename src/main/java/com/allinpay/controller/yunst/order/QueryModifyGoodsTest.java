@@ -19,11 +19,11 @@ public class QueryModifyGoodsTest {
         final YunRequest request = new YunRequest("OrderService", "queryModifyGoods");
 
         try {
-            request.put("bizUserId", "2018060016");
-            request.put("bizGoodsNo", "A0002");
-            request.put("goodsType", 1L);
-            request.put("beginDate", "2018-06-12");
-            request.put("endDate", "2028-06-12");
+            request.put("bizUserId", "tg0505");
+            request.put("bizGoodsNo", "A0006");
+            request.put("goodsType", 2L);
+//            request.put("beginDate", "2018-06-12");
+//            request.put("endDate", "2028-06-12");
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

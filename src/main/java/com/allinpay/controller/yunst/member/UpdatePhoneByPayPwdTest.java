@@ -22,6 +22,7 @@ public class UpdatePhoneByPayPwdTest {
         final YunRequest request = new YunRequest("MemberPwdService", "updatePhoneByPayPwd");
 
         try {
+            //支付密码：allinpay111
             request.put("bizUserId", "tg0505");
             request.put("oldPhone", "15197704032");
             request.put("name", "谭光");

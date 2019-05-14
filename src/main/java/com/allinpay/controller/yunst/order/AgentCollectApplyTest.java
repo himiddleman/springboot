@@ -30,12 +30,14 @@ public class AgentCollectApplyTest {
             // 支付方式
             // 实名付（单笔）
             HashMap<String, Object> realnamePay = new HashMap<>();
-            realnamePay.put("bankCardNo", YunClient.encrypt("6228480402637874215"));
+            realnamePay.put("bankCode", "vbank");
+            realnamePay.put("payerCardNo", YunClient.encrypt("6228480402637874221"));
             realnamePay.put("amount", 32L);
+            realnamePay.put("payType", 1);
 
             // 组装支付方式
             HashMap<String, Object> payMethod = new HashMap<>();
-            payMethod.put("REALNAMEPAY", realnamePay);
+            payMethod.put("GATEWAY", realnamePay);
 
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.HOUR, 15);
@@ -60,10 +62,10 @@ public class AgentCollectApplyTest {
             receiverList.add(new JSONObject(receiver3));
 
             request.put("bizOrderNo", System.currentTimeMillis() + "cz");
-            request.put("payerId", "2018060016"); // bizUserId
+            request.put("payerId", "tg0505"); // bizUserId 2018060016
             request.put("recieverList", receiverList);
-            request.put("goodsType", 1L);
-            request.put("goodsNo", "A0001");
+//            request.put("goodsType", 0L);
+//            request.put("goodsNo", "A0001");
             request.put("tradeCode", "1003");
             request.put("amount", 32L);
             request.put("fee", 2L);

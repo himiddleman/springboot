@@ -19,10 +19,10 @@ public class FreezeMoneyTest {
         final YunRequest request = new YunRequest("OrderService", "freezeMoney");
 
         try {
-            request.put("bizUserId", "2018060016");
-            request.put("bizFreezenNo", "1530512868587cz");
+            request.put("bizUserId", "tg0505");
+            request.put("bizFreezenNo", System.currentTimeMillis() + "dj");
             request.put("accountSetNo", "200001");
-            request.put("amount", 100L);
+            request.put("amount", 2L);
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

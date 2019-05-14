@@ -20,7 +20,7 @@ public class GetOrderDetailTest {
 
         try {
             request.put("bizUserId", "tg0505");
-            request.put("bizOrderNo", "1557465879784cz");
+            request.put("bizOrderNo", "1557803930581cz");
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

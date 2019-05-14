@@ -63,6 +63,6 @@ public class UrlConsts {
     /**
      * 前台确认支付
      */
-    public static final String FRONTPWDTRANS = "http://116.228.64.55:9092/yungateway/pwd/payOrder.html?";
+    public static final String FRONTPWDTRANS = "http://116.228.64.55:9092/pwd/payOrder.html?";
 
 }

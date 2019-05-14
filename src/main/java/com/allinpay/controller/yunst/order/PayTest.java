@@ -21,14 +21,16 @@ public class PayTest {
 
         try {
             request.put("bizUserId", "tg0505");
-            request.put("bizOrderNo", "1557465879784cz");
+            request.put("bizOrderNo", "1557803930581cz");
 //            request.put("tradeNo", "1126719700428918784");
-            request.put("verificationCode", "11111");    //测试环境 充值 实名付 验证码 11111
+//            request.put("verificationCode", "111111");    //测试环境 充值 实名付 验证码 111111
+//            request.put("jumpUrl", "http://www.bai.com");
             request.put("consumerIp", "192.168.11.11");
 
-            //String res = YunClient.request(request);
+//            String res = YunClient.request(request);
             String res = YunClient.encodeOnce(request);
             res = UrlConsts.FRONTTRANS + res;
+//            res = UrlConsts.FRONTPWDTRANS + res;
 
             System.out.println("res: " + res);
 			

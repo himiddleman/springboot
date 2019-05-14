@@ -19,8 +19,8 @@ public class UnFreezeMoneyTest {
         final YunRequest request = new YunRequest("OrderService", "unfreezeMoney");
 
         try {
-            request.put("bizUserId", "2018060016");
-            request.put("bizFreezenNo", "1530512868585cz");
+            request.put("bizUserId", "tg0505");
+            request.put("bizFreezenNo", "1557803930581cz");
             request.put("accountSetNo", "200001");
             request.put("amount", 1L);
 

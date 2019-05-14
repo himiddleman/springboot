@@ -36,8 +36,8 @@ public class DepositApplyTest {
             // 支付方式
             // 快捷
             HashMap<String, Object> quickPay = new HashMap<>();
-            quickPay.put("bankCardNo", YunClient.encrypt("6228480402637874214"));
-            quickPay.put("amount", 1);
+            quickPay.put("bankCardNo", YunClient.encrypt("6228480000000000000"));
+            quickPay.put("amount", 1L);
 
             // 实名付（单笔）
             HashMap<String, Object> realnamePay = new HashMap<>();
@@ -50,7 +50,7 @@ public class DepositApplyTest {
             gatewayPay.put("bankCode", "vbank"); // 虚拟银行，专门用于测试环境
             // gatewayPay.put("bankCode", "cmb"); //生产环境
             gatewayPay.put("payType", 1L);
-            gatewayPay.put("bankCardNo", YunClient.encrypt("6228480402637874214")); // 借记卡
+            gatewayPay.put("bankCardNo", YunClient.encrypt("6228480000000000000")); // 借记卡 6228480402637874214
             gatewayPay.put("amount", 1);
 
             // 银联代扣
@@ -65,7 +65,7 @@ public class DepositApplyTest {
 
             // 组装支付方式
             HashMap<String, Object> payMethod = new HashMap<>();
-            // payMethod.put("QUICKPAY", quickPay);
+//             payMethod.put("QUICKPAY_VSP", quickPay);
             //	payMethod.put("REALNAMEPAY", realnamePay);
             payMethod.put("GATEWAY", gatewayPay);
             // payMethod.put("WITHHOLD_UP", daikouPay);

@@ -26,32 +26,32 @@ public class SignalAgentPayTest {
 
             // 源托管代收订单付款信息
             JSONArray collectPayList = new JSONArray();
-            HashMap<String, Object> collect1 = new HashMap<>();
-            collect1.put("bizOrderNo", "");
-            collect1.put("amount", 10L);
-            collectPayList.add(new JSONObject(collect1));
+//            HashMap<String, Object> collect1 = new HashMap<>();
+//            collect1.put("bizOrderNo", "1557745691736cz");
+//            collect1.put("amount", 10L);
+//            collectPayList.add(new JSONObject(collect1));
 
-            HashMap<String, Object> collect2 = new HashMap<>();
-            collect2.put("bizOrderNo", "");
-            collect2.put("amount", 10L);
-            collectPayList.add(new JSONObject(collect2));
+//            HashMap<String, Object> collect2 = new HashMap<>();
+//            collect2.put("bizOrderNo", "1557745691736cz");
+//            collect2.put("amount", 10L);
+//            collectPayList.add(new JSONObject(collect2));
 
             HashMap<String, Object> collect3 = new HashMap<>();
-            collect3.put("bizOrderNo", "");
+            collect3.put("bizOrderNo", "1557746960761cz");
             collect3.put("amount", 10L);
             collectPayList.add(new JSONObject(collect3));
 
             request.put("bizOrderNo", System.currentTimeMillis() + "cz");
             request.put("collectPayList", collectPayList);
             ;
-            request.put("bizUserId", "2018060016");
+            request.put("bizUserId", "2018060022");
             request.put("accountSetNo", "200001");
             request.put("backUrl", UrlConsts.RECIEVEPAYBACK);
-            request.put("amount", 30L);
-            request.put("fee", 2L);
-            request.put("tradeCode", "1001");
-            request.put("summary", "signalAgentPay");
-            request.put("extendInfo", "this is extendInfo");
+            request.put("amount", 10L);
+            request.put("fee", 0L);
+            request.put("tradeCode", "2003");
+//            request.put("summary", "signalAgentPay");
+//            request.put("extendInfo", "this is extendInfo");
             ;
 
             String res = YunClient.request(request);

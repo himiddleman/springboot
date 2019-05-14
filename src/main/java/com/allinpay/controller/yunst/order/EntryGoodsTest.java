@@ -22,10 +22,10 @@ public class EntryGoodsTest {
         final YunRequest request = new YunRequest("OrderService", "entryGoods");
 
         try {
-            request.put("bizUserId", "2018060023");
-            request.put("goodsType", 1L);
+            request.put("bizUserId", "tg0505");
+            request.put("goodsType", 2L);
             request.put("bizGoodsNo", "A0006");
-            request.put("goodsName", "插标卖首");
+            request.put("goodsName", "QQ点券");
             request.put("goodsDetail", "111222");
 
             HashMap<String, Object> goodsParams = new HashMap<>();

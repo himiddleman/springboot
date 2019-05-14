@@ -26,7 +26,7 @@ public class QueryMerchantBalanceTest {
         try {
 
 
-            request.put("accountSetNo", "100002");
+            request.put("accountSetNo", "2000000");
 
 
             String res = YunClient.request(request);

@@ -28,14 +28,16 @@ public class ConsumeApplyTest {
 
         try {
             // 支付方式
-            // 实名付（单笔）
+            // 网关支付
             HashMap<String, Object> realnamePay = new HashMap<>();
-            realnamePay.put("bankCardNo", YunClient.encrypt("6228480402637874221"));
-            realnamePay.put("amount", 200);
+            realnamePay.put("bankCode", "vbank");
+            realnamePay.put("payerCardNo", YunClient.encrypt("6228480402637874221"));
+            realnamePay.put("amount", 200L);
+            realnamePay.put("payType", 1);
 
             // 组装支付方式
             HashMap<String, Object> payMethod = new HashMap<>();
-            payMethod.put("REALNAMEPAY", realnamePay);
+            payMethod.put("GATEWAY", realnamePay);
 
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.HOUR, 15);

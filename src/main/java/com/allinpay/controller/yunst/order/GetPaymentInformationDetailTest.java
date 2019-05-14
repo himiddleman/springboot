@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.allinpay.yunst.sdk.YunClient;
 import com.allinpay.yunst.sdk.bean.YunRequest;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
@@ -14,8 +14,9 @@ import java.text.SimpleDateFormat;
  *
  * @author Administrator
  */
+@Slf4j
 public class GetPaymentInformationDetailTest {
-    private static final Logger logger = Logger.getLogger(GetPaymentInformationDetailTest.class);
+//    private static final Logger logger = Logger.getLogger(GetPaymentInformationDetailTest.class);
 
     @Test
     public void testMethod() {
@@ -26,22 +27,22 @@ public class GetPaymentInformationDetailTest {
         try {
 
 
-            request.put("bizOrderNo", "6448376295016505344");
-            request.put("accountSetNo", "");
-            request.put("bizUserId", "");
-            request.put("dateStart", "2018-09-20");//yyyy-MM-dd，托管代付时间
-            request.put("dateEnd", "2018-09-20");
+            request.put("bizOrderNo", "1557746960761cz");
+//            request.put("accountSetNo", "200001");
+//            request.put("bizUserId", "2018060020");
+//            request.put("dateStart", "2019-05-10");//yyyy-MM-dd，托管代付时间
+//            request.put("dateEnd", "2019-05-20");
 
 
             String res = YunClient.request(request);
-            logger.info("res: " + res);
+            log.info("res: " + res);
 
             JSONObject resp = JSON.parseObject(res);
-            logger.info("status=[" + resp.getString("status") + "]");
-            logger.info("signedValue=[" + resp.getString("signedValue") + "]");
-            logger.info("sign=[" + resp.getString("sign") + "]");
-            logger.info("errorCode=[" + resp.getString("errorCode") + "]");
-            logger.info("message=[" + resp.getString("message") + "]");
+            log.info("status=[" + resp.getString("status") + "]");
+            log.info("signedValue=[" + resp.getString("signedValue") + "]");
+            log.info("sign=[" + resp.getString("sign") + "]");
+            log.info("errorCode=[" + resp.getString("errorCode") + "]");
+            log.info("message=[" + resp.getString("message") + "]");
         } catch (final Exception e) {
             e.printStackTrace();
         }

@@ -20,16 +20,16 @@ public class RefundTest {
 
         try {
             request.put("bizOrderNo", System.currentTimeMillis() + "tk");
-            request.put("oriBizOrderNo", "1531119172281cz");
-            request.put("bizUserId", "2018070001");
-            request.put("refundType", "");
-
-            request.put("refundList", "");
-            request.put("backUrl", "");
-            request.put("amount", 100L);
-            request.put("couponAmount", "");
-            request.put("feeAmount", "");
-            request.put("extendInfo", "");
+            request.put("oriBizOrderNo", "1557803930581cz");
+            request.put("bizUserId", "tg0505");
+//            request.put("refundType", "");
+//
+//            request.put("refundList", "");
+//            request.put("backUrl", "");
+            request.put("amount", 1L);
+//            request.put("couponAmount", "");
+//            request.put("feeAmount", "");
+//            request.put("extendInfo", "");
 
 
             String res = YunClient.request(request);

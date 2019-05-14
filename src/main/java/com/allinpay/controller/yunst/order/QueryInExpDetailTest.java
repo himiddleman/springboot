@@ -22,7 +22,7 @@ public class QueryInExpDetailTest {
             request.put("bizUserId", "tg0505");
             request.put("accountSetNo", "200001");
             request.put("DateStart", "2019-05-09");
-            request.put("DateEnd", "2019-05-10");
+            request.put("DateEnd", "2019-05-16");
             request.put("startPosition", 1L);
             request.put("queryNum", 10L);
 
