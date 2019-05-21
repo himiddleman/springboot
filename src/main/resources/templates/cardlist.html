@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!--使用SUI框架必须引用的资源，推荐直接引用远程资源而非下载到本地 -->
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.css"/>
+    <style type="text/css">
+        .card-content img {
+            width: 100%;
+            height: 7rem;
+        }
+
+        .card-header {
+            display: inline-flex;
+        }
+
+        .card-header img {
+            padding-right: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+<div class="page-group">
+    <div id="page-list-card" class="page">
+        <header class="bar bar-nav">
+            <!--<a class="button button-link button-nav pull-left back" href="/demos/card">-->
+            <!--<span class="icon icon-left"></span>-->
+            <!--</a>-->
+            <h1 class="title">卡片</h1>
+        </header>
+        <div class="content">
+            <div class="list-block cards-list">
+                <ul>
+                    <li class="card">
+                        <div class="card-header">
+                            <img src="/static/img/Y1.jpg"/>
+                            <span>徽菜小菜园</span>
+                        </div>
+                        <div class="card-content">
+                            <img src="/static/img/Y4.jpg" onclick="getDetail()"/>
+                            <!-- <div class="card-content-inner">卡内容</div> -->
+                        </div>
+                        <!-- <div class="card-footer">卡脚</div> -->
+                    </li>
+                    <li class="card">
+                        <div class="card-header">
+                            <img src="/static/img/Y2.jpg"/>
+                            <span>外婆家</span>
+                        </div>
+                        <div class="card-content">
+                            <img src="/static/img/Y5.jpg"/>
+                            <!--<div class="card-content-inner">卡内容</div>-->
+                        </div>
+                        <!--<div class="card-footer">卡脚</div>-->
+                    </li>
+                    <li class="card">
+                        <div class="card-header">
+                            <img src="/static/img/Y3.jpg"/>
+                            <span>叫了只鸡</span>
+                        </div>
+                        <div class="card-content">
+                            <img src="/static/img/Y6.jpg"/>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="card-header">
+                            <img src="/static/img/Y3.jpg"/>
+                            <span>叫了只鸡</span>
+                        </div>
+                        <div class="card-content">
+                            <img src="/static/img/Y5.jpg"/>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="card-header">
+                            <img src="/static/img/Y3.jpg"/>
+                            <span>叫了只鸡</span>
+                        </div>
+                        <div class="card-content">
+                            <img src="/static/img/Y6.jpg"/>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="card-header">
+                            <img src="/static/img/Y3.jpg"/>
+                            <span>叫了只鸡</span>
+                        </div>
+                        <div class="card-content">
+                            <img src="/static/img/Y5.jpg"/>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="card-header">
+                            <img src="/static/img/Y3.jpg"/>
+                            <span>叫了只鸡</span>
+                        </div>
+                        <div class="card-content">
+                            <img src="/static/img/Y4.jpg"/>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <div class="card-header">
+                            <img src="/static/img/Y3.jpg"/>
+                            <span>叫了只鸡</span>
+                        </div>
+                        <div class="card-content">
+                            <img src="/static/img/Y6.jpg"/>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <nav class="bar bar-tab">
+            <a class="tab-item external" href="/coupon">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">领券</span>
+            </a>
+
+            <a class="tab-item external" onclick="validateUser()">
+                <span class="icon icon-me"></span>
+                <span class="tab-label">商户入口</span>
+            </a>
+
+            <a class="tab-item external active" href="#">
+                <span class="icon icon-star"></span>
+                <span class="tab-label">卡包</span>
+            </a>
+        </nav>
+    </div>
+</div>
+</body>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+<script type="text/javascript">
+    $(function () {
+        // sessionStorage.setItem("authCode", "000000");
+        $.init();
+    })
+
+    function getDetail() {
+        window.location.href = "/carddetail"
+    }
+
+    function validateUser() {
+        if ($.trim(sessionStorage.getItem("authCode"))) {
+            window.location.href = "/merchantcard"
+        } else {
+            $.prompt("请输入授权码", function (value) {
+                //验证授权码
+                if (value == "000000") {
+                    sessionStorage.setItem("authCode", "000000");
+                    window.location.href = "/merchantcard"
+                }
+            });
+        }
+    }
+</script>
+</html>

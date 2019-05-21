@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>泰隆银行</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css"/>
+
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+<div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page">
+
+        <!-- 工具栏 -->
+        <nav class="bar bar-tab">
+            <a class="tab-item external active" href="#">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">领券</span>
+            </a>
+
+            <a class="tab-item external" onclick="validateUser()">
+                <span class="icon icon-me"></span>
+                <span class="tab-label">商户入口</span>
+            </a>
+
+            <a class="tab-item external" href="/cardlist">
+                <span class="icon icon-star"></span>
+                <span class="tab-label">卡包</span>
+            </a>
+        </nav>
+
+        <!-- 这里是页面内容区 -->
+        <!--<header class="bar bar-nav">-->
+        <!--<h1 class="title">商家列表</h1>-->
+        <!--</header>-->
+        <!-- 标题栏 -->
+        <header class="bar bar-nav">
+            <!--<a class="icon icon-me pull-left open-panel"></a>-->
+            <h1 class="title">优惠券专区</h1>
+        </header>
+        <div class="content">
+
+
+            <div class="list-block media-list">
+                <ul>
+                    <li>
+                        <a href="/coupondetail" class="item-link item-content">
+                            <div class="item-media"><img src="/static/img/D1.png"
+                                                         style='width: 4rem;height:4rem;height:4rem; '/></div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-text"
+                                         style="font-family: 'Microsoft YaHei';color: #000000;font-size: large">商家T1
+                                    </div>
+                                    <div class="item-after"><strong><strong>¥</strong></strong>100</div>
+                                </div>
+                                <div class="item-subtitle" style="color: orangered">满300减200元</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="/coupondetail" class="item-link item-content">
+                            <div class="item-media"><img src="/static/img/D2.png" style='width: 4rem;height:4rem;'/>
+                            </div>
+                            <div class="item-inner">
+
+                                <div class="item-title-row">
+                                    <div class="item-text"
+                                         style="font-family: 'Microsoft YaHei';color: #000000;font-size: large">商家T2
+                                    </div>
+                                    <div class="item-after"><strong><strong>¥</strong></strong>100</div>
+                                </div>
+                                <!-- <div class="item-subtitle">标题</div> -->
+                                <div class="item-subtitle" style="color: orangered">满300减200元</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <a href="/coupondetail" class="item-link item-content">
+                            <div class="item-media"><img src="/static/img/D3.png" style='width: 4rem;height:4rem;'/>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-text"
+                                         style="font-family: 'Microsoft YaHei';color: #000000;font-size: large">商家T3
+                                    </div>
+                                    <div class="item-after"><strong><strong>¥</strong></strong>100</div>
+                                </div>
+                                <!-- <div class="item-subtitle">标题</div> -->
+                                <div class="item-subtitle" style="color: orangered">满300减200元</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="/coupondetail" class="item-link item-content">
+                            <div class="item-media"><img src="/static/img/D10.png" style='width: 4rem;height:4rem;'/>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-text"
+                                         style="font-family: 'Microsoft YaHei';color: #000000;font-size: large">商家T4
+                                    </div>
+                                    <div class="item-after"><strong><strong>¥</strong></strong>100</div>
+                                </div>
+                                <!-- <div class="item-subtitle">标题</div> -->
+                                <div class="item-subtitle" style="color: orangered">满300减200元</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="/coupondetail" class="item-link item-content">
+                            <div class="item-media"><img src="/static/img/D5.png" style='width: 4rem;height:4rem;'/>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-text"
+                                         style="font-family: 'Microsoft YaHei';color: #000000;font-size: large">商家T5
+                                    </div>
+                                    <div class="item-after"><strong><strong>¥</strong></strong>100</div>
+                                </div>
+                                <!-- <div class="item-subtitle">标题</div> -->
+                                <div class="item-subtitle" style="color: orangered">满300减200元</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="/coupondetail" class="item-link item-content">
+                            <div class="item-media"><img src="/static/img/D6.png" style='width: 4rem;height:4rem;'/>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-text"
+                                         style="font-family: 'Microsoft YaHei';color: #000000;font-size: large">商家T6
+                                    </div>
+                                    <div class="item-after"><strong><strong>¥</strong></strong>100</div>
+                                </div>
+                                <div class="item-subtitle" style="color: orangered">满300减200元</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- popup, panel 等放在这里 -->
+    <!--  <div class="panel-overlay">提示信息</div>
+      &lt;!&ndash; Left Panel with Reveal effect &ndash;&gt;
+      <div class="panel panel-left panel-reveal" style="background-color: cornsilk" title="提示信息">
+          <div class="content-block">
+              <h3>提示信息</h3>
+              <p></p>
+              <p></p>
+              &lt;!&ndash; Click on link with "close-panel" class will close panel &ndash;&gt;
+              <p><a href="ticketentrance.html" class="close-panel">关闭</a></p>
+          </div>
+      </div>
+  -->
+
+    <!-- 默认必须要执行<strong><strong>¥</strong></strong>.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+
+</div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        // sessionStorage.setItem("authCode", "000000");
+        $.init();
+    })
+
+    function validateUser() {
+        if ($.trim(sessionStorage.getItem("authCode"))) {
+            window.location.href = "/merchantcard"
+        } else {
+            $.prompt("请输入授权码", function (value) {
+                //验证授权码
+                if (value == "000000") {
+                    sessionStorage.setItem("authCode", "000000");
+                    window.location.href = "/merchantcard"
+                }
+            });
+        }
+    }
+</script>
+</html>

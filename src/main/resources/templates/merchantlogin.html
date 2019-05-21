@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!--使用SUI框架必须引用的资源，推荐直接引用远程资源而非下载到本地 -->
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.css"/>
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+<div class="page-group">
+    <div class="page">
+        <header class="bar bar-nav">
+            <!--<a class="button button-link button-nav pull-left back" href="/demos/card">-->
+            <!--<span class="icon icon-left"></span>-->
+            <!--</a>-->
+            <h1 class="title">商户登录</h1>
+        </header>
+        <div class="content">
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">授权码：</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder=""/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div style="text-align: center;">
+                <button type="button" onclick="loginNow()"
+                        style="color: white;background: #26b724;border-radius: 0.3rem;margin: 0.3rem 0;border: none;">
+                    立即登录
+                </button>
+            </div>
+        </div>
+        <nav class="bar bar-tab">
+            <a class="tab-item external" href="#">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">领券</span>
+            </a>
+
+            <a class="tab-item external active" href="/merchantlogin">
+                <span class="icon icon-me"></span>
+                <span class="tab-label">商户入口</span>
+            </a>
+
+            <a class="tab-item external" href="/cardlist">
+                <span class="icon icon-star"></span>
+                <span class="tab-label">卡包</span>
+            </a>
+        </nav>
+    </div>
+</div>
+</body>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+<script type="text/javascript">
+    $(function () {
+        $.init();
+    })
+
+    function loginNow() {
+        $.toast('操作成功，正在跳转...', 4000, 'success top')
+        window.location.href = "/merchantcard";
+    }
+</script>
+</html>

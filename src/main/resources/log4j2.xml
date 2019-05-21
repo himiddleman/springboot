@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--设置log4j2的自身log级别为warn-->
+<!--设置log4j2的自身log级别为INFO-->
 <configuration status="INFO">
     <properties>
         <property name="LOG_HOME">SpringBoot_log/logs</property>
@@ -29,10 +29,10 @@
 
         <RollingFile name="RollingFileWarn" fileName="${LOG_HOME}/${WARN_LOG_FILE_NAME}.log"
                      filePattern="${LOG_HOME}/${WARN_LOG_FILE_NAME}.%d{yyyy-MM-dd}.log.gz">
-            <!--<Filters>-->
-            <!--<ThresholdFilter level="WARN"/>-->
-            <!--<ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>-->
-            <!--</Filters>-->
+            <Filters>
+                <ThresholdFilter level="WARN"/>
+                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
             <PatternLayout
                     pattern="AllinPay.SpringBoot||%d{yyyy-MM-dd HH:mm:ss:SSS}||%p||%t||%c{1.}|| || || || || || || || || ||%m%n"/>
 

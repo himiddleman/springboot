@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!--使用SUI框架必须引用的资源，推荐直接引用远程资源而非下载到本地 -->
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.css"/>
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+<div class="page-group">
+    <div class="page">
+        <header class="bar bar-nav">
+            <!--<a class="button button-link button-nav pull-left back" href="/demos/card">-->
+            <!--<span class="icon icon-left"></span>-->
+            <!--</a>-->
+            <h1 class='title'>商家优惠券</h1>
+        </header>
+        <div class="bar bar-header-secondary">
+            <div class="searchbar">
+                <a class="searchbar-cancel open-indicator" onclick="getCoupon()">查询</a>
+                <div class="search-input">
+                    <label class="icon icon-search" for="search"></label>
+                    <input type="search" id='search' placeholder='输入关键字...'/>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content-block-title" style="line-height: 1rem;">优惠券信息</div>
+            <div class="list-block">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title">券码：</div>
+                            <div class="item-after">AK8987UJI</div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title">有效期：</div>
+                            <div class="item-after">2019-05-20</div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title">操作：</div>
+                            <div class="item-after">
+                                <button type="button" onclick="useCoupon()"
+                                        style="color: white;background: #26b724;border-radius: 0.3rem;border:none">消费
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <nav class="bar bar-tab">
+            <a class="tab-item external" href="/coupon">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">领券</span>
+            </a>
+
+            <a class="tab-item external active" href="#">
+                <span class="icon icon-me"></span>
+                <span class="tab-label">商户入口</span>
+            </a>
+
+            <a class="tab-item external" href="/cardlist">
+                <span class="icon icon-star"></span>
+                <span class="tab-label">卡包</span>
+            </a>
+        </nav>
+    </div>
+</div>
+</body>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+<script type="text/javascript">
+    $(function () {
+        $.init();
+    })
+
+    function getCoupon() {
+        $.showIndicator();
+        setTimeout(function () {
+            $.hideIndicator();
+        }, 2000);
+    }
+
+    function useCoupon() {
+        $.confirm("确认使用优惠券吗？",
+            function () {
+                $.alert("你选择了是");
+            },
+            function () {
+                $.alert("你选择了否");
+            }
+        );
+    }
+</script>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>泰隆银行</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css"/>
+
+
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <header class="bar bar-nav">
+            <!--<a class="icon icon-left pull-left" href="index.html"></a>-->
+            <!--<a class="icon icon-refresh pull-right"></a>-->
+            <h1 class="title">优惠券规则介绍</h1>
+        </header>
+        <div class="content">
+            <div class="card" style="background-color: #FFCC99">
+                <div class="card-header" style="font-size:large;font-family: 'Microsoft YaHei'">
+                    <strong><strong>适用门店</strong></strong>
+                </div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <p>千岛湖几荷餐厅
+                        </p>
+                        <p>台州几荷餐厅
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="background-color:#FFCC99">
+                <div class="card-header" style="font-size:large;font-family: 'Microsoft YaHei'">
+                    <strong><strong>满减金额</strong></strong>
+                </div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <p>使用优惠券满300元减200元
+                        </p>
+                        <p>适用于线下消费
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="background-color: #FFCC99;">
+                <div class="card-header" style="font-size:large;font-family: 'Microsoft YaHei'">
+                    <strong><strong>优惠券使用方法</strong></strong>
+                </div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <p>需先购买优惠券，线下消费时向商家提供优惠券码
+                        </p>
+                        <p>购买优惠券，需输入泰隆银行卡号以验证泰隆银行用户
+                        </p>
+                        <p>优惠券有效期，2019年7月1日-2019年9月1日
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="content-block">
+                <div class="col-501" style="width: 100%; border-radius: 1.5625rem; margin-left: 0px">
+                    <a
+                            onclick="receiveCoupon()"
+                            class="button button-big button-success"
+                            style="background-color: #6666FF">抢券</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $.init();
+    })
+
+    function receiveCoupon() {
+        $.alert("领取成功", function () {
+            window.location.href = "/coupon"
+        });
+    }
+</script>
+</html>

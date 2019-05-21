@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!--使用SUI框架必须引用的资源，推荐直接引用远程资源而非下载到本地 -->
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.css"/>
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+<div class="page-group">
+    <div class="page">
+        <header class="bar bar-nav">
+            <h1 class="title">视图列表</h1>
+        </header>
+        <div class="content">
+            <p>这是内容区</p>
+            <p>这是内容区</p>
+            <p>这是内容区</p>
+            <p>这是内容区</p>
+            <p>这是内容区</p>
+            <p>这是内容区</p>
+        </div>
+        <nav class="bar bar-tab">
+            <a class="tab-item external active" href="#">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">领券</span>
+            </a>
+
+            <a class="tab-item external" onclick="validateUser()">
+                <span class="icon icon-me"></span>
+                <span class="tab-label">商户入口</span>
+            </a>
+
+            <a class="tab-item external" href="/cardlist">
+                <span class="icon icon-star"></span>
+                <span class="tab-label">卡包</span>
+            </a>
+        </nav>
+    </div>
+</div>
+</body>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+<script type="text/javascript">
+    $(function () {
+        // sessionStorage.setItem("authCode", "000000");
+        $.init();
+    })
+
+    function validateUser() {
+        if ($.trim(sessionStorage.getItem("authCode"))) {
+            window.location.href = "/merchantcard"
+        }
+        $.prompt("请输入授权码", function (value) {
+            //验证授权码
+            if (value == "000000") {
+                sessionStorage.setItem("authCode", "000000");
+                window.location.href = "/merchantcard"
+            }
+        });
+    }
+</script>
+</html>
+   

@@ -5,12 +5,12 @@ import com.allinpay.repository.domain.User;
 import com.allinpay.repository.domain.UserConfig;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
-@RestController
+@Controller
 public class HelloController {
     @Autowired
     private UserConfig userConfig;
@@ -37,5 +37,30 @@ public class HelloController {
     public ResponseData globalException() {
         int i = 1 / 0;
         return new ResponseData().success(null);
+    }
+
+    @RequestMapping("/cardlist")
+    public String cardList() {
+        return "cardlist";
+    }
+
+    @RequestMapping("/carddetail")
+    public String cardDetail() {
+        return "carddetail";
+    }
+
+    @RequestMapping("/merchantcard")
+    public String merchantCard() {
+        return "merchantcard";
+    }
+
+    @RequestMapping("/coupon")
+    public String index() {
+        return "coupon";
+    }
+
+    @RequestMapping("/coupondetail")
+    public String couponDetail() {
+        return "coupondetail";
     }
 }
