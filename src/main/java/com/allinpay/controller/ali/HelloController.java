@@ -63,4 +63,9 @@ public class HelloController {
     public String couponDetail() {
         return "coupondetail";
     }
+
+    @RequestMapping("/2DFire")
+    public String twoDFire() {
+        return "2DFire";
+    }
 }

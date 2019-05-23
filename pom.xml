@@ -159,11 +159,17 @@
         </dependency>
 
         <!--云商通相关jar包 -->
+        <!--<dependency>-->
+        <!--<groupId>com.allinpay</groupId>-->
+        <!--<artifactId>yunst-sdk</artifactId>-->
+        <!--<version>1.0.2</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.allinpay</groupId>
             <artifactId>yunst-sdk</artifactId>
-            <version>1.0.2</version>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk15on</artifactId>
