@@ -15,8 +15,8 @@ public class UnbindBankCardTest {
         final YunRequest request = new YunRequest("MemberService", "unbindBankCard");
 
         try {
-            request.put("bizUserId", "zhuyqqiye");
-            request.put("cardNo", RSAUtil.encrypt("4000020819200535461"));
+            request.put("bizUserId", "tg0505");
+            request.put("cardNo", RSAUtil.encrypt("6214680141439347"));
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);
