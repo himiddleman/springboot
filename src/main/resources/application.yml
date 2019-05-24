@@ -4,6 +4,11 @@ server:
 #  context-path: /allinpay
 
 spring:
+  mail:
+    host: smtp.163.com
+    username: 15197704032@163.com
+    password: wymfyx111
+    default-encoding: UTF-8
   http:
     multipart:
       max-request-size: 40Mb

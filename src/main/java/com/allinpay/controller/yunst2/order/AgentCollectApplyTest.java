@@ -87,7 +87,7 @@ public class AgentCollectApplyTest {
             // 支付方式
             //收银宝刷卡支付（被扫）——支持微信、支付宝、银联、手机QQ
             HashMap<String, Object> QUICKPAY_VSP = new HashMap<>();
-            QUICKPAY_VSP.put("bankCardNo", RSAUtil.encrypt("4391880821317777"));
+            QUICKPAY_VSP.put("bankCardNo", RSAUtil.encrypt("6228480128428444870"));
             QUICKPAY_VSP.put("amount", 1L);
 
             // 组装支付方式
@@ -95,7 +95,7 @@ public class AgentCollectApplyTest {
 //			payMethod.put("REALNAMEPAY", realnamePay);
 //			payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
-            payMethod.put("CODEPAY_VSP_ORG", CODEPAY_VSP_ORG);
+            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
 //			payMethod.put("GATEWAY", getwayPay);
 //			payMethod.put("BALANCE", balancePay);
 //			payMethod.put("COUPONLIST", couponList);
@@ -127,10 +127,10 @@ public class AgentCollectApplyTest {
 
 
             request.put("bizOrderNo", System.currentTimeMillis() + "ds");
-            request.put("payerId", "WHYGR2019001"); // bizUserId  付款方
+            request.put("payerId", "tg0505"); // bizUserId  付款方
             request.put("recieverList", receiverList);
-            request.put("goodsType", 2L);
-            request.put("bizGoodsNo", "12121133211122234");
+//            request.put("goodsType", 2L);
+//            request.put("bizGoodsNo", "12121133211122234");
             request.put("tradeCode", "1003");
             request.put("amount", 1L);
             request.put("fee", 0L);
@@ -139,8 +139,8 @@ public class AgentCollectApplyTest {
             request.put("backUrl", "http://172.16.190.46:8080/yuncallback/mock/notify?");
             request.put("ordErexpireDatetime", ordErexpireDatetime);
             request.put("payMethod", payMethod);
-            request.put("goodsName", "海艳商超");
-            request.put("goodsDesc", "computer made in china");
+//            request.put("goodsName", "海艳商超");
+//            request.put("goodsDesc", "computer made in china");
             request.put("industryCode", "1010");
             request.put("industryName", "保险代理");
             request.put("source", 2L);
@@ -156,6 +156,8 @@ public class AgentCollectApplyTest {
             System.out.println("sign=[" + resp.getString("sign") + "]");
             System.out.println("errorCode=[" + resp.getString("errorCode") + "]");
             System.out.println("message=[" + resp.getString("message") + "]");
+
+
         } catch (final Exception e) {
             e.printStackTrace();
         }

@@ -30,7 +30,7 @@ public class ApplyBindBankCardTest {
             request.put("phone", "15197704032");    // 这个手机号 13616515002 是绑卡银行预留手机，实名支付用
             request.put("cardCheck", 7L);    // 1L 三要素，2L 四要素,5L通联通账户验证
 //			request.put("cardNo", YunClient.encrypt("4391880821317777"));//622848   //收银宝快捷卡号
-            request.put("cardNo", YunClient.encrypt("6228480128428444870"));//通联通账户验证 绑信用卡6228491234567892019
+            request.put("cardNo", YunClient.encrypt("6214680141439347"));//6228480128428444870 //通联通账户验证 绑信用卡6228491234567892019
 //			request.put("cardNo", YunClient.encrypt("6225760009629085"));//ITS 四要素+短信  绑信用卡6225760009629085  借记卡6214850212618752
             request.put("name", "谭光");
             request.put("identityNo", YunClient.encrypt("430224199301107219"));
