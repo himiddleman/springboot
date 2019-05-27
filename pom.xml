@@ -17,6 +17,8 @@
     <properties>
         <java.version>1.8</java.version>
         <jersey.version>1.8</jersey.version>
+        <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.0.4</thymeleaf-layout-dialect.version>
     </properties>
 
     <dependencies>
@@ -112,6 +114,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+
+        <!--不严格检查html thymeleaf 3解决了这个问题。-->
+        <!--<dependency>-->
+        <!--<groupId>net.sourceforge.nekohtml</groupId>-->
+        <!--<artifactId>nekohtml</artifactId>-->
+        <!--<version>1.9.22</version>-->
+        <!--</dependency>-->
+
         <!--读取excel文件 -->
         <dependency>
             <groupId>org.apache.poi</groupId>

@@ -23,7 +23,7 @@ spring:
   thymeleaf:
     #prefix: /static/html/
     #    suffix: .html
-    mode: HTML5
+    mode: HTML
     encoding: UTF-8
     content-type: text/html
     #开发模式关闭缓存，看到实时页面
