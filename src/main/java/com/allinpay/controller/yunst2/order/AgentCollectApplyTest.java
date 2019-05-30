@@ -90,11 +90,18 @@ public class AgentCollectApplyTest {
             QUICKPAY_VSP.put("bankCardNo", RSAUtil.encrypt("6228480128428444870"));
             QUICKPAY_VSP.put("amount", 1L);
 
+            //网关支付
+            HashMap<String, Object> GATEWAY_VSP = new HashMap<>();
+            GATEWAY_VSP.put("amount", 1L);
+            GATEWAY_VSP.put("gateid", "0302");
+            GATEWAY_VSP.put("paytype", "B2C");
+
             // 组装支付方式
             HashMap<String, Object> payMethod = new HashMap<>();
 //			payMethod.put("REALNAMEPAY", realnamePay);
 //			payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
+//            payMethod.put("GATEWAY_VSP", GATEWAY_VSP);
             payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
 //			payMethod.put("GATEWAY", getwayPay);
 //			payMethod.put("BALANCE", balancePay);
@@ -132,7 +139,7 @@ public class AgentCollectApplyTest {
 //            request.put("goodsType", 2L);
 //            request.put("bizGoodsNo", "12121133211122234");
             request.put("tradeCode", "1003");
-            request.put("amount", 1L);
+            request.put("amount", 1);
             request.put("fee", 0L);
             request.put("validateType", 0L); // 1 短信验证
             request.put("frontUrl", "http://192.168.14.165:8080/yundemo/servletUI/jumpback");
