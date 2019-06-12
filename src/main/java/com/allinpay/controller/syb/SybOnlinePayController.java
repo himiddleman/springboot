@@ -41,8 +41,8 @@ public class SybOnlinePayController {
         params.put("appid", SybConstant.SYB_APPID);
         params.put("version", "11");
         params.put("trxamt", "1");
-        params.put("reqsn", "HU20190509105122170219");
-        params.put("authcode", "134843346364067624");
+        params.put("reqsn", "SHLH110400");
+        params.put("authcode", "134794695455199308");
 //        params.put("paytype", "W04");
         params.put("randomstr", System.currentTimeMillis() + "");
         params.put("remark", "bosinyPay");
