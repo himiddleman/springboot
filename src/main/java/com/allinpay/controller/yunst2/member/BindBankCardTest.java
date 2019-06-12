@@ -15,10 +15,10 @@ public class BindBankCardTest {
 
         try {
             request.put("bizUserId", "tg0505");
-            request.put("tranceNum", "066396001645");
+            request.put("tranceNum", "755187883326");
 //			request.put("transDate", "20190128");
             request.put("phone", "15197704032");
-            request.put("verificationCode", "723700");
+            request.put("verificationCode", "032933");
 //			request.put("validate", YunClient.encrypt("0523"));
 //			request.put("cvv2", YunClient.encrypt("366"));
 
