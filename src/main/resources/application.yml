@@ -54,6 +54,17 @@ spring:
     port: 5672
     username: guest
     password: guest
+    #开启发送确认
+    publisher-confirms: true
+    #开启发送失败退回
+    publisher-returns: true
+    listener:
+      simple:
+        #手动应答,开启ack
+        acknowledge-mode: manual
+        #是否支持重试
+        retry:
+          enabled: true
   #数据源配置
   datasource:
     url: jdbc:mysql://47.99.172.60:3306/ssm

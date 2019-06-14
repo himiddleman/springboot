@@ -7,16 +7,16 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-@RabbitListener(queues = {"queueA", "queueB", "queueC", "queueD", "queueE", "queueF"})
+@RabbitListener(queues = "queueD")
 @Slf4j
 @RestController
-public class RabbitConsumeController {
+public class RabbitConsumeHeadersController {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
     @RabbitHandler
-    public void receive(String mqStr) {
-        System.out.println(mqStr);
-        log.info(mqStr);
+    public void receiveByte(byte[] bytes) {
+        System.out.println(new String(bytes));
+        log.info(new String(bytes));
     }
 }
