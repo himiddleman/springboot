@@ -2,15 +2,49 @@ package com.allinpay.core.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
 @Slf4j
 public class RabbitConfig {
+    @Resource
+    private RabbitTemplate rabbitTemplate;
+
+    @Bean
+    public AmqpTemplate amqpTemplate() {
+        //消息是否发送到指定的队列
+        final boolean[] sendToQueue = {true};
+        //使用jackson 消息转换器
+//        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
+//        rabbitTemplate.setEncoding("UTF-8");
+        //开启returncallback yml 需要 配置 publisher-returns: true
+        rabbitTemplate.setMandatory(true);
+        rabbitTemplate.setReturnCallback((message, replyCode, replyText, exchange, routingKey) -> {
+            String correlationId = message.getMessageProperties().getCorrelationIdString();
+            log.info("消息：{} 发送失败, 应答码：{} 原因：{} 交换机: {}  路由键: {}", correlationId, replyCode, replyText, exchange, routingKey);
+            sendToQueue[0] = false;
+        });
+        //消息确认 yml 需要配置  publisher-returns: true
+        rabbitTemplate.setConfirmCallback((correlationData, ack, cause) -> {
+            if (ack) {
+                log.info("消息发送到exchange成功,不一定发送到了指定的队列");
+                if (sendToQueue[0]) {
+                    log.info("消息发送到queue成功");
+                }
+            } else {
+                log.info("消息发送到exchange失败,原因: {}", cause);
+            }
+            sendToQueue[0] = true;
+        });
+        return rabbitTemplate;
+    }
+
     //创建列队对象
     @Bean
     public Queue queueA() {

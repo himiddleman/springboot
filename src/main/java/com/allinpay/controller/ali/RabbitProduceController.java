@@ -1,7 +1,6 @@
 package com.allinpay.controller.ali;
 
 import com.allinpay.core.common.ResponseData;
-import com.allinpay.core.util.RabbitUtil;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageBuilder;
 import org.springframework.amqp.core.MessageProperties;
@@ -21,7 +20,6 @@ public class RabbitProduceController {
 
     @RequestMapping("/direct")
     public ResponseData direct() {
-        rabbitTemplate = RabbitUtil.rabbitTemplate(rabbitTemplate);
         rabbitTemplate.convertAndSend("directExchange", "AAA", "默认方式的交换机");
         return new ResponseData().success("direct交换机测试！");
     }
