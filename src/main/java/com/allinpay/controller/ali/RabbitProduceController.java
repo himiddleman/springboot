@@ -18,6 +18,16 @@ public class RabbitProduceController {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
+    @RequestMapping("/delayDirect")
+    public ResponseData deayDirect() {
+        rabbitTemplate.convertAndSend("delayExchange", "delayAAA", "延时队列", message -> {
+            //设置消息的有效期ttl为20s
+            message.getMessageProperties().setExpiration(5 * 1000 + "");
+            return message;
+        });
+        return new ResponseData().success("延时队列direct交换机测试！");
+    }
+
     @RequestMapping("/direct")
     public ResponseData direct() {
         rabbitTemplate.convertAndSend("directExchange", "AAA", "默认方式的交换机");

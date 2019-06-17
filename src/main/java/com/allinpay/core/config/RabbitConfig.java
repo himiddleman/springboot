@@ -45,6 +45,27 @@ public class RabbitConfig {
         return rabbitTemplate;
     }
 
+    //延时队列
+    @Bean
+    public Queue delayProcessQueue() {
+        Map<String, Object> params = new HashMap<>();
+        // x-dead-letter-exchange 声明了队列里的死信转发到的死信交换机，
+        params.put("x-dead-letter-exchange", "directExchange");
+        // x-dead-letter-routing-key 声明了这些死信在转发时携带的路由键。
+        params.put("x-dead-letter-routing-key", "AAA");
+        return new Queue("delayProcessQueue", true, false, false, params);
+    }
+
+    @Bean
+    public DirectExchange delayExchange() {
+        return new DirectExchange("delayExchange");
+    }
+
+    @Bean
+    public Binding dlxBinding(Queue delayProcessQueue, DirectExchange delayExchange) {
+        return BindingBuilder.bind(delayProcessQueue).to(delayExchange).with("delayAAA");
+    }
+
     //创建列队对象
     @Bean
     public Queue queueA() {
@@ -84,8 +105,8 @@ public class RabbitConfig {
 
 
     @Bean
-    Binding directBinding(Queue queueA, DirectExchange exchange) {
-        return BindingBuilder.bind(queueA).to(exchange).with("AAA");
+    Binding directBinding(Queue queueA, DirectExchange directExchange) {
+        return BindingBuilder.bind(queueA).to(directExchange).with("AAA");
     }
 
     //创建topic交换机
