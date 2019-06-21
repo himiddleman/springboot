@@ -7,8 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Date;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController {
@@ -16,14 +15,9 @@ public class HelloController {
     private UserConfig userConfig;
 
     @RequestMapping("/hello")
+    @ResponseBody
     public ResponseData sayHello() {
-        User user = new User();
-        user.setAge(18);
-        user.setName("小明");
-        user.setPassword("123456");
-        user.setBirthday(new Date());
-        user.setDesc("hahahah");
-        return new ResponseData().success(user);
+        return new ResponseData().success("8080");
     }
 
     @RequestMapping("/sayhello")

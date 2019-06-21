@@ -20,7 +20,7 @@ public class RabbitProduceController {
 
     @RequestMapping("/delayDirect")
     public ResponseData deayDirect() {
-        rabbitTemplate.convertAndSend("delayExchange", "delayAAA", "延时队列", message -> {
+        rabbitTemplate.convertAndSend("directExchange", "delayAAA", "延时队列", message -> {
             //设置消息的有效期ttl为20s
             message.getMessageProperties().setExpiration(5 * 1000 + "");
             return message;

@@ -10,7 +10,7 @@
     <appenders>
         <console name="Console" target="SYSTEM_OUT">
             <PatternLayout
-                    pattern="%yellow{AllinPay.SpringBoot}||%blue{%d{yyyy-MM-dd HH:mm:ss:SSS}}||%highlight{%p}||%t||%cyan{%c{1.}}|| || || || || || || || || ||%m%n"/>
+                    pattern="%yellow{AllinPay.SpringBoot}||%blue{%d{yyyy-MM-dd HH:mm:ss:SSS}}||%highlight{%p}||%t||%l||%m%n"/>
         </console>
 
         <RollingFile name="RollingFileInfo" fileName="${LOG_HOME}/${INFO_LOG_FILE_NAME}.log"

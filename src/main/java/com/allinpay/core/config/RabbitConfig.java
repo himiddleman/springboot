@@ -62,8 +62,8 @@ public class RabbitConfig {
     }
 
     @Bean
-    public Binding dlxBinding(Queue delayProcessQueue, DirectExchange delayExchange) {
-        return BindingBuilder.bind(delayProcessQueue).to(delayExchange).with("delayAAA");
+    public Binding dlxBinding(Queue delayProcessQueue, DirectExchange directExchange) {
+        return BindingBuilder.bind(delayProcessQueue).to(directExchange).with("delayAAA");
     }
 
     //创建列队对象
