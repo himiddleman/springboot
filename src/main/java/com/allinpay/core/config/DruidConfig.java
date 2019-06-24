@@ -1,4 +1,4 @@
-package com.allinpay.core.common;
+package com.allinpay.core.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -14,7 +14,7 @@ import javax.sql.DataSource;
  * 访问后台管理系统
  */
 @Configuration
-public class DruidConfiguration {
+public class DruidConfig {
 
     @ConfigurationProperties(prefix = "spring.datasource")
     @Bean
