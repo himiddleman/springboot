@@ -1,26 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>首页</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+    <style>
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .pg-header {
+            margin: 0 auto;
+            height: 48px;
+            background-color: black;
+        }
+
+        .pg-content .menu {
+            width: 175px;
+            position: fixed;
+            top: 48px;
+            left: 0;
+            bottom: 0;
+            background-color: black;
+        }
+
+        .pg-content .content {
+            position: fixed;
+            top: 48px;
+            left: 200px;
+            right: 0;
+            bottom: 0;
+            overflow: auto;
+        }
+    </style>
 </head>
 <body>
-<form id="uploadForm" method="post" enctype="multipart/form-data">
-    <div style="margin-left: 300px;">
-        <span><input style="width: 400px;height: 30px;" type="text" name="aaa"/></span>
-        <span><input style="height: 30px;" type="file" name="upload"
-                     accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-                     multiple="multiple"/></span>
+<div class="pg-header sui-navbar navbar-inverse" th:include="header :: header"></div>
+<div class="pg-content">
+    <div class="menu fl" th:include="menu :: menu"></div>
+    <div class="content fr">
+        <form id="uploadForm" method="post" enctype="multipart/form-data" style="margin: 10px;">
+            <div style="margin-left: 300px;">
+                <span><input style="width: 400px;height: 30px;" type="text" name="aaa"/></span>
+                <span><input style="height: 30px;" type="file" name="upload"
+                             accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                             multiple="multiple"/></span>
+            </div>
+        </form>
+        <br/>
+        <div>
+            <button style="height: 30px;margin-left: 560px" onclick="multiUpload()">文件上传</button>
+            <button style="height: 30px;" onclick="syncData()">数据同步</button>
+        </div>
     </div>
-</form>
-<br/>
-<div>
-    <button style="height: 30px;margin-left: 560px" onclick="multiUpload()">文件上传</button>
-    <button style="height: 30px;" onclick="syncData()">数据同步</button>
 </div>
+<!--<div class="pg-footer sui-navbar navbar-fixed-bottom navbar-inverse" th:include="footer :: footer"></div>-->
 </body>
+<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
 <script type="text/javascript" src="/static/js/upload/upload.js"></script>
-<script type="text/javascript" src="/static/js/jquery.min.js"></script>
-<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/static/plugins/layer/layer.js"></script>
 </html>
