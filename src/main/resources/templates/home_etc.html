@@ -13,41 +13,16 @@
     <div th:include="menu :: menu"></div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <table id="demo" lay-filter="test"></table>
+        <img src="/static/img/2.jpg" style="width: 1200px;height: 520px">
     </div>
     <div th:include="footer :: footer"></div>
 </div>
 </body>
 <script src="/static/layui/layui.js"></script>
 <script th:inline="none">
-    layui.use('table', function () {
-        var table = layui.table;
-        //第一个实例
-        table.render({
-            elem: '#demo'
-            , url: '/web/getList',
-            page: {
-                layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
-            }
-            //设置返回的属性值，依据此值进行解析
-            , response: {
-                statusName: 'code',
-                statusCode: 200,
-                msgName: 'msg',
-                dataName: 'data'
-            }
-            , cols: [[
-                {field: 'id', width: 80, title: 'ID', sort: true}
-                , {field: 'username', width: 80, title: '用户名'}
-                , {field: 'sex', width: 80, title: '性别', sort: true}
-                , {field: 'city', width: 80, title: '城市'}
-                , {field: 'sign', title: '签名', width: '30%', minWidth: 100}
-                , {field: 'experience', title: '积分', sort: true}
-                , {field: 'score', title: '评分', sort: true}
-                , {field: 'classify', title: '职业'}
-                , {field: 'wealth', width: 137, title: '财富', sort: true}
-            ]]
-        });
+    //element 展示左边菜单栏
+    layui.use('element', function () {
+        var element = layui.element;
     });
 </script>
 </html>

@@ -118,7 +118,7 @@ public class AgentCollectApplyTest {
             // 收款列表
             JSONArray receiverList = new JSONArray();
             HashMap<String, Object> receiver1 = new HashMap<>();
-            receiver1.put("bizUserId", "WHYQY2019001");
+            receiver1.put("bizUserId", "#yunBizUserId_B2C#");
             receiver1.put("amount", 1);
             receiverList.add(new JSONObject(receiver1));
 
