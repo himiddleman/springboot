@@ -17,20 +17,20 @@ public class HelloController {
     @RequestMapping("/hello")
     @ResponseBody
     public ResponseData sayHello() {
-        return new ResponseData().success("8080");
+        return ResponseData.success().setData("8080");
     }
 
     @RequestMapping("/sayhello")
     public ResponseData sayhello() {
         User user = new User();
         BeanUtils.copyProperties(userConfig, user);
-        return new ResponseData().success(user);
+        return ResponseData.success().setData(user);
     }
 
     @RequestMapping("/test/globalException")
     public ResponseData globalException() {
         int i = 1 / 0;
-        return new ResponseData().success(null);
+        return ResponseData.success().setData(null);
     }
 
     @RequestMapping("/cardlist")

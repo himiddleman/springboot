@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<div th:fragment="header">
+    <div class="layui-header">
+        <div class="layui-logo">
+            <cite style="color: #9999FF;size: A5">&nbsp;ETC管理系统&emsp;</cite>
+        </div>
+
+
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item" lay-unselect>
+                <a lay-event="flexible" title="侧边伸缩">
+                    <i class="layui-icon layui-icon-shrink-right"></i>
+                </a>
+            </li>
+            <!-- 面包屑 -->
+            <span class="layui-breadcrumb layui-anim layui-anim-up">
+                    <a><cite>首页</cite></a>
+            </span>
+        </ul>
+
+
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a>
+                    <img alt="头像" class="layui-nav-img" th:src="@{/static/img/tlzf.png}">
+                    <span class="layui-nav-more"></span>
+                </a>
+                <dl class="layui-nav-child layui-anim layui-anim-upbit">
+                    <dl lay-unselect>
+                        <dd><a href="">系统管理</a></dd>
+                        <dd><a href="/sys/logout">退出</a></dd>
+                    </dl>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+
+</html>

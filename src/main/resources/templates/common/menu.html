@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<div th:fragment="menu">
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">机构管理</a>
+                    <dl class="layui-nav-child" id="orgManage">
+                        <dd class="btn_hide" targetAuthority="1"><a href="/web/home">机构信息录入</a></dd>
+                        <dd class="btn_hide" targetAuthority="2"><a href="/web/orgModify">机构信息变更</a></dd>
+                        <dd class="btn_hide" targetAuthority="3"><a href="/web/orgAudit">机构信息审核</a></dd>
+                        <dd class="btn_hide" targetAuthority="4"><a href="/web/orgquery">机构信息查询</a></dd>
+                        <dd class="btn_hide" targetAuthority="5"><a href="/web/orgLogout">机构信息注销</a></dd>
+                        <dd class="btn_hide" targetAuthority="6"><a href="/web/orgBlocking">机构信息冻结</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">交易统计查询</a>
+                    <dl class="layui-nav-child" id="query">
+                        <dd class="btn_hide" targetAuthority="7"><a href="/web/userHairpin">用户发行数据</a></dd>
+                        <dd class="btn_hide" targetAuthority="8"><a href="/web/passageMoney">通行费记录</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">后台管理</a>
+                    <dl class="layui-nav-child">
+                        <dd class="btn_hide" targetAuthority="9"><a href="/userManage">用户管理</a></dd>
+                        <dd class="btn_hide" targetAuthority="10"><a href="/roleManage">角色管理</a></dd>
+                        <dd class="btn_hide" targetAuthority="11"><a href="/menuManage">资源管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">发卡银行管理</a>
+                    <dl class="layui-nav-child">
+                        <dd class="btn_hide" targetAuthority="12"><a href="/web/bank">银行基础信息</a></dd>
+                        <dd class="btn_hide" targetAuthority="13"><a href="/web/orgbank">发卡银行信息</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

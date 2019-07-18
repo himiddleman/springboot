@@ -1,0 +1,45 @@
+.layui-layout-admin .layui-header {
+    background-color: #c3a7d6;
+    /*//6666CC*/
+}
+
+.btn_hide {
+    display: none;
+}
+
+
+.layui-layout-admin .layui-side {
+    position: absolute;
+    top: 50px;
+    width: 200px;
+    background-color: #324157;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    box-shadow: 1px 0 2px 0 rgba(0, 0, 0, .05);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.layui-layout-admin .layui-side .layui-nav-item, .layui-side-scroll {
+    background-color: #324157;
+}
+
+
+/*#324157*/
+
+.layui-layout-admin .layui-header .layui-logo {
+    width: 200px;
+    background-color: #324157;
+    color: #f2f2f2;
+    font-size: 18px;
+    font-family: Myriad Pro, Helvetica Neue, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    overflow: hidden;
+    line-height: 50px;
+    transition: all .3s;
+    white-space: nowrap;
+    box-shadow: 1px 0 2px 0 rgba(0, 0, 0, .05);
+}

@@ -49,7 +49,7 @@ public class PolicyPayController {
         //TODO 根据商户号去数据查询商户支付所需要的配置信息
         //将请求参数做加密处理后返回前端页面，从前端页面发起H5支付
         String param = "?appid=00000003&body=谭光&charset=utf-8&cusid=990440148166000&key=a0ea3fa20dbd7bb4d5abf1d59d63bae8&notify_url=www.baidu.com&randomstr=1556029318959&reqsn=shlh110222&returl=www.baidu.com&trxamt=1&version=12&sign=CD4312D1829019EC41B59A0A354272C6";
-        return new ResponseData().success(param);
+        return ResponseData.success().setData(param);
     }
 
     /**

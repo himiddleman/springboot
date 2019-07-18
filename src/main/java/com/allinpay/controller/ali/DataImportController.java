@@ -25,6 +25,6 @@ public class DataImportController {
     public ResponseData importData() {
         String path = "E:/821流水/舟山";
         Map<String, String> resultMap = dataImportService.importData(path);
-        return new ResponseData().success(resultMap);
+        return ResponseData.success().setData(resultMap);
     }
 }

@@ -1,8 +1,10 @@
 package com.allinpay.core.handler;
 
 import com.allinpay.core.common.ResponseData;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.allinpay.core.constant.enums.BizEnums;
+import com.allinpay.core.exception.AllinpayException;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -14,27 +16,37 @@ import org.springframework.web.bind.annotation.RestController;
  * 全局异常处理器
  */
 @ControllerAdvice(annotations = {RestController.class, Controller.class})
+@Slf4j
 public class GlobalExceptionHandler {
-    Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
-
     @ExceptionHandler(MissingServletRequestParameterException.class)
     @ResponseBody
     public ResponseData missingServletRequestParameterExceptionHandler(MissingServletRequestParameterException e) {
-        logger.info("参数缺失", e);
-        return new ResponseData().failure("参数缺失");
+        log.info("参数缺失", e);
+        return ResponseData.failure(BizEnums.MISSING_PARAM.getCode(), BizEnums.MISSING_PARAM.getMsg());
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseBody
     public ResponseData illegalArgumentExceptionHandler(IllegalArgumentException e) {
-        logger.info("参数不合法", e);
-        return new ResponseData().failure("参数不合法");
+        log.info("参数不合法", e);
+        return ResponseData.failure(BizEnums.ILLEGAL_ARGUMENT.getCode(), BizEnums.ILLEGAL_ARGUMENT.getMsg());
+    }
+
+    @ExceptionHandler(AllinpayException.class)
+    @ResponseBody
+    public ResponseData allinpayExceptionHandler(AllinpayException e) {
+        return ResponseData.failure(e.getErrorCode(), e.getErrorMsg());
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public String unauthorizedExceptionHandler(UnauthorizedException e) {
+        return "common/403";
     }
 
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ResponseData exceptionHandler(Exception e) {
-        logger.info("系统异常", e);
-        return new ResponseData().failure("系统异常");
+        log.info("系统异常", e);
+        return ResponseData.failure(BizEnums.EXCEPTION.getCode(), BizEnums.EXCEPTION.getMsg());
     }
 }

@@ -19,7 +19,7 @@ public class DispatcherAndRedirectController {
      */
     @RequestMapping("/forward")
     public String forward() {
-        return "login";
+        return "_login";
     }
 
     /**

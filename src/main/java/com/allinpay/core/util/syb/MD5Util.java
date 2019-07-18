@@ -1,7 +1,7 @@
 package com.allinpay.core.util.syb;
 
 import com.alibaba.fastjson.JSON;
-import com.allinpay.repository.domain.Admin;
+import com.allinpay.repository.domain.permission.Admin;
 
 import java.security.MessageDigest;
 import java.util.Map;
@@ -120,7 +120,7 @@ public class MD5Util {
         }
 
         Admin admin = new Admin();
-        admin.setKid("213");
+        admin.setKid(213);
         admin.setNickname("小明");
         System.out.println(json2Obj(JSON.toJSONString(admin), Admin.class));
         System.out.println(json2Obj(JSON.toJSONString(paramMap), TreeMap.class));

@@ -38,7 +38,7 @@ public class JavaMailController {
         simpleMailMessage.setSubject("测试邮件");
         simpleMailMessage.setText("springboot整合邮件");
         javaMailSender.send(simpleMailMessage);
-        return new ResponseData().success("发送成功");
+        return ResponseData.success().setData("发送成功");
     }
 
 
@@ -59,7 +59,7 @@ public class JavaMailController {
             e.printStackTrace();
         }
 
-        return new ResponseData().success("发送成功");
+        return ResponseData.success().setData("发送成功");
     }
 
     //发送邮件时添加附件
@@ -77,7 +77,7 @@ public class JavaMailController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new ResponseData().success("发送成功");
+        return ResponseData.success().setData("发送成功");
     }
 
     //读取静态资源文件并返回浏览器

@@ -25,6 +25,6 @@ public class AnnotationController {
         log.info("hello");
         logger.info("hello");
         int i = 1 / 0;
-        return new ResponseData().success("success");
+        return ResponseData.success().setData("success");
     }
 }

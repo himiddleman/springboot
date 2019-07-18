@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.allinpay.repository.mapper.AuthorityMapper">
+    <resultMap id="BaseResultMap" type="com.allinpay.repository.domain.permission.Authority">
+        <id column="KID" property="kid" jdbcType="NUMERIC"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+        <result column="DESCRIPTION" property="description" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    KID,NAME,STATUS,DESCRIPTION
+  </sql>
+
+    <select id="selectAuthorityList" parameterType="collection" resultMap="BaseResultMap">
+        select a.kid,a.name,a.description,a.status from authority a
+        inner join role_authority_relation rar on a.kid = rar.authority_id
+        where rar.role_id in
+        <foreach item="roleId" collection="roleSet" separator="," open="(" close=")">
+            #{roleId}
+        </foreach>
+    </select>
+</mapper>

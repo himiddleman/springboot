@@ -1,7 +1,7 @@
 package com.allinpay.controller.ali;
 
 import com.allinpay.core.common.ResponseData;
-import com.allinpay.repository.domain.Admin;
+import com.allinpay.repository.domain.permission.Admin;
 import com.allinpay.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,9 @@ public class UserController {
         log.info("email:{} password:{}", email, password);
         Admin admin = userService.getAdmin(email, password);
         if (admin != null) {
-            return new ResponseData().success(admin);
+            return ResponseData.success().setData(admin);
         } else {
-            return new ResponseData().failure(null);
+            return ResponseData.failure("110", "101").setData(null);
         }
     }
 }

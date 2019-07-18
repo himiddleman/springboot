@@ -1,6 +1,6 @@
 package com.allinpay.service.impl;
 
-import com.allinpay.repository.domain.Admin;
+import com.allinpay.repository.domain.permission.Admin;
 import com.allinpay.repository.mapper.AdminMapper;
 import com.allinpay.service.IUserService;
 import lombok.extern.slf4j.Slf4j;

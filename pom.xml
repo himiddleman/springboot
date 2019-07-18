@@ -19,6 +19,7 @@
         <jersey.version>1.8</jersey.version>
         <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
         <thymeleaf-layout-dialect.version>2.0.4</thymeleaf-layout-dialect.version>
+        <shiro.version>1.4.1</shiro.version>
     </properties>
 
     <dependencies>
@@ -198,6 +199,24 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+        <!--shiro-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <!-- 验证码-->
+        <dependency>
+            <groupId>org.patchca</groupId>
+            <artifactId>captcha</artifactId>
+            <version>0.5.0</version>
         </dependency>
 
     </dependencies>

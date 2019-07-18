@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.allinpay.repository.mapper.RoleMapper">
+    <resultMap id="BaseResultMap" type="com.allinpay.repository.domain.permission.Role">
+        <id column="KID" property="kid" jdbcType="NUMERIC"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    KID,NAME,STATUS
+  </sql>
+    <select id="selectRoleList" parameterType="int" resultMap="BaseResultMap">
+        select r.kid,r.name,r.status from role r
+        inner join admin_role_relation arr on r.kid = arr.role_id
+        where arr.admin_id = #{kid};
+    </select>
+
+
+</mapper>

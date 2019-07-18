@@ -25,7 +25,7 @@ public class FileController {
     @PostMapping("/collect")
     public ResponseData collectData(HttpServletRequest request) {
         Map<String, String> resultMap = fileService.doCollect(request);
-        return new ResponseData().success(resultMap);
+        return ResponseData.success().setData(resultMap);
     }
 
     @RequestMapping("/sync")

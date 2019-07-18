@@ -18,9 +18,19 @@ import java.util.Map;
  */
 public class RedirectController {
 
-    @RequestMapping("/login")
+    @RequestMapping({"/", "/login"})
     public String login() {
         return "login";
+    }
+
+    @RequestMapping("/403")
+    public String forbidden() {
+        return "common/403";
+    }
+
+    @RequestMapping("/index")
+    public String index() {
+        return "common/index";
     }
 
     @RequestMapping("/home")
@@ -142,25 +152,25 @@ public class RedirectController {
             arrayList.clear();
             arrayList.add(map);
         }
-        return new ResponseData().success(arrayList);
+        return ResponseData.success().setData(arrayList);
     }
 
     @PostMapping("/delById")
     @ResponseBody
     public ResponseData getList(String id) {
-        return new ResponseData().success(id);
+        return ResponseData.success().setData(id);
     }
 
     @PostMapping("/editById")
     @ResponseBody
     public ResponseData editById(String id) {
-        return new ResponseData().success(id);
+        return ResponseData.success().setData(id);
     }
 
     @PostMapping("/add")
     @ResponseBody
     public ResponseData add() {
-        return new ResponseData().success(null);
+        return ResponseData.success().setData(null);
     }
 
     @GetMapping("/getById")
@@ -178,6 +188,6 @@ public class RedirectController {
         map.put("classify", "程序员");
         map.put("wealth", "78900");
         arrayList.add(map);
-        return new ResponseData().success(arrayList);
+        return ResponseData.success().setData(arrayList);
     }
 }

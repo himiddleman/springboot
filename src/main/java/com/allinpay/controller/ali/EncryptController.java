@@ -2,7 +2,7 @@ package com.allinpay.controller.ali;
 
 import com.allinpay.core.common.ResponseData;
 import com.allinpay.core.constant.CommonConstant;
-import com.allinpay.repository.domain.Admin;
+import com.allinpay.repository.domain.permission.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.stereotype.Controller;
@@ -32,14 +32,14 @@ public class EncryptController {
         String id = "101";
         String retMsg = restTemplate.getForObject(CommonConstant.CORAL_ADDRESS + "/callservice/testGet1/{id}",
                 String.class, id);
-        return new ResponseData().success(retMsg);
+        return ResponseData.success().setData(retMsg);
     }
 
     @RequestMapping("/get2")
     @ResponseBody
     public ResponseData get2() {
         String retMsg = restTemplate.getForObject(CommonConstant.CORAL_ADDRESS + "/callservice/testGet2", String.class);
-        return new ResponseData().success(retMsg);
+        return ResponseData.success().setData(retMsg);
     }
 
     @RequestMapping("/get3")
@@ -51,7 +51,7 @@ public class EncryptController {
         map.put("id", id);
         map.put("name", name);
         String retMsg = restTemplate.getForObject(CommonConstant.CORAL_ADDRESS + "/callservice/testGet3/{id}/{name}", String.class, map);
-        return new ResponseData().success(retMsg);
+        return ResponseData.success().setData(retMsg);
     }
 
     @RequestMapping("/get4")
@@ -64,7 +64,7 @@ public class EncryptController {
         map.put("id", id);
         map.put("name", name);
         String retMsg = restTemplate.getForObject(CommonConstant.CORAL_ADDRESS + "/callservice/testGet4?id={id}&name={name}", String.class, map);
-        return new ResponseData().success(retMsg);
+        return ResponseData.success().setData(retMsg);
     }
 
     /**
@@ -74,7 +74,7 @@ public class EncryptController {
     @RequestMapping("/post1")
     @ResponseBody
     public String post1() {
-        String id = "101";
+        int id = 101;
         String name = "谭光";
         Admin admin = new Admin();
         admin.setNickname(name);
