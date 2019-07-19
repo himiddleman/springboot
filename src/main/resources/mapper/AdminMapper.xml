@@ -23,4 +23,19 @@
         <include refid="Base_Column_List"/>
         from admin WHERE email = #{email}
     </select>
+
+    <insert id="insert" parameterType="com.allinpay.repository.domain.permission.Admin">
+        insert into admin (<include refid="Base_Column_List"/>)
+        values (
+        #{admin.kid, jdbcType=NUMERIC},
+        #{admin.email, jdbcType=VARCHAR},
+        #{admin.password, jdbcType=VARCHAR},
+        #{admin.nickname, jdbcType=VARCHAR},
+        #{admin.status, jdbcType=VARCHAR},
+        #{admin.isVerify, jdbcType=VARCHAR},
+        #{admin.createTime, jdbcType=TIMESTAMP},
+        #{admin.updateTime, jdbcType=TIMESTAMP},
+        #{admin.salt, jdbcType=VARCHAR}
+        )
+    </insert>
 </mapper>

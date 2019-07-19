@@ -9,4 +9,6 @@ public interface AdminMapper {
                    @Param("password") String password);
 
     Admin selectByUsername(String username);
+
+    int insert(@Param("admin") Admin admin);
 }

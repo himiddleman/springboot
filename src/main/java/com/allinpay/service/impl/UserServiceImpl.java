@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Slf4j
@@ -25,5 +26,20 @@ public class UserServiceImpl implements IUserService {
             log.warn("登录失败！账号或密码错误！");
         }
         return admin;
+    }
+
+    @Override
+    @Transactional
+    public void addUser(Admin admin) {
+        adminMapper.insert(admin);
+        addUser2(admin);
+        int i = 1 / 0;
+    }
+
+    @Override
+    @Transactional
+    public void addUser2(Admin admin) {
+        admin.setKid(101);
+        adminMapper.insert(admin);
     }
 }
