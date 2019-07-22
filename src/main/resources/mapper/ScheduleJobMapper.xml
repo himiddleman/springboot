@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.allinpay.repository.mapper.ScheduleJobMapper">
+    <resultMap id="BaseResultMap" type="com.allinpay.repository.domain.ScheduleJob">
+        <id column="KID" property="kid" jdbcType="VARCHAR"/>
+        <result column="JOB_NAME" property="jobName" jdbcType="VARCHAR"/>
+        <result column="JOB_CLASS" property="jobClassname" jdbcType="VARCHAR"/>
+        <result column="DESCRIPTION" property="description" jdbcType="VARCHAR"/>
+        <result column="PARAM" property="param" jdbcType="VARCHAR"/>
+        <result column="CRON" property="cron" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+        <result column="INSERT_TIME" property="insertTime" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    KID,JOB_NAME,JOB_CLASSNAME,DESCRIPTION,PARAM,CRON,STATUS,INSERT_TIME
+  </sql>
+
+    <select id="selectOne" parameterType="int" resultMap="BaseResultMap">
+        select * from Schedule_job where KID = #{kid}
+    </select>
+
+    <select id="selectList" resultMap="BaseResultMap">
+        select * from Schedule_job
+    </select>
+
+    <insert id="save" parameterType="com.allinpay.repository.domain.ScheduleJob">
+        insert into (<include refid="Base_Column_List"/>)
+        values (
+        #{job.kid, jdbcType=NUMERIC},
+        #{job.jobName, jdbcType=VARCHAR},
+        #{job.jobClassname, jdbcType=VARCHAR},
+        #{job.jobClassname, jdbcType=VARCHAR},
+        #{job.description, jdbcType=VARCHAR},
+        #{job.param, jdbcType=VARCHAR},
+        #{job.cron, jdbcType=VARCHAR},
+        #{job.status, jdbcType=VARCHAR},
+        #{job.insertTime, jdbcType=DATE}
+        )
+    </insert>
+</mapper>
