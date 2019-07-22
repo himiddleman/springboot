@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -34,6 +35,7 @@ public class TaskInitService {
      * 初始化
      */
     @PostConstruct
+    @Scheduled(fixedRate = 10000)
     public void init() {
         Scheduler scheduler = schedulerFactory.getScheduler();
         if (scheduler == null) {
@@ -123,6 +125,8 @@ public class TaskInitService {
         Class jobClass = Class.forName(job.getJobClassname().trim());
         JobDetail jobDetail = JobBuilder.newJob(jobClass).withIdentity(jobKey).withDescription(job.getDescription())
                 .build();
+        //设置参数
+        jobDetail.getJobDataMap().put("ScheduleJob", job);
         CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity(triggerKey).forJob(jobKey)
                 .withSchedule(CronScheduleBuilder.cronSchedule(cronExpr).withMisfireHandlingInstructionDoNothing())
                 .build();

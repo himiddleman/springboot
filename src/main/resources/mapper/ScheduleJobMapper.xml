@@ -4,7 +4,7 @@
     <resultMap id="BaseResultMap" type="com.allinpay.repository.domain.ScheduleJob">
         <id column="KID" property="kid" jdbcType="VARCHAR"/>
         <result column="JOB_NAME" property="jobName" jdbcType="VARCHAR"/>
-        <result column="JOB_CLASS" property="jobClassname" jdbcType="VARCHAR"/>
+        <result column="JOB_CLASSNAME" property="jobClassname" jdbcType="VARCHAR"/>
         <result column="DESCRIPTION" property="description" jdbcType="VARCHAR"/>
         <result column="PARAM" property="param" jdbcType="VARCHAR"/>
         <result column="CRON" property="cron" jdbcType="VARCHAR"/>
@@ -16,15 +16,15 @@
   </sql>
 
     <select id="selectOne" parameterType="int" resultMap="BaseResultMap">
-        select * from Schedule_job where KID = #{kid}
+        select * from schedule_job where KID = #{kid}
     </select>
 
     <select id="selectList" resultMap="BaseResultMap">
-        select * from Schedule_job
+        select * from schedule_job
     </select>
 
     <insert id="save" parameterType="com.allinpay.repository.domain.ScheduleJob">
-        insert into (<include refid="Base_Column_List"/>)
+        insert into schedule_job (<include refid="Base_Column_List"/>)
         values (
         #{job.kid, jdbcType=NUMERIC},
         #{job.jobName, jdbcType=VARCHAR},
