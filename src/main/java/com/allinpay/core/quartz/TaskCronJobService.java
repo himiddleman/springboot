@@ -1,7 +1,6 @@
-package com.allinpay.core.schedule;
+package com.allinpay.core.quartz;
 
-import com.allinpay.core.util.TaskSchedulerFactory;
-import com.allinpay.core.util.TaskUtils;
+import com.allinpay.core.util.QuartzUtils;
 import com.allinpay.repository.domain.ScheduleJob;
 import com.allinpay.repository.mapper.ScheduleJobMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -9,8 +8,6 @@ import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * 基于Cron的定时任务服务类
@@ -25,16 +22,15 @@ public class TaskCronJobService {
     private ScheduleJobMapper scheduleJobMapper;
 
     @Autowired
-    private TaskSchedulerFactory schedulerFactory;
+    private Scheduler scheduler;
 
     // 在对任务进行保存时需同步更新调度器中的定时任务配置
     @Transactional
     public void save(ScheduleJob taskCronJob) {
         try {
             ScheduleJob job = scheduleJobMapper.selectOne(taskCronJob.getKid());
-            TriggerKey triggerKey = TaskUtils.genCronTriggerKey(job);
-            Scheduler scheduler = schedulerFactory.getScheduler();
-            JobKey jobKey = TaskUtils.genCronJobKey(job);
+            TriggerKey triggerKey = QuartzUtils.genCronTriggerKey(job);
+            JobKey jobKey = QuartzUtils.genCronJobKey(job);
             // 如果不同则代表着CRON表达式已经修改
             if (!job.getCron().equals(taskCronJob.getCron())) {
                 CronTrigger newTrigger = TriggerBuilder.newTrigger().withIdentity(triggerKey).forJob(jobKey)
@@ -79,9 +75,4 @@ public class TaskCronJobService {
             log.error(e.getMessage());
         }
     }
-
-    public List<ScheduleJob> findAll() {
-        return scheduleJobMapper.selectList();
-    }
-
 }

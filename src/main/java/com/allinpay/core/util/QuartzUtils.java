@@ -7,7 +7,7 @@ import org.quartz.TriggerKey;
 /**
  * 任务管理模块的工具类
  */
-public class TaskUtils {
+public class QuartzUtils {
 
     /**
      * 基于cron调度的Job的默认组名
@@ -21,7 +21,7 @@ public class TaskUtils {
      * @return
      */
     public static JobKey genCronJobKey(ScheduleJob job) {
-        return new JobKey(job.getJobName().trim(), CRON_JOB_GROUP_NAME);
+        return new JobKey("job_" + job.getKid(), CRON_JOB_GROUP_NAME);
     }
 
     /**
@@ -31,7 +31,7 @@ public class TaskUtils {
      * @return
      */
     public static TriggerKey genCronTriggerKey(ScheduleJob job) {
-        return new TriggerKey("trigger_" + job.getJobName().trim(), CRON_JOB_GROUP_NAME);
+        return new TriggerKey("trigger_" + job.getKid(), CRON_JOB_GROUP_NAME);
     }
 
     /**
@@ -42,7 +42,6 @@ public class TaskUtils {
      * @return
      */
     public static boolean isTriggerKeyEqual(TriggerKey tk1, TriggerKey tk2) {
-        return tk1.getName().equals(tk2.getName()) && ((tk1.getGroup() == null && tk2.getGroup() == null)
-                || (tk1.getGroup() != null && tk1.getGroup().equals(tk2.getGroup())));
+        return tk1.getName().equals(tk2.getName()) && tk1.getGroup().equals(tk2.getGroup());
     }
 }

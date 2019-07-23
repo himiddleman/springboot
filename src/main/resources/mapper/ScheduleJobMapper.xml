@@ -20,7 +20,7 @@
     </select>
 
     <select id="selectList" resultMap="BaseResultMap">
-        select * from schedule_job
+        select * from schedule_job where status = '0'
     </select>
 
     <insert id="save" parameterType="com.allinpay.repository.domain.ScheduleJob">
