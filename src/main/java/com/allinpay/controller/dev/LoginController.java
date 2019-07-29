@@ -45,7 +45,7 @@ public class LoginController {
     public ResponseData login(HttpSession session, String captcha,
                               @RequestParam("username") String username,
                               @RequestParam("password") String password) {
-        if (StringUtils.isNoneBlank(captcha)) {
+        if (StringUtils.isNotBlank(captcha)) {
             if (captcha.equalsIgnoreCase((String) session.getAttribute("captcha"))) {
                 session.setAttribute("captcha", null);
             } else {
