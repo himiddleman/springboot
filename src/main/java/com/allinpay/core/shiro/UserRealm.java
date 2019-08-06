@@ -11,6 +11,7 @@ import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
@@ -18,7 +19,9 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Component
 @Slf4j
@@ -29,7 +32,23 @@ public class UserRealm extends AuthorizingRealm {
     private AdminMapper adminMapper;
 
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        return null;
+        Set<String> roles = new HashSet<>();
+        Set<String> perms = new HashSet<>();
+        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo(roles);
+        UserVO primaryPrincipal = (UserVO) principals.getPrimaryPrincipal();
+
+        //角色
+        roles.add("user");
+        if (primaryPrincipal.getEmail().equals("admin")) {
+            roles.add("admin");
+        }
+        //权限
+        perms.add("user");
+        perms.add("hello");
+
+        simpleAuthorizationInfo.addStringPermissions(perms);
+
+        return simpleAuthorizationInfo;
     }
 
     //密码加密方式 ，一般使用主键、用户名作为盐值
