@@ -4,7 +4,6 @@ import com.allinpay.core.common.ResponseData;
 import com.allinpay.repository.domain.User;
 import com.allinpay.repository.domain.UserConfig;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,14 +16,14 @@ public class HelloController {
     private UserConfig userConfig;
 
     @RequestMapping("/hello")
-    @RequiresRoles({"admin"})
-    @RequiresPermissions("user:hello")
+    @RequiresPermissions("user:update,create")
     @ResponseBody
     public ResponseData sayHello() {
         return ResponseData.success().setData("8080");
     }
 
     @RequestMapping("/sayhello")
+    @RequiresPermissions("user:update")
     public ResponseData sayhello() {
         User user = new User();
         BeanUtils.copyProperties(userConfig, user);
@@ -32,6 +31,7 @@ public class HelloController {
     }
 
     @RequestMapping("/test/globalException")
+    @RequiresPermissions("user:update:id_1")
     public ResponseData globalException() {
         int i = 1 / 0;
         return ResponseData.success().setData(null);

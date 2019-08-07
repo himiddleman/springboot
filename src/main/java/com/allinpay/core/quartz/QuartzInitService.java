@@ -35,7 +35,7 @@ public class QuartzInitService {
      * 初始化, 容器启动时执行，以后每10分钟扫描数据库一次，查找未运行的任务。
      */
     @PostConstruct
-    @Scheduled(fixedDelay = 6000)
+    @Scheduled(fixedDelay = 600000)
     public void init() {
         if (Objects.isNull(scheduler)) {
             log.error("初始化定时任务组件失败，Scheduler is null...");

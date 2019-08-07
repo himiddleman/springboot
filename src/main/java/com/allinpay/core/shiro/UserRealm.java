@@ -43,8 +43,9 @@ public class UserRealm extends AuthorizingRealm {
             roles.add("admin");
         }
         //权限
-        perms.add("user");
-        perms.add("hello");
+        perms.add("user:update");
+        perms.add("user:update:*");
+        perms.add("user:update,create");
 
         simpleAuthorizationInfo.addStringPermissions(perms);
 
