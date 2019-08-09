@@ -16,12 +16,12 @@ import java.nio.charset.Charset;
 
 @Slf4j
 public class MyClient {
-    private static String HOST = "127.0.0.1";
+    private static String HOST = "47.99.172.60";
 
     private static int PORT = 9999;
 
     public static void main(String[] args) throws Exception {
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 10; i++) {
             // 创建一个非阻塞的客户端客户端   the non-blocking Socket transport IoConnector
             IoConnector connector = new NioSocketConnector();
             // 设置链接超时时间
@@ -31,8 +31,8 @@ public class MyClient {
                     "codec",
                     // Mina自带的根据文本换行符编解码的TextLineCodec过滤器 看到\r\n就认为一个完整的消息结束了
                     new ProtocolCodecFilter(new TextLineCodecFactory(Charset
-                            .forName("UTF-8"), LineDelimiter.WINDOWS.getValue(),
-                            LineDelimiter.WINDOWS.getValue())));
+                            .forName("UTF-8"), LineDelimiter.UNIX.getValue(),
+                            LineDelimiter.UNIX.getValue())));
             // 添加业务逻辑处理器类
             connector.setHandler(new MinaClientHandler());
             IoSession session;
