@@ -39,31 +39,31 @@ public class HelloController {
 
     @RequestMapping("/cardlist")
     public String cardList() {
-        return "cardlist";
+        return "other/cardlist";
     }
 
     @RequestMapping("/carddetail")
     public String cardDetail() {
-        return "carddetail";
+        return "other/carddetail";
     }
 
     @RequestMapping("/merchantcard")
     public String merchantCard() {
-        return "merchantcard";
+        return "other/merchantcard";
     }
 
     @RequestMapping("/coupon")
     public String index() {
-        return "coupon";
+        return "other/coupon";
     }
 
     @RequestMapping("/coupondetail")
     public String couponDetail() {
-        return "coupondetail";
+        return "other/coupondetail";
     }
 
     @RequestMapping("/2DFire")
     public String twoDFire() {
-        return "2DFire";
+        return "other/2DFire";
     }
 }
