@@ -13,18 +13,18 @@ public class FizzBuzzTest {
 
     @Test
     public void test_normal() {
-        assertThat(new FizzBuzz().of(1)).isEqualTo("1");
-        assertThat(new FizzBuzz().of(3)).isEqualTo("Fizz");
-        assertThat(new FizzBuzz().of(5)).isEqualTo("Buzz");
-        assertThat(new FizzBuzz().of(15)).isEqualTo("FizzBuzz");
-        assertThat(new FizzBuzz().of(13)).isEqualTo("Fizz");
-        assertThat(new FizzBuzz().of(52)).isEqualTo("Buzz");
+        assertThat(new FizzBuzz(1).of()).isEqualTo("1");
+        assertThat(new FizzBuzz(3).of()).isEqualTo("Fizz");
+        assertThat(new FizzBuzz(5).of()).isEqualTo("Buzz");
+        assertThat(new FizzBuzz(15).of()).isEqualTo("FizzBuzz");
+        assertThat(new FizzBuzz(13).of()).isEqualTo("Fizz");
+        assertThat(new FizzBuzz(52).of()).isEqualTo("Buzz");
     }
 
     @Test
     public void test_abnormal() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Number must be positive");
-        new FizzBuzz().of(-1);
+        new FizzBuzz(-1).of();
     }
 }
