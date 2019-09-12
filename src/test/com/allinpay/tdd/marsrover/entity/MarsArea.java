@@ -1,5 +1,8 @@
 package com.allinpay.tdd.marsrover.entity;
 
+import lombok.Data;
+
+@Data
 public class MarsArea {
     private Integer xAxis;
     private Integer yAxis;
