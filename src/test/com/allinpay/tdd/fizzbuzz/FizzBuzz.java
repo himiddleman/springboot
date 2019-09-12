@@ -1,4 +1,4 @@
-package com.allinpay.fizzbuzz;
+package com.allinpay.tdd.fizzbuzz;
 
 public class FizzBuzz {
     private Integer number;

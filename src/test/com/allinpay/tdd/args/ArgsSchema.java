@@ -1,4 +1,4 @@
-package com.allinpay.args;
+package com.allinpay.tdd.args;
 
 import org.apache.commons.lang3.StringUtils;
 
