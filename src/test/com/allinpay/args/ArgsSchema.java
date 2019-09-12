@@ -2,9 +2,7 @@ package com.allinpay.args;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ArgsSchema {
     private Map<String, String> schemaMap;
@@ -41,6 +39,20 @@ public class ArgsSchema {
                 }
             case "string":
                 return value;
+            case "slist":
+                if (StringUtils.isBlank(value)) {
+                    return new ArrayList<>();
+                }
+                return Arrays.asList(value.split(","));
+            case "ilist":
+                if (StringUtils.isBlank(value)) {
+                    return new ArrayList<>();
+                }
+                List list = new ArrayList<>();
+                Arrays.asList(value.split(",")).stream().forEach(ele -> {
+                    list.add(Integer.parseInt(ele));
+                });
+                return list;
             default:
                 throw new IllegalArgumentException("不支持的参数类型");
         }

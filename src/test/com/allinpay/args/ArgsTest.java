@@ -2,6 +2,8 @@ package com.allinpay.args;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ArgsTest {
@@ -25,5 +27,13 @@ public class ArgsTest {
         assertThat(argsParser.getValue("l")).isEqualTo(Boolean.FALSE);
         assertThat(argsParser.getValue("p")).isEqualTo(0);
         assertThat(argsParser.getValue("d")).isEqualTo("");
+    }
+
+    @Test
+    public void test_extension_list_type() {
+        ArgsParser argsParser = new ArgsParser("l:bool,p:int,d:string,g:slist,f:ilist",
+                "-l -p -d -g this,is,a,list -f 1,-2,-3");
+        assertThat((List) argsParser.getValue("g")).hasSize(4).contains("this", "is", "a", "list");
+        assertThat((List) argsParser.getValue("f")).hasSize(3).contains(1, -2, -3).doesNotContain(4);
     }
 }

@@ -4,6 +4,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SchemaTest {
@@ -36,5 +39,29 @@ public class SchemaTest {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("转换为整型数异常");
         assertThat(schema.getValue("p", "abc"));
+    }
+
+    @Test
+    public void test_string_list() {
+        ArgsSchema schema = new ArgsSchema("l:bool,p:int,d:string,g:slist");
+        List list = new ArrayList<>();
+        list.add("this");
+        list.add("is");
+        list.add("a");
+        list.add("list");
+        assertThat(schema.getValue("g", "this,is,a,list")).isEqualTo(list);
+        assertThat(schema.getValue("g", "")).isEqualTo(new ArrayList<>());
+    }
+
+    @Test
+    public void test_int_list() {
+        ArgsSchema schema = new ArgsSchema("l:bool,p:int,d:string,g:slist,f:ilist");
+        List list = new ArrayList<>();
+        list.add(1);
+        list.add(-2);
+        list.add(-3);
+        list.add(5);
+        assertThat(schema.getValue("f", "1,-2,-3,5")).isEqualTo(list);
+        assertThat(schema.getValue("f", "")).isEqualTo(new ArrayList<>());
     }
 }

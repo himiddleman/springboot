@@ -26,4 +26,11 @@ public class CommandTest {
         ArgsCommand command = new ArgsCommand("-l true -p -9 -d /usr/local");
         assertThat(command.getValue("p")).isEqualTo("-9");
     }
+
+    @Test
+    public void test_extension_string_list_and_int_list() {
+        ArgsCommand command = new ArgsCommand("-l true -p -9 -d /usr/local -g this,is,a,list -f 1,-2,-3,4");
+        assertThat(command.getValue("g")).isEqualTo("this,is,a,list");
+        assertThat(command.getValue("f")).isEqualTo("1,-2,-3,4");
+    }
 }

@@ -11,7 +11,6 @@ public class FizzBuzz {
         if (number <= 0) {
             throw new IllegalArgumentException("Number must be positive");
         }
-        String numberStr = String.valueOf(number);
         if (isDivisible(3) && isDivisible(5)) {
             return "FizzBuzz";
         }
@@ -21,7 +20,7 @@ public class FizzBuzz {
         if (isDivisible(5) || isContains("5")) {
             return "Buzz";
         }
-        return numberStr;
+        return String.valueOf(number);
     }
 
     private boolean isContains(String s) {
