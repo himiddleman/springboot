@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping("/user")
 @Slf4j
@@ -26,5 +28,12 @@ public class UserController {
         } else {
             return ResponseData.failure("110", "101").setData(null);
         }
+    }
+
+    @RequestMapping("/getOne")
+    public ResponseData getAdmin(Admin admin) {
+        admin.setCreateTime(new Date());
+        admin.setUpdateTime(new Date());
+        return ResponseData.success().setData(admin);
     }
 }

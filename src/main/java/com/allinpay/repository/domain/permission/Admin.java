@@ -2,6 +2,8 @@ package com.allinpay.repository.domain.permission;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class Admin {
     private Integer kid;
@@ -10,7 +12,7 @@ public class Admin {
     private String nickname;
     private String status;
     private String isVerify;
-    private java.sql.Timestamp createTime;
-    private java.sql.Timestamp updateTime;
+    private Date createTime;
+    private Date updateTime;
     private String salt;
 }
