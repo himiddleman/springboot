@@ -14,9 +14,9 @@ public class BindPhoneTest {
         final YunRequest request = new YunRequest("MemberService", "bindPhone");
 
         try {
-            request.put("bizUserId", "tg0505");
+            request.put("bizUserId", "qiye01");
             request.put("phone", "15197704032");
-            request.put("verificationCode", "840725");
+            request.put("verificationCode", "264153");
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

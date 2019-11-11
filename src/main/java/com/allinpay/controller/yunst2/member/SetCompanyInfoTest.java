@@ -15,9 +15,9 @@ public class SetCompanyInfoTest {
         final YunRequest request = new YunRequest("MemberService", "setCompanyInfo");
 
         try {
-            request.put("bizUserId", "WHYQY2019002");
+            request.put("bizUserId", "qiye01");//WHYQY2019002
             request.put("backUrl", "http://www.baidu.com");
-            request.put("isAuth", true);
+            request.put("isAuth", false);
 
             // 组companyBasicInfo企业信息jsonobject对象
             JSONObject companyBasicInfo = new JSONObject();

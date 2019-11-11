@@ -116,7 +116,7 @@ public class DepositApplayTest {
             // 支付方式
             //收银宝刷卡支付（被扫）——支持微信、支付宝、银联、手机QQ
             HashMap<String, Object> QUICKPAY_VSP = new HashMap<>();
-            QUICKPAY_VSP.put("bankCardNo", RSAUtil.encrypt("4391880821317777"));
+            QUICKPAY_VSP.put("bankCardNo", RSAUtil.encrypt("6214680141439347"));
             QUICKPAY_VSP.put("amount", 1L);
 
             HashMap<String, Object> GATEWAY = new HashMap<>();
@@ -136,7 +136,7 @@ public class DepositApplayTest {
 //			payMethod.put("REALNAMEPAY", realnamePay);
 //			 payMethod.put("GATEWAY", GATEWAY);
 //				payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
-//			payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
+            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
 //			payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
             // payMethod.put("WITHHOLD_UP", daikouPay);
 //			 payMethod.put("WITHHOLD_SD", WITHHOLD_SD);
@@ -145,13 +145,13 @@ public class DepositApplayTest {
 //			payMethod.put("SCAN_ALIPAY_ORG", SCAN_ALIPAY_ORG);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
 //			payMethod.put("CODEPAY_VSP_ORG", CODEPAY_VSP_ORG);
-            payMethod.put("ORDER_VSPPAY", ORDER_VSPPAY);
+//            payMethod.put("ORDER_VSPPAY", ORDER_VSPPAY);
 //			payMethod.put("SCAN_UNIONPAY", SCAN_UNIONPAY);
 
 
-            request.put("bizUserId", "WHYQY2019001");
+            request.put("bizUserId", "ceshi01");
             request.put("bizOrderNo", System.currentTimeMillis() + "whycz");
-            request.put("accountSetNo", "200087");
+            request.put("accountSetNo", "200126");
             request.put("amount", 1L);
             request.put("fee", 0L);
             request.put("validateType", 0L);

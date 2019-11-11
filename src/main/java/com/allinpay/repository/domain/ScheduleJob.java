@@ -1,11 +1,13 @@
 package com.allinpay.repository.domain;
 
 import lombok.Data;
+import org.springframework.context.Lifecycle;
 
 import java.util.Date;
 
 @Data
-public class ScheduleJob {
+public class ScheduleJob implements Lifecycle {
+    private MyScheduleJob testA;
     /**
      * 任务id
      */
@@ -38,4 +40,19 @@ public class ScheduleJob {
      * 任务插入时间
      */
     private Date insertTime;
+
+    @Override
+    public void start() {
+        System.out.println("scheduleJob start...");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("scheduleJob start...");
+    }
+
+    @Override
+    public boolean isRunning() {
+        return false;
+    }
 }

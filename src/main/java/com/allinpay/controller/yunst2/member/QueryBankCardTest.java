@@ -14,7 +14,7 @@ public class QueryBankCardTest {
         final YunRequest request = new YunRequest("MemberService", "queryBankCard");
 
         try {
-            request.put("bizUserId", "tg0505");
+            request.put("bizUserId", "ceshi01");
 //			request.put("cardNo", RSAUtil.encrypt("6228487777777777771"));
 ////			request.put("source", 2);
 

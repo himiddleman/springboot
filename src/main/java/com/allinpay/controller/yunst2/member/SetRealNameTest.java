@@ -15,7 +15,7 @@ public class SetRealNameTest {
         final YunRequest request = new YunRequest("MemberService", "setRealName");
 
         try {
-            request.put("bizUserId", "tg0505");
+            request.put("bizUserId", "qiye01");
             request.put("isAuth", "true");
             request.put("name", "谭光");
             request.put("identityType", "1");
