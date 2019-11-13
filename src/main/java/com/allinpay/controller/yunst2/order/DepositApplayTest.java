@@ -35,7 +35,7 @@ public class DepositApplayTest {
 
             // 实名付（单笔）
             HashMap<String, Object> realnamePay = new HashMap<>();
-            realnamePay.put("bankCardNo", RSAUtil.encrypt("6228487777777777777"));
+            realnamePay.put("bankCardNo", RSAUtil.encrypt("6214680141439347"));
             realnamePay.put("amount", 1);    // 分
 
             // 网关
@@ -71,9 +71,9 @@ public class DepositApplayTest {
             // 支付方式
             //收银宝刷卡支付（被扫）——支持微信、支付宝、银联、手机QQ
             HashMap<String, Object> CODEPAY_VSP = new HashMap<>();
-            CODEPAY_VSP.put("authcode", "134675708230335070");
+            CODEPAY_VSP.put("authcode", "286661663643445821");
             CODEPAY_VSP.put("amount", 1);
-            CODEPAY_VSP.put("payType", "");
+            CODEPAY_VSP.put("limitPay", "");
 
             // 支付方式
             //收银宝刷卡支付集团（被扫）——支持微信、支付宝、银联、手机QQ
@@ -85,10 +85,10 @@ public class DepositApplayTest {
 
             //通联通协议支付（批量）
             HashMap<String, Object> QUICKPAY_TLT = new HashMap<>();
-            QUICKPAY_TLT.put("bankCardNo", RSAUtil.encrypt("4391880821317777"));
+            QUICKPAY_TLT.put("bankCardNo", RSAUtil.encrypt("6214680141439347"));
             QUICKPAY_TLT.put("amount", 1);
-            QUICKPAY_TLT.put("validate", RSAUtil.encrypt("0321"));
-            QUICKPAY_TLT.put("cvv2", RSAUtil.encrypt("985"));
+//            QUICKPAY_TLT.put("validate", RSAUtil.encrypt("0321"));
+//            QUICKPAY_TLT.put("cvv2", RSAUtil.encrypt("985"));
 
             // 支付方式
             //支付宝扫码支付(正扫) _集团
@@ -120,9 +120,7 @@ public class DepositApplayTest {
             QUICKPAY_VSP.put("amount", 1L);
 
             HashMap<String, Object> GATEWAY = new HashMap<>();
-            GATEWAY.put("bankCode", "vbank");
-            GATEWAY.put("payType", 4L);
-            GATEWAY.put("payerCardNo", "1234567890");
+            GATEWAY.put("paytype", "B2C");
             GATEWAY.put("amount", 1);
 
 
@@ -134,16 +132,16 @@ public class DepositApplayTest {
             HashMap<String, Object> payMethod = new HashMap<>();
             // payMethod.put("QUICKPAY", quickPay);
 //			payMethod.put("REALNAMEPAY", realnamePay);
-//			 payMethod.put("GATEWAY", GATEWAY);
+//			 payMethod.put("GATEWAY_VSP", GATEWAY);
 //				payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
-            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
+//            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
 //			payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
             // payMethod.put("WITHHOLD_UP", daikouPay);
 //			 payMethod.put("WITHHOLD_SD", WITHHOLD_SD);
 //			// payMethod.put("WITHHOLD_TLT", tltDaikouPay);
 //			payMethod.put("REALNAMEPAY_BATCH", realnamePay_batch);
 //			payMethod.put("SCAN_ALIPAY_ORG", SCAN_ALIPAY_ORG);
-//			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
+            payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
 //			payMethod.put("CODEPAY_VSP_ORG", CODEPAY_VSP_ORG);
 //            payMethod.put("ORDER_VSPPAY", ORDER_VSPPAY);
 //			payMethod.put("SCAN_UNIONPAY", SCAN_UNIONPAY);

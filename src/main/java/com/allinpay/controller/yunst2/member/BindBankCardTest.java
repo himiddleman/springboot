@@ -15,7 +15,7 @@ public class BindBankCardTest {
 
         try {
             request.put("bizUserId", "ceshi01");
-            request.put("tranceNum", "1193767507790405632");
+            request.put("tranceNum", "1194072800965435392");
 //			request.put("transDate", "20190128");
             request.put("phone", "15197704032");
             request.put("verificationCode", "111111");

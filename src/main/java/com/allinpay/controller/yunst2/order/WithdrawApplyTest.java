@@ -26,17 +26,17 @@ public class WithdrawApplyTest {
 
 
         try {
-            request.put("bizUserId", "zhuyqqiye");
+            request.put("bizUserId", "ceshi01");
             request.put("bizOrderNo", System.currentTimeMillis() + "cz");
-            request.put("accountSetNo", "200001");
+            request.put("accountSetNo", "200126");
             request.put("amount", 1L);
             request.put("fee", 0L);
-            request.put("validateType", 0L);
+            request.put("validateType", 1L);
             request.put("backUrl", "http://10.55.3.236:6003/test/recievePayBack.jsp");
             request.put("ordErexpireDatetime", ordErexpireDatetime);
-            request.put("bankCardNo", RSAUtil.encrypt("6228487777777777777"));
+            request.put("bankCardNo", RSAUtil.encrypt("6214680141439347"));
             request.put("bankCardPro", 0L);
-            request.put("withdrawType", "T0");
+            request.put("withdrawType", "D0");
             request.put("industryCode", "1010");
             request.put("industryName", "保险代理");
             request.put("source", 2L);

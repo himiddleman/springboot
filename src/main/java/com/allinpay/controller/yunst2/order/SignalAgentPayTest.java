@@ -21,7 +21,7 @@ public class SignalAgentPayTest {
             // 源托管代收订单付款信息
             JSONArray collectPayList = new JSONArray();
             HashMap<String, Object> collect1 = new HashMap<>();
-            collect1.put("bizOrderNo", "1549007009040ds");
+            collect1.put("bizOrderNo", "1573614499752ds");
             collect1.put("amount", 1L);
             collectPayList.add(new JSONObject(collect1));
 
@@ -38,17 +38,17 @@ public class SignalAgentPayTest {
             request.put("bizOrderNo", System.currentTimeMillis() + "df");
             request.put("collectPayList", collectPayList);
             ;
-            request.put("bizUserId", "WHYQY2019001");
-            request.put("accountSetNo", "200087");
+            request.put("bizUserId", "qiye01");
+            request.put("accountSetNo", "200126");
             request.put("backUrl", "http://172.16.190.46:8080/yuncallback/mock/notify?");
             request.put("amount", 1L);
             request.put("fee", 0L);
-            request.put("goodsType", 2L);
-            request.put("bizGoodsNo", "12121133211122234");
+//            request.put("goodsType", 2L);
+//            request.put("bizGoodsNo", "12121133211122234");
             request.put("tradeCode", "2003");
             request.put("summary", "signalAgentPay");
             request.put("extendInfo", "this is extendInfo");
-            ;
+
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

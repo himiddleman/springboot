@@ -49,14 +49,14 @@ public class AgentCollectApplyTest {
             // 支付方式
             //收银宝刷卡支付（被扫）——支持微信、支付宝、银联、手机QQ
             HashMap<String, Object> CODEPAY_VSP = new HashMap<>();
-            CODEPAY_VSP.put("authcode", "6227838799325716926");
+            CODEPAY_VSP.put("authcode", "134629952820231099");
             CODEPAY_VSP.put("amount", 1);
-            CODEPAY_VSP.put("payType", "no_credit");
+            CODEPAY_VSP.put("limitPay", "");
 
             // 支付方式
             //收银宝刷卡支付集团（被扫）——支持微信、支付宝、银联、手机QQ
             HashMap<String, Object> CODEPAY_VSP_ORG = new HashMap<>();
-            CODEPAY_VSP_ORG.put("authcode", "6266202232268890740");//支付宝付款码285352993287416079，微信付款码，云闪付
+            CODEPAY_VSP_ORG.put("authcode", "286554743536434139");//支付宝付款码285352993287416079，微信付款码，云闪付
             CODEPAY_VSP_ORG.put("amount", 1);
             CODEPAY_VSP_ORG.put("limitPay", "");
             CODEPAY_VSP_ORG.put("vspCusid", "55058404816VQLX");
@@ -100,9 +100,9 @@ public class AgentCollectApplyTest {
             HashMap<String, Object> payMethod = new HashMap<>();
 //			payMethod.put("REALNAMEPAY", realnamePay);
 //			payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
-//			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
+            payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
 //            payMethod.put("GATEWAY_VSP", GATEWAY_VSP);
-            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
+//            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
 //			payMethod.put("GATEWAY", getwayPay);
 //			payMethod.put("BALANCE", balancePay);
 //			payMethod.put("COUPONLIST", couponList);
@@ -118,7 +118,7 @@ public class AgentCollectApplyTest {
             // 收款列表
             JSONArray receiverList = new JSONArray();
             HashMap<String, Object> receiver1 = new HashMap<>();
-            receiver1.put("bizUserId", "#yunBizUserId_B2C#");
+            receiver1.put("bizUserId", "qiye01");
             receiver1.put("amount", 1);
             receiverList.add(new JSONObject(receiver1));
 
@@ -134,7 +134,7 @@ public class AgentCollectApplyTest {
 
 
             request.put("bizOrderNo", System.currentTimeMillis() + "ds");
-            request.put("payerId", "tg0505"); // bizUserId  付款方
+            request.put("payerId", "ceshi01"); // bizUserId  付款方
             request.put("recieverList", receiverList);
 //            request.put("goodsType", 2L);
 //            request.put("bizGoodsNo", "12121133211122234");

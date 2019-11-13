@@ -52,13 +52,13 @@ public class ConsumeApplyTest {
             // 支付方式
             //微信扫码支付(正扫) _集团
             HashMap<String, Object> SCAN_WEIXIN = new HashMap<>();
-            SCAN_WEIXIN.put("amount", 2);
-            SCAN_WEIXIN.put("limitPay", "no_credit");
+            SCAN_WEIXIN.put("amount", 1);
+            SCAN_WEIXIN.put("limitPay", "");
 
             //支付宝扫码支付
             HashMap<String, Object> SCAN_ALIPAY = new HashMap<>();
             SCAN_ALIPAY.put("amount", 1);
-            SCAN_ALIPAY.put("limitPay", "no_credit");
+            SCAN_ALIPAY.put("limitPay", "");
 
 
             // 支付方式
@@ -68,18 +68,18 @@ public class ConsumeApplyTest {
             COUPON.put("amount", 1);
 
             //余额支付
-            String accountSetNo = "200087";                //账户集编号
+            String accountSetNo = "200126";                //账户集编号
             JSONArray balancePay = new JSONArray();
             JSONObject balance = new JSONObject();
             balance.put("accountSetNo", accountSetNo);
             balance.put("amount", 1L);
-
+            balancePay.add(balance);
             // 支付方式
             //收银宝刷卡支付（被扫）——支持微信、支付宝、银联、手机QQ
             HashMap<String, Object> CODEPAY_VSP = new HashMap<>();
-            CODEPAY_VSP.put("authcode", "134589089934528858");
-//			CODEPAY_VSP.put("amount", 1);
-            CODEPAY_VSP.put("payType", "");
+            CODEPAY_VSP.put("authcode", "283674840656146149");
+            CODEPAY_VSP.put("amount", 1);
+            CODEPAY_VSP.put("limitPay", "");
 
 
             // 支付方式
@@ -115,23 +115,31 @@ public class ConsumeApplyTest {
             WECHATPAY_APP_OPEN.put("amount", 1);
             WECHATPAY_APP_OPEN.put("subAppId", "wx9782703e806fba55");
 
-
+            HashMap<String, Object> GETEWAY_VSP = new HashMap<>();
+            GETEWAY_VSP.put("amount", 1);
+            GETEWAY_VSP.put("paytype", "B2C");
             // 组装支付方式
             HashMap<String, Object> payMethod = new HashMap<>();
+            payMethod.put("SCAN_ALIPAY", SCAN_ALIPAY);
+//            payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
+//			payMethod.put("GATEWAY_VSP", GETEWAY_VSP);
+//            payMethod.put("BALANCE", balancePay);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
 //			payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
 //			payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
+
+
 //			payMethod.put("CODEPAY_VSP_ORG", CODEPAY_VSP_ORG);
 //			payMethod.put("SCAN_WEIXIN_ORG", SCAN_WEIXIN_ORG);
-//			payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
+
 //			payMethod.put("WECHATPAY_APP_OPEN", WECHATPAY_APP_OPEN);
-//			payMethod.put("BALANCE", balancePay);
+
 //			payMethod.put("COUPON", COUPON);
 //			payMethod.put("REALNAMEPAY_BATCH", realnamePay_batch);
 //			payMethod.put("REALNAMEPAY", realnamePay);
-            payMethod.put("ORDER_VSPPAY", ORDER_VSPPAY);
-//			payMethod.put("SCAN_ALIPAY", SCAN_ALIPAY);
+//            payMethod.put("ORDER_VSPPAY", ORDER_VSPPAY);
+
 //			payMethod.put("WeChatPAYAPP_VSP", WeChatPAYAPP_VSP);
 //			payMethod.put("WECHATPAY_APP_OPEN", WECHATPAY_APP_OPEN);
 
@@ -140,22 +148,22 @@ public class ConsumeApplyTest {
             Date date = calendar.getTime();
             String ordErexpireDatetime = sdf.format(date);
 
-            request.put("payerId", "WHYGR2019001");
-            request.put("recieverId", "WHYQY2019001");
+            request.put("payerId", "ceshi01");
+            request.put("recieverId", "qiye01");
             request.put("bizOrderNo", System.currentTimeMillis() + "whyxf");
             request.put("amount", 1L);
             request.put("fee", 0L);
-            request.put("validateType", 1L);
+            request.put("validateType", 0L);
 
             // *** split rule
-            JSONArray splitRule = new JSONArray();
-
-            HashMap<String, Object> splitRule1 = new HashMap<>();
-            splitRule1.put("bizUserId", "grsunzl20190126002");
-            splitRule1.put("accountSetNo", "200087");
-            splitRule1.put("amount", 1L);
-            splitRule1.put("fee", 0L);
-            splitRule1.put("remark", " 消费一级分账");
+//            JSONArray splitRule = new JSONArray();
+//
+//            HashMap<String, Object> splitRule1 = new HashMap<>();
+//            splitRule1.put("bizUserId", "grsunzl20190126002");
+//            splitRule1.put("accountSetNo", "200087");
+//            splitRule1.put("amount", 1L);
+//            splitRule1.put("fee", 0L);
+//            splitRule1.put("remark", " 消费一级分账");
 
 //			JSONArray splitRule2List1 = new JSONArray();
 //			HashMap<String, Object> splitRule2List = new HashMap<>();
@@ -176,7 +184,7 @@ public class ConsumeApplyTest {
 //			splitRule2List1.add(new JSONObject(splitRule2List));			
 //			
 //			splitRule1.put("splitRuleList", splitRule2List1);
-            splitRule.add(new JSONObject(splitRule1));
+//            splitRule.add(new JSONObject(splitRule1));
 
 //			request.put("splitRule", splitRule);
 

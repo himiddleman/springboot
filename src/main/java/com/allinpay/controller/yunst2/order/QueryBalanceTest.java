@@ -14,8 +14,8 @@ public class QueryBalanceTest {
         final YunRequest request = new YunRequest("OrderService", "queryBalance");
 
         try {
-            request.put("bizUserId", "zhuyqqiye");
-            request.put("accountSetNo", "200001");
+            request.put("bizUserId", "qiye01");
+            request.put("accountSetNo", "200126");
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);
