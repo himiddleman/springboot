@@ -128,6 +128,13 @@ public class DepositApplayTest {
             HashMap<String, Object> ORDER_VSPPAY = new HashMap<>();
             ORDER_VSPPAY.put("amount", 1);
 
+            //收银宝公众号js支付
+            HashMap<String, Object> WECHAT_PUBLIC = new HashMap<>();
+            WECHAT_PUBLIC.put("limitPay", "");
+            WECHAT_PUBLIC.put("subAppid", "wxd9b2267890ad0c2c");
+            WECHAT_PUBLIC.put("acct", "o29Sh04_ydAiseLgB6H9xNrCfnDI");
+            WECHAT_PUBLIC.put("amount", "1");
+
             // 组装支付方式
             HashMap<String, Object> payMethod = new HashMap<>();
             // payMethod.put("QUICKPAY", quickPay);

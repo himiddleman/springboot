@@ -118,9 +118,18 @@ public class ConsumeApplyTest {
             HashMap<String, Object> GETEWAY_VSP = new HashMap<>();
             GETEWAY_VSP.put("amount", 1);
             GETEWAY_VSP.put("paytype", "B2C");
+
+            //收银宝公众号js支付
+            HashMap<String, Object> WECHAT_PUBLIC = new HashMap<>();
+            WECHAT_PUBLIC.put("limitPay", "");
+            WECHAT_PUBLIC.put("subAppid", "wxd9b2267890ad0c2c");
+            WECHAT_PUBLIC.put("acct", "o29Sh04_ydAiseLgB6H9xNrCfnDI");
+            WECHAT_PUBLIC.put("amount", "1");
+
             // 组装支付方式
             HashMap<String, Object> payMethod = new HashMap<>();
-            payMethod.put("SCAN_ALIPAY", SCAN_ALIPAY);
+            payMethod.put("WECHAT_PUBLIC", WECHAT_PUBLIC);
+//            payMethod.put("SCAN_ALIPAY", SCAN_ALIPAY);
 //            payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
 //			payMethod.put("GATEWAY_VSP", GETEWAY_VSP);
 //            payMethod.put("BALANCE", balancePay);
