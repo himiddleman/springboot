@@ -19,6 +19,23 @@ import java.util.TreeMap;
 @RequestMapping("/syb/cuspay")
 @Controller
 public class SybFacetToFaceController {
+    public static void main(String[] args) throws Exception {
+        HttpConnectionUtil connection = new HttpConnectionUtil(SybConstant.CUSPAY_URL);
+        connection.init();
+        TreeMap<String, String> params = new TreeMap<>();
+        params.put("appid", SybConstant.CUSPAY_APPID);
+        //通联分配的二维码编码
+        params.put("c", "NPY0QB7p");
+        params.put("oid", "SHLH11235");
+        params.put("amt", "1");
+//        params.put("returl", "www.baidu.com");
+        params.put("trxreserve", "05|Q1#张三|Q2#186-2828-9999|Q3#广州市天河区");
+        params.put("sign", MD5Util.sign(params, SybConstant.CUSPAY_APPKEY));
+        byte[] bytes = connection.postParams(params, true);
+        String result = new String(bytes, "utf-8");
+        System.out.println(result);
+    }
+
     @RequestMapping("/code")
     public void getQRCode(HttpServletResponse response) throws Exception {
         HttpConnectionUtil connection = new HttpConnectionUtil(SybConstant.CUSPAY_URL);

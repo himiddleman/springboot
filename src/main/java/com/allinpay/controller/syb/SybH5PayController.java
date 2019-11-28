@@ -15,6 +15,29 @@ import java.util.TreeMap;
 @RequestMapping("/syb/h5")
 @Controller
 public class SybH5PayController {
+    public static void main(String[] args) throws Exception {
+        HttpConnectionUtil connection = new HttpConnectionUtil(SybConstant.H5_URL + "unionorder");
+        connection.init();
+        TreeMap<String, String> params = new TreeMap<>();
+        params.put("appid", SybConstant.APPID);
+        //通联分配的二维码编码
+        params.put("cusid", SybConstant.CUSID);
+        params.put("version", "12");
+        params.put("trxamt", "1");
+        params.put("reqsn", "shlh111333");
+        params.put("charset", "utf-8");
+        params.put("returl", "http://47.99.172.60:10010/h5/policy/returl");
+        params.put("notify_url", "http://47.99.172.60:10010/h5/policy/notify");
+        params.put("body", "谭光");
+        //上限：150个字符
+//        params.put("remark", param);
+        params.put("randomstr", System.currentTimeMillis() + "");
+        params.put("sign", MD5Util.sign(params, SybConstant.APPKEY));
+        byte[] bytes = connection.postParams(params, true);
+        String result = new String(bytes, "utf-8");
+        System.out.println(result);
+    }
+
     @RequestMapping("/pay")
     public void getQRCode(String param, String merchantId, HttpServletResponse response) throws Exception {
         System.out.println(merchantId + ":" + param);

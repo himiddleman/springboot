@@ -12,6 +12,23 @@ import java.util.TreeMap;
 @RequestMapping("/syb/online")
 @RestController
 public class SybOnlinePayController {
+    public static void main(String[] args) throws Exception {
+        HttpConnectionUtil http = new HttpConnectionUtil(SybConstant.SYB_APIURL + "/pay");
+        http.init();
+        TreeMap<String, String> params = new TreeMap<>();
+        params.put("cusid", SybConstant.SYB_CUSID);
+        params.put("appid", SybConstant.SYB_APPID);
+        params.put("version", "11");
+        params.put("trxamt", "1");
+        params.put("reqsn", "shlh110338");
+        params.put("paytype", "U01");
+        params.put("body", "网上收银测试");
+        params.put("randomstr", System.currentTimeMillis() + "");
+        params.put("sign", MD5Util.sign(params, SybConstant.SYB_APPKEY));
+        byte[] bys = http.postParams(params, true);
+        String result = new String(bys, "UTF-8");
+        System.out.println(result);
+    }
     @RequestMapping("/pay")
     public Map<String, String> pay() throws Exception {
         HttpConnectionUtil http = new HttpConnectionUtil(SybConstant.SYB_APIURL + "/pay");
