@@ -2,7 +2,11 @@ package com.allinpay.core.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.listener.RabbitListenerContainerFactory;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,12 +21,23 @@ public class RabbitConfig {
     private RabbitTemplate rabbitTemplate;
 
     @Bean
+    public RabbitListenerContainerFactory<?> rabbitListenerContainerFactory(ConnectionFactory connectionFactory) {
+        SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
+        //默认创建的SimpleMessageListenerContainer监听是自动应答的
+        //private volatile AcknowledgeMode acknowledgeMode = AcknowledgeMode.AUTO;
+        factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
+        factory.setConnectionFactory(connectionFactory);
+        factory.setMessageConverter(new Jackson2JsonMessageConverter());
+        return factory;
+    }
+
+    @Bean
     public AmqpTemplate amqpTemplate() {
         //消息是否发送到指定的队列
         final boolean[] sendToQueue = {true};
         //使用jackson 消息转换器
-//        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
-//        rabbitTemplate.setEncoding("UTF-8");
+        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
+        rabbitTemplate.setEncoding("UTF-8");
         //开启returncallback yml 需要 配置 publisher-returns: true
         rabbitTemplate.setMandatory(true);
         rabbitTemplate.setReturnCallback((message, replyCode, replyText, exchange, routingKey) -> {
