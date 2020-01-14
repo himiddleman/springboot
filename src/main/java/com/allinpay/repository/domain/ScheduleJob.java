@@ -7,7 +7,6 @@ import java.util.Date;
 
 @Data
 public class ScheduleJob implements Lifecycle {
-    private MyScheduleJob testA;
     /**
      * 任务id
      */

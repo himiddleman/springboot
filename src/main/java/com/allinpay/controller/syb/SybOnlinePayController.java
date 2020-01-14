@@ -20,8 +20,16 @@ public class SybOnlinePayController {
         params.put("appid", SybConstant.SYB_APPID);
         params.put("version", "11");
         params.put("trxamt", "1");
-        params.put("reqsn", "shlh110338");
-        params.put("paytype", "U01");
+        params.put("reqsn", "shlh210330");
+        //扫码支付 微信 银联 支付宝 QQ钱包
+        //https://syb.allinpay.com/apiweb/h5unionpay/native?key=oTi5TR0Y58SSRVEX8DmW%2BoBO
+//        params.put("paytype", "W01");
+        //https://qr.95516.com/00010000/01192338689601451967352321926238
+//        params.put("paytype", "U01");
+        //https://qr.alipay.com/bax00525u9qhc1zbxc57000a
+//        params.put("paytype", "A01");
+        //https://qpay.qq.com/qr/613ff984
+//        params.put("paytype", "Q01");
         params.put("body", "网上收银测试");
         params.put("randomstr", System.currentTimeMillis() + "");
         params.put("sign", MD5Util.sign(params, SybConstant.SYB_APPKEY));
