@@ -74,4 +74,9 @@ public class HelloController {
     public String twoDFire() {
         return "other/2DFire";
     }
+
+    @RequestMapping("/partner/easylife")
+    public String freedomLife() {
+        return "other/easylife";
+    }
 }

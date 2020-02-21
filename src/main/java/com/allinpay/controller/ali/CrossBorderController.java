@@ -20,6 +20,9 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.UnsupportedEncodingException;
 
+/**
+ * 报关接口
+ */
 @RestController
 public class CrossBorderController {
     @Autowired
@@ -140,7 +143,7 @@ class RequestHead {
 @XStreamAlias("BODY")
 class RequestBody {
     @XStreamAlias("CUSTOMS_CODE")
-    private String customsCode = "HG023";
+    private String customsCode = "HG014";
     @XStreamAlias("PAYMENT_CHANNEL")
     private String paymentChannel = "2";
     @XStreamAlias("CUS_ID")
