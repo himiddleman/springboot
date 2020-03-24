@@ -19,7 +19,7 @@
         <jersey.version>1.8</jersey.version>
         <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
         <thymeleaf-layout-dialect.version>2.0.4</thymeleaf-layout-dialect.version>
-        <shiro.version>1.4.1</shiro.version>
+        <shiro.version>1.4.2</shiro.version>
     </properties>
 
     <dependencies>
@@ -275,7 +275,7 @@
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
-            <version>1.4.10</version>
+            <version>1.4.11</version>
         </dependency>
 
         <!--自定义starter -->
