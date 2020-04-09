@@ -291,7 +291,29 @@
             <version>4.8.10.ALL</version>
         </dependency>
 
+        <!--有赞sdk -->
+        <dependency>
+            <groupId>com.youzan.cloud</groupId>
+            <artifactId>open-sdk-core</artifactId>
+            <version>1.0.7-RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.youzan.cloud</groupId>
+            <artifactId>open-sdk-gen</artifactId>
+            <version>1.0.7.202004081004-RELEASE</version>
+        </dependency>
+
     </dependencies>
+
+    <!--有赞云仓库 -->
+    <repositories>
+        <repository>
+            <id>baymax-releases</id>
+            <name>Nexus Release Repository</name>
+            <url>http://maven.youzanyun.com/repository/maven-releases/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
