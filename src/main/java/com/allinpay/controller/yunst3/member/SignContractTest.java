@@ -14,7 +14,7 @@ public class SignContractTest {
         final YunRequest request = new YunRequest("MemberService", "signContract");
 
         try {
-            request.put("bizUserId", "WHYQY2019002");
+            request.put("bizUserId", "qiye02");
             request.put("memberType", "2");
             request.put("jumpUrl", "http://www.baidu.com");
             request.put("backUrl", "http://192.168.14.165:8080/yundemo/servletUI/notice");

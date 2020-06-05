@@ -29,8 +29,7 @@ public class AgentCollectApplyTest {
 
             //网关支付
             HashMap<String, Object> getwayPay = new HashMap<>();
-            getwayPay.put("bankCode", "vbank");
-            getwayPay.put("payType", 1L);
+            getwayPay.put("paytype", "B2C");
             getwayPay.put("amount", 1L);
 
             // 支付方式
@@ -96,7 +95,7 @@ public class AgentCollectApplyTest {
 //			payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
 //			payMethod.put("CODEPAY_VSP_ORG", CODEPAY_VSP_ORG);
-            payMethod.put("GATEWAY", getwayPay);
+            payMethod.put("GATEWAY_VSP", getwayPay);
 //			payMethod.put("BALANCE", balancePay);
 //			payMethod.put("COUPONLIST", couponList);
 //			payMethod.put("COUPON", COUPON);
@@ -129,23 +128,23 @@ public class AgentCollectApplyTest {
             request.put("bizOrderNo", System.currentTimeMillis() + "ds");
             request.put("payerId", "ceshi01"); // bizUserId  付款方
             request.put("recieverList", receiverList);
-            request.put("goodsType", 2L);
+//            request.put("goodsType", 2L);
 //			request.put("bizGoodsNo", "12121133211122234");
             request.put("tradeCode", "1003");
             request.put("amount", 1L);
-            request.put("fee", 0L);
-            request.put("validateType", 0L); // 1 短信验证
+//            request.put("fee", 0L);
+//            request.put("validateType", 0L); // 1 短信验证
             request.put("frontUrl", "http://192.168.14.165:8080/yundemo/servletUI/jumpback");
             request.put("backUrl", "http://172.16.190.46:8080/yuncallback/mock/notify?");
-            request.put("ordErexpireDatetime", ordErexpireDatetime);
+//            request.put("ordErexpireDatetime", ordErexpireDatetime);
             request.put("payMethod", payMethod);
 //			request.put("goodsName", "海艳商超");
 //			request.put("goodsDesc", "computer made in china");
             request.put("industryCode", "1010");
             request.put("industryName", "保险代理");
             request.put("source", 2L);
-            request.put("summary", "consume");
-            request.put("extendInfo", "this is extendInfo");
+//            request.put("summary", "consume");
+//            request.put("extendInfo", "this is extendInfo");
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

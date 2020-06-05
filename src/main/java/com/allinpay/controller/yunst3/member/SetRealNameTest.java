@@ -15,11 +15,11 @@ public class SetRealNameTest {
         final YunRequest request = new YunRequest("MemberService", "setRealName");
 
         try {
-            request.put("bizUserId", "WHYGR2019001");
+            request.put("bizUserId", "acct");
             request.put("isAuth", "true");
-            request.put("name", "邬海艳");
+            request.put("name", "谭光");
             request.put("identityType", "1");
-            request.put("identityNo", RSAUtil.encrypt("362201198806205281"));
+            request.put("identityNo", RSAUtil.encrypt("430224199301107219"));
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

@@ -19,11 +19,11 @@ public class SetPayPwdTest {
         final YunRequest request = new YunRequest("MemberPwdService", "setPayPwd");
 
         try {
-            request.put("bizUserId", "WHYGR2019001");
-            request.put("phone", "15000346364");
-            request.put("name", "邬海艳");
+            request.put("bizUserId", "acct");
+            request.put("phone", "88888888888");
+            request.put("name", "谭光");
             request.put("identityType", 1L);
-            request.put("identityNo", RSAUtil.encrypt("362201198806205281"));
+            request.put("identityNo", RSAUtil.encrypt("430224199301107219"));
             request.put("jumpUrl", "http://www.baidu.com");
             request.put("backUrl", "http://122.227.225.142:23663/testFront.jsp");
 

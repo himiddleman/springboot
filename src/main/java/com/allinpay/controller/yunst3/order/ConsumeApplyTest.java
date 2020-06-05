@@ -52,7 +52,7 @@ public class ConsumeApplyTest {
             // 支付方式
             //微信扫码支付(正扫) _集团
             HashMap<String, Object> SCAN_WEIXIN = new HashMap<>();
-            SCAN_WEIXIN.put("amount", 2);
+            SCAN_WEIXIN.put("amount", 1);
             SCAN_WEIXIN.put("limitPay", "no_credit");
 
             //支付宝扫码支付
@@ -68,11 +68,12 @@ public class ConsumeApplyTest {
             COUPON.put("amount", 1);
 
             //余额支付
-            String accountSetNo = "200087";                //账户集编号
+            String accountSetNo = "200126";                //账户集编号
             JSONArray balancePay = new JSONArray();
             JSONObject balance = new JSONObject();
             balance.put("accountSetNo", accountSetNo);
-            balance.put("amount", 1L);
+            balance.put("amount", 10L);
+            balancePay.add(balance);
 
             // 支付方式
             //收银宝刷卡支付（被扫）——支持微信、支付宝、银联、手机QQ
@@ -93,7 +94,7 @@ public class ConsumeApplyTest {
             // 支付方式
             //收银宝刷卡支付（被扫）——支持微信、支付宝、银联、手机QQ
             HashMap<String, Object> QUICKPAY_VSP = new HashMap<>();
-            QUICKPAY_VSP.put("bankCardNo", RSAUtil.encrypt("4391880821317777"));
+            QUICKPAY_VSP.put("bankCardNo", RSAUtil.encrypt("6227003010200537446"));
             QUICKPAY_VSP.put("amount", 1L);
 
             //收银宝刷卡支付ORDER_VSPPAY
@@ -124,13 +125,13 @@ public class ConsumeApplyTest {
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
 //			payMethod.put("CODEPAY_VSP_ORG", CODEPAY_VSP_ORG);
 //			payMethod.put("SCAN_WEIXIN_ORG", SCAN_WEIXIN_ORG);
-//			payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
+            payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
 //			payMethod.put("WECHATPAY_APP_OPEN", WECHATPAY_APP_OPEN);
 //			payMethod.put("BALANCE", balancePay);
 //			payMethod.put("COUPON", COUPON);
 //			payMethod.put("REALNAMEPAY_BATCH", realnamePay_batch);
 //			payMethod.put("REALNAMEPAY", realnamePay);
-            payMethod.put("ORDER_VSPPAY", ORDER_VSPPAY);
+//            payMethod.put("ORDER_VSPPAY", ORDER_VSPPAY);
 //			payMethod.put("SCAN_ALIPAY", SCAN_ALIPAY);
 //			payMethod.put("WeChatPAYAPP_VSP", WeChatPAYAPP_VSP);
 //			payMethod.put("WECHATPAY_APP_OPEN", WECHATPAY_APP_OPEN);
@@ -140,12 +141,12 @@ public class ConsumeApplyTest {
             Date date = calendar.getTime();
             String ordErexpireDatetime = sdf.format(date);
 
-            request.put("payerId", "WHYGR2019001");
-            request.put("recieverId", "WHYQY2019001");
+            request.put("payerId", "qiye02");
+            request.put("recieverId", "acct");
             request.put("bizOrderNo", System.currentTimeMillis() + "whyxf");
             request.put("amount", 1L);
             request.put("fee", 0L);
-            request.put("validateType", 1L);
+            request.put("validateType", 0L);
 
             // *** split rule
             JSONArray splitRule = new JSONArray();

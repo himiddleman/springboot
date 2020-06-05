@@ -6,18 +6,18 @@ import com.allinpay.yunst.sdk.YunClient;
 import com.allinpay.yunst.sdk.bean.YunRequest;
 import org.junit.Test;
 
-public class BindPhoneTest {
+public class VerifyBankCardChangeBindPhoneTest {
 
     @Test
-    public void testMethod() {
+    public void testMethod() throws Exception {
 
-        final YunRequest request = new YunRequest("MemberService", "bindPhone");
+        final YunRequest request = new YunRequest("MemberService", "verifyBankCardChangeBindPhone");
+        request.put("bizUserId", "acct");
+        request.put("tranceNum", "033297541920");
+        request.put("phone", "15197704032");
+        request.put("verificationCode", "605714");
 
         try {
-            request.put("bizUserId", "qiye02");
-            request.put("phone", "15197704032");
-            request.put("verificationCode", "751571");
-
             String res = YunClient.request(request);
             System.out.println("res: " + res);
 

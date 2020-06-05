@@ -6,18 +6,17 @@ import com.allinpay.yunst.sdk.YunClient;
 import com.allinpay.yunst.sdk.bean.YunRequest;
 import org.junit.Test;
 
-public class BindPhoneTest {
+public class GetUseridByAuthcodeTest {
 
     @Test
     public void testMethod() {
 
-        final YunRequest request = new YunRequest("MemberService", "bindPhone");
+        final YunRequest request = new YunRequest("MemberService", "getUseridByAuthcode");
+        request.put("bizUserId", "ceshi01");
+        request.put("authcode", "");
+        request.put("authtype", "02");
 
         try {
-            request.put("bizUserId", "qiye02");
-            request.put("phone", "15197704032");
-            request.put("verificationCode", "751571");
-
             String res = YunClient.request(request);
             System.out.println("res: " + res);
 

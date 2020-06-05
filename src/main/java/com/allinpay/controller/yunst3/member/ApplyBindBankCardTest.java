@@ -26,17 +26,17 @@ public class ApplyBindBankCardTest {
 //			request.put("identityNo", YunClient.encrypt("350922198811082657"));
 
 
-            request.put("bizUserId", "WHYGR2019001");
-            request.put("phone", "15000346364");    // 这个手机号 13616515002 是绑卡银行预留手机，实名支付用
-            request.put("cardCheck", 6L);    // 1L 三要素，2L 四要素,5L通联通账户验证
-//			request.put("cardNo", YunClient.encrypt("4391880821317777"));//622848   //收银宝快捷卡号
-            request.put("cardNo", YunClient.encrypt("4581240118157727"));//通联通账户验证 绑信用卡6228491234567892019
+            request.put("bizUserId", "qiye02");
+            request.put("phone", "15197704032");    // 这个手机号 13616515002 是绑卡银行预留手机，实名支付用
+            request.put("cardCheck", 7L);    // 1L 三要素，2L 四要素,5L通联通账户验证
+            request.put("cardNo", YunClient.encrypt("6227003010200537446"));//622848   //收银宝快捷卡号
+//            request.put("cardNo", YunClient.encrypt("4581240118157727"));//通联通账户验证 绑信用卡6228491234567892019
 //			request.put("cardNo", YunClient.encrypt("6225760009629085"));//ITS 四要素+短信  绑信用卡6225760009629085  借记卡6214850212618752
-            request.put("name", "邬海艳");
-            request.put("identityNo", YunClient.encrypt("362201198806205281"));
+            request.put("name", "谭光");
+            request.put("identityNo", YunClient.encrypt("430224199301107219"));
             request.put("identityType", 1L);
-            request.put("validate", YunClient.encrypt("1119"));
-            request.put("cvv2", YunClient.encrypt("102"));
+//            request.put("validate", YunClient.encrypt("1119"));
+//            request.put("cvv2", YunClient.encrypt("102"));
 //			request.put("validate", 3L);
 //			request.put("cvv2", 1L);
 //			request.put("isSafeCard", false);

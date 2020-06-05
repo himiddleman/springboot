@@ -14,13 +14,13 @@ public class BindBankCardTest {
         final YunRequest request = new YunRequest("MemberService", "bindBankCard");
 
         try {
-            request.put("bizUserId", "WHYGR2019001");
-            request.put("tranceNum", "1097776716429926400");
+            request.put("bizUserId", "qiye02");
+            request.put("tranceNum", "722671082517");
 //			request.put("transDate", "20190128");
-            request.put("phone", "15000346364");
-            request.put("verificationCode", "446569");
-            request.put("validate", YunClient.encrypt("0523"));
-            request.put("cvv2", YunClient.encrypt("366"));
+            request.put("phone", "15197704032");
+            request.put("verificationCode", "156388");
+//            request.put("validate", YunClient.encrypt("0523"));
+//            request.put("cvv2", YunClient.encrypt("366"));
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

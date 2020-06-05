@@ -6,18 +6,18 @@ import com.allinpay.yunst.sdk.YunClient;
 import com.allinpay.yunst.sdk.bean.YunRequest;
 import org.junit.Test;
 
-public class BindPhoneTest {
+public class GetSubAcctNoInfoForHTTest {
 
     @Test
     public void testMethod() {
 
-        final YunRequest request = new YunRequest("MemberService", "bindPhone");
+        final YunRequest request = new YunRequest("MemberService", "getSubAcctNoInfoForHT");
+        request.put("bizUserId", "qiye02");
+        request.put("subAcctNo", "9120001000212583112");
+        request.put("jumpUrl", "www.baidu.com");
+        request.put("backUrl", "www.baidu.com");
 
         try {
-            request.put("bizUserId", "qiye02");
-            request.put("phone", "15197704032");
-            request.put("verificationCode", "751571");
-
             String res = YunClient.request(request);
             System.out.println("res: " + res);
 

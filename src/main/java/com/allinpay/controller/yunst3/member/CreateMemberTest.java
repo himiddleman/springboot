@@ -12,8 +12,8 @@ public class CreateMemberTest {
     public void testMethod() {
 
         final YunRequest request = new YunRequest("MemberService", "createMember");
-        request.put("bizUserId", "yeqi000");
-        request.put("memberType", 2);//企业会员-2，个人会员-3
+        request.put("bizUserId", "acct");//个人会员 ceshi01 企业会员 qiye01
+        request.put("memberType", 3);//企业会员-2，个人会员-3
         request.put("source", 2);
 
         try {

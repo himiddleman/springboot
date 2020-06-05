@@ -15,9 +15,9 @@ public class SetCompanyInfoTest {
         final YunRequest request = new YunRequest("MemberService", "setCompanyInfo");
 
         try {
-            request.put("bizUserId", "yeqi000");
+            request.put("bizUserId", "yyyy");
             request.put("backUrl", "http://www.baidu.com");
-            request.put("isAuth", true);
+            request.put("isAuth", false);
 
             // 组companyBasicInfo企业信息jsonobject对象
             JSONObject companyBasicInfo = new JSONObject();
@@ -30,9 +30,9 @@ public class SetCompanyInfoTest {
             companyBasicInfo.put("taxRegister", "444444");
             companyBasicInfo.put("expLicense", "2023-1-1");
             companyBasicInfo.put("telephone", "15197704032");
-            companyBasicInfo.put("legalName", "谭光");
+            companyBasicInfo.put("legalName", "李德坚");
             companyBasicInfo.put("identityType", 1L);
-            companyBasicInfo.put("legalIds", RSAUtil.encrypt("430224199301107219"));
+            companyBasicInfo.put("legalIds", RSAUtil.encrypt("441423198601101719"));
             companyBasicInfo.put("legalPhone", "15197704033");//6228481000000051211
             companyBasicInfo.put("accountNo", RSAUtil.encrypt("6227003010200537444"));
             companyBasicInfo.put("parentBankName", "建设银行");

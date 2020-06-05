@@ -14,11 +14,11 @@ public class PayTest {
         final YunRequest request = new YunRequest("OrderService", "pay");
 
         try {
-            request.put("bizUserId", "WHYGR2019001");
-            request.put("bizOrderNo", "1550043689254whyxf");
+            request.put("bizUserId", "acct");
+            request.put("bizOrderNo", "1591271680549cz");
 //			request.put("tradeNo", "{\"sign\":\"\",\"tphtrxcrtime\":\"\",\"tphtrxid\":0,\"trxflag\":\"trx\",\"trxsn\":\"\"}");
 //			String tradeNo = "{\"sign\":\"\",\"tphtrxcrtime\":\"\",\"tphtrxid\":0,\"trxflag\":\"trx\",\"trxsn\":\"\"}";  //交易编号
-            request.put("verificationCode", "544818");    //测试环境 充值 实名付 验证码 11111
+//            request.put("verificationCode", "045983");    //测试环境 充值 实名付 验证码 11111
             request.put("consumerIp", "192.168.11.11");
 
             String res = YunClient.request(request);

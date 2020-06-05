@@ -15,7 +15,7 @@ public class GetBankCardBinTest {
         final YunRequest request = new YunRequest("MemberService", "getBankCardBin");
 
         try {
-            request.put("cardNo", RSAUtil.encrypt("6228480402637874221"));
+            request.put("cardNo", RSAUtil.encrypt("6227003010200537446"));//6228480402637874221
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);

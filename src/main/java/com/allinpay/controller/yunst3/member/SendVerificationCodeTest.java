@@ -14,8 +14,8 @@ public class SendVerificationCodeTest {
         final YunRequest request = new YunRequest("MemberService", "sendVerificationCode");
 
         try {
-            request.put("bizUserId", "WHYQY2019001");
-            request.put("phone", "15000346364");
+            request.put("bizUserId", "qiye02");
+            request.put("phone", "15197704032");
             request.put("verificationCodeType", 9L);
 
             String res = YunClient.request(request);

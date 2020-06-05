@@ -12,7 +12,7 @@ public class IdcardCollectTest {
     public void testMethod() {
 
         final YunRequest request = new YunRequest("MemberService", "idcardCollect");
-        request.put("bizUserId", "yeqi000");
+        request.put("bizUserId", "dc190468093249bfa43d92f2825ab1f0");
         request.put("picType", 1);
         request.put("picture", "12313123");
 

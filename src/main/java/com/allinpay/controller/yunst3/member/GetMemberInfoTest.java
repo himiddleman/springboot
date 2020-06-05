@@ -14,7 +14,7 @@ public class GetMemberInfoTest {
         final YunRequest request = new YunRequest("MemberService", "getMemberInfo");
 
         try {
-            request.put("bizUserId", "yeqi000");
+            request.put("bizUserId", "qiye02");
 
             String res = YunClient.request(request);
             System.out.println("res: " + res);
