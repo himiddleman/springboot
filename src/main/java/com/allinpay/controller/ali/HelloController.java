@@ -3,7 +3,6 @@ package com.allinpay.controller.ali;
 import com.allinpay.core.common.ResponseData;
 import com.allinpay.repository.domain.User;
 import com.allinpay.repository.domain.UserConfig;
-import com.example.demo.service.IHelloService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,17 +10,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+//import com.example.demo.service.IHelloService;
+
 @Controller
 public class HelloController {
     @Autowired
     private UserConfig userConfig;
-    @Autowired
-    private IHelloService helloService;
+//    @Autowired
+//    private IHelloService helloService;
 
-    @RequestMapping("/sayHello")
-    public void helloworld() {
-        helloService.sayHello();
-    }
+//    @RequestMapping("/sayHello")
+//    public void helloworld() {
+//        helloService.sayHello();
+//    }
 
     @RequestMapping("/hello")
     @RequiresPermissions("user:update,create")

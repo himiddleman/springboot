@@ -103,13 +103,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--断言库 -->
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>3.10.0</version>
-            <scope>test</scope>
-        </dependency>
         <!-- Mock测试使用的json-path依赖 -->
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
@@ -276,13 +269,6 @@
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
             <version>1.4.11</version>
-        </dependency>
-
-        <!--自定义starter -->
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>helloworld-spring-boot-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
