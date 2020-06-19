@@ -19,15 +19,16 @@ public class ResetPayPwdTest {
         final YunRequest request = new YunRequest("MemberPwdService", "resetPayPwd");
 
         try {
-            request.put("bizUserId", "2018072001");
-            request.put("name", "梅西");
-            request.put("phone", "13800138002");
+            //交易密码：p12345
+            request.put("bizUserId", "ceshi01");
+            request.put("name", "谭光");
+            request.put("phone", "15197704032");
             request.put("identityType", 1L);
-            request.put("identityNo", RSAUtil.encrypt("130124198908210051"));
+            request.put("identityNo", RSAUtil.encrypt("430224199301107219"));
             request.put("jumpUrl", "http://122.227.225.142:23663/testFront.jsp");
             request.put("backUrl", "http://122.227.225.142:23663/testFront.jsp");
 
-            String res = YunClient.encodeTwice(request);
+            String res = YunClient.encodeOnce(request);
             webParamUrl += res;
             System.out.println("webParamUrl: " + webParamUrl);
 

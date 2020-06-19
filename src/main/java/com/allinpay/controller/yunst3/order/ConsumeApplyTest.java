@@ -72,7 +72,7 @@ public class ConsumeApplyTest {
             JSONArray balancePay = new JSONArray();
             JSONObject balance = new JSONObject();
             balance.put("accountSetNo", accountSetNo);
-            balance.put("amount", 10L);
+            balance.put("amount", 1L);
             balancePay.add(balance);
 
             // 支付方式
@@ -116,16 +116,26 @@ public class ConsumeApplyTest {
             WECHATPAY_APP_OPEN.put("amount", 1);
             WECHATPAY_APP_OPEN.put("subAppId", "wx9782703e806fba55");
 
+            //网关
+            HashMap<String, Object> GATEWAY = new HashMap<>();
+            GATEWAY.put("paytype", "B2C");
+            GATEWAY.put("limitPay", "no_credit");
+            GATEWAY.put("amount", 1);
+
+            //余额支付
+
+
 
             // 组装支付方式
             HashMap<String, Object> payMethod = new HashMap<>();
+//            payMethod.put("GATEWAY_VSP", GATEWAY);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
-//			payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
+            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
 //			payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
 //			payMethod.put("CODEPAY_VSP_ORG", CODEPAY_VSP_ORG);
 //			payMethod.put("SCAN_WEIXIN_ORG", SCAN_WEIXIN_ORG);
-            payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
+//            payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
 //			payMethod.put("WECHATPAY_APP_OPEN", WECHATPAY_APP_OPEN);
 //			payMethod.put("BALANCE", balancePay);
 //			payMethod.put("COUPON", COUPON);
@@ -142,11 +152,11 @@ public class ConsumeApplyTest {
             String ordErexpireDatetime = sdf.format(date);
 
             request.put("payerId", "qiye02");
-            request.put("recieverId", "acct");
+            request.put("recieverId", "ceshi01");
             request.put("bizOrderNo", System.currentTimeMillis() + "whyxf");
             request.put("amount", 1L);
             request.put("fee", 0L);
-            request.put("validateType", 0L);
+            request.put("validateType", 1L);
 
             // *** split rule
             JSONArray splitRule = new JSONArray();
@@ -154,7 +164,7 @@ public class ConsumeApplyTest {
             HashMap<String, Object> splitRule1 = new HashMap<>();
             splitRule1.put("bizUserId", "grsunzl20190126002");
             splitRule1.put("accountSetNo", "200087");
-            splitRule1.put("amount", 1L);
+            splitRule1.put("amount", 2L);
             splitRule1.put("fee", 0L);
             splitRule1.put("remark", " 消费一级分账");
 

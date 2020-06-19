@@ -100,7 +100,7 @@ public class DepositApplayTest {
 
             //微信扫码支付(正扫)
             HashMap<String, Object> SCAN_WEIXIN = new HashMap<>();
-            SCAN_WEIXIN.put("amount", 1);
+            SCAN_WEIXIN.put("amount", 5);
             SCAN_WEIXIN.put("limitPay", "no_credit");
 
             //支付宝扫码支付
@@ -117,24 +117,30 @@ public class DepositApplayTest {
             //收银宝刷卡支付（被扫）——支持微信、支付宝、银联、手机QQ
             HashMap<String, Object> QUICKPAY_VSP = new HashMap<>();
             QUICKPAY_VSP.put("bankCardNo", RSAUtil.encrypt("4391880821317777"));
-            QUICKPAY_VSP.put("amount", 1L);
+            QUICKPAY_VSP.put("amount", 5L);
 
             HashMap<String, Object> GATEWAY = new HashMap<>();
-            GATEWAY.put("bankCode", "vbank");
-            GATEWAY.put("payType", 4L);
-            GATEWAY.put("payerCardNo", "1234567890");
-            GATEWAY.put("amount", 1);
+//            GATEWAY.put("gateid", "vbank");
+            GATEWAY.put("paytype", "B2C");
+            GATEWAY.put("limitPay", "no_credit");
+            GATEWAY.put("amount", 5);
 
 
             //收银宝刷卡支付ORDER_VSPPAY
             HashMap<String, Object> ORDER_VSPPAY = new HashMap<>();
             ORDER_VSPPAY.put("amount", 1);
 
+            //h5
+            HashMap<String, Object> h5Pay = new HashMap<>();
+            h5Pay.put("amount", 5);
+            h5Pay.put("limitPay", "");
+
             // 组装支付方式
             HashMap<String, Object> payMethod = new HashMap<>();
+//            payMethod.put("H5_CASHIER_VSP", h5Pay);
             // payMethod.put("QUICKPAY", quickPay);
 //			payMethod.put("REALNAMEPAY", realnamePay);
-//			 payMethod.put("GATEWAY", GATEWAY);
+            payMethod.put("GATEWAY_VSP", GATEWAY);
 //				payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
 //			payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
 //			payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
@@ -145,16 +151,16 @@ public class DepositApplayTest {
 //			payMethod.put("SCAN_ALIPAY_ORG", SCAN_ALIPAY_ORG);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
 //			payMethod.put("CODEPAY_VSP_ORG", CODEPAY_VSP_ORG);
-            payMethod.put("ORDER_VSPPAY", ORDER_VSPPAY);
+//            payMethod.put("ORDER_VSPPAY", ORDER_VSPPAY);
 //			payMethod.put("SCAN_UNIONPAY", SCAN_UNIONPAY);
 
 
-            request.put("bizUserId", "WHYQY2019001");
+            request.put("bizUserId", "qiye01");
             request.put("bizOrderNo", System.currentTimeMillis() + "whycz");
-            request.put("accountSetNo", "200087");
-            request.put("amount", 1L);
+            request.put("accountSetNo", "200126");
+            request.put("amount", 5L);
             request.put("fee", 0L);
-            request.put("validateType", 0L);
+            request.put("validateType", 1L);
             request.put("frontUrl", "http://10.55.3.236:6003/gateway/getPayFront.jsp");
             request.put("backUrl", "http://116.228.64.58/yst/zfb/yibu");
             request.put("ordErexpireDatetime", ordErexpireDatetime);

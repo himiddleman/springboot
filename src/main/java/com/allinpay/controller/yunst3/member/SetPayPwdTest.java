@@ -19,8 +19,8 @@ public class SetPayPwdTest {
         final YunRequest request = new YunRequest("MemberPwdService", "setPayPwd");
 
         try {
-            request.put("bizUserId", "acct");
-            request.put("phone", "88888888888");
+            request.put("bizUserId", "ceshi01");
+            request.put("phone", "15197704032");
             request.put("name", "谭光");
             request.put("identityType", 1L);
             request.put("identityNo", RSAUtil.encrypt("430224199301107219"));

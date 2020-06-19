@@ -14,14 +14,14 @@ public class PayTest {
         final YunRequest request = new YunRequest("OrderService", "pay");
 
         try {
-            request.put("bizUserId", "acct");
-            request.put("bizOrderNo", "1591271680549cz");
+            request.put("bizUserId", "ceshi01");
+            request.put("bizOrderNo", "1592441673781whyxf");
 //			request.put("tradeNo", "{\"sign\":\"\",\"tphtrxcrtime\":\"\",\"tphtrxid\":0,\"trxflag\":\"trx\",\"trxsn\":\"\"}");
 //			String tradeNo = "{\"sign\":\"\",\"tphtrxcrtime\":\"\",\"tphtrxid\":0,\"trxflag\":\"trx\",\"trxsn\":\"\"}";  //交易编号
-//            request.put("verificationCode", "045983");    //测试环境 充值 实名付 验证码 11111
+//            request.put("verificationCode", "215900");    //测试环境 充值 实名付 验证码 11111
             request.put("consumerIp", "192.168.11.11");
 
-            String res = YunClient.request(request);
+            String res = YunClient.encodeOnce(request);
             System.out.println("res: " + res);
 
             JSONObject resp = JSON.parseObject(res);

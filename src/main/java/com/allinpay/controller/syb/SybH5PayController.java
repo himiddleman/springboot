@@ -19,9 +19,9 @@ public class SybH5PayController {
         HttpConnectionUtil connection = new HttpConnectionUtil(SybConstant.H5_URL + "unionorder");
         connection.init();
         TreeMap<String, String> params = new TreeMap<>();
-        params.put("appid", SybConstant.APPID);
+        params.put("appid", "00190530");
         //通联分配的二维码编码
-        params.put("cusid", SybConstant.CUSID);
+        params.put("cusid", "561331065130BYU");
         params.put("version", "12");
         params.put("trxamt", "1");
         params.put("reqsn", "shlh111333");
@@ -32,7 +32,7 @@ public class SybH5PayController {
         //上限：150个字符
 //        params.put("remark", param);
         params.put("randomstr", System.currentTimeMillis() + "");
-        params.put("sign", MD5Util.sign(params, SybConstant.APPKEY));
+        params.put("sign", MD5Util.sign(params, "888888"));
         byte[] bytes = connection.postParams(params, true);
         String result = new String(bytes, "utf-8");
         System.out.println(result);
