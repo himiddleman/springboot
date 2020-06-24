@@ -72,7 +72,7 @@ public class ConsumeApplyTest {
             JSONArray balancePay = new JSONArray();
             JSONObject balance = new JSONObject();
             balance.put("accountSetNo", accountSetNo);
-            balance.put("amount", 1L);
+            balance.put("amount", 10L);
             balancePay.add(balance);
 
             // 支付方式
@@ -130,14 +130,14 @@ public class ConsumeApplyTest {
             HashMap<String, Object> payMethod = new HashMap<>();
 //            payMethod.put("GATEWAY_VSP", GATEWAY);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
-            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
+//            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
 //			payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
 //			payMethod.put("CODEPAY_VSP_ORG", CODEPAY_VSP_ORG);
 //			payMethod.put("SCAN_WEIXIN_ORG", SCAN_WEIXIN_ORG);
 //            payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
 //			payMethod.put("WECHATPAY_APP_OPEN", WECHATPAY_APP_OPEN);
-//			payMethod.put("BALANCE", balancePay);
+            payMethod.put("BALANCE", balancePay);
 //			payMethod.put("COUPON", COUPON);
 //			payMethod.put("REALNAMEPAY_BATCH", realnamePay_batch);
 //			payMethod.put("REALNAMEPAY", realnamePay);
@@ -151,10 +151,10 @@ public class ConsumeApplyTest {
             Date date = calendar.getTime();
             String ordErexpireDatetime = sdf.format(date);
 
-            request.put("payerId", "qiye02");
-            request.put("recieverId", "ceshi01");
+            request.put("payerId", "ceshi01");
+            request.put("recieverId", "qiye02");
             request.put("bizOrderNo", System.currentTimeMillis() + "whyxf");
-            request.put("amount", 1L);
+            request.put("amount", 10L);
             request.put("fee", 0L);
             request.put("validateType", 1L);
 

@@ -68,4 +68,13 @@ public class SybConstant {
     public static final String PREPAY_CUSID = "990440148166000";
     public static final String PREPAY_APPID = "00000003";
     public static final String PREPAY_APPKEY = "a0ea3fa20dbd7bb4d5abf1d59d63bae8";
+
+
+    /**
+     * 合作方进件
+     */
+    public static final String SYB_MCHAPI_URL = "https://test.allinpaygd.com/vsppcusapi/merchantapi";
+    public static final String SYB_MCHAPI_CUSID = "55058100780004S";
+    public static final String SYB_MCHAPI_APPID = "00000005";
+    public static final String SYB_MCHAPI_APPKEY = "123456";
 }

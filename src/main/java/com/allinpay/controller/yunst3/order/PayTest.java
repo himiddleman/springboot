@@ -15,13 +15,13 @@ public class PayTest {
 
         try {
             request.put("bizUserId", "ceshi01");
-            request.put("bizOrderNo", "1592441673781whyxf");
+            request.put("bizOrderNo", "1592877924211whyxf");
 //			request.put("tradeNo", "{\"sign\":\"\",\"tphtrxcrtime\":\"\",\"tphtrxid\":0,\"trxflag\":\"trx\",\"trxsn\":\"\"}");
 //			String tradeNo = "{\"sign\":\"\",\"tphtrxcrtime\":\"\",\"tphtrxid\":0,\"trxflag\":\"trx\",\"trxsn\":\"\"}";  //交易编号
-//            request.put("verificationCode", "215900");    //测试环境 充值 实名付 验证码 11111
+            request.put("verificationCode", "505869");    //测试环境 充值 实名付 验证码 11111
             request.put("consumerIp", "192.168.11.11");
 
-            String res = YunClient.encodeOnce(request);
+            String res = YunClient.request(request);
             System.out.println("res: " + res);
 
             JSONObject resp = JSON.parseObject(res);

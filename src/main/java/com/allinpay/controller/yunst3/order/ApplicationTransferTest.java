@@ -15,10 +15,10 @@ public class ApplicationTransferTest {
 
         try {
             request.put("bizTransferNo", System.currentTimeMillis() + "cz");
-            request.put("sourceAccountSetNo", "100002");
-            request.put("targetBizUserId", "zhuyqqiye");
-            request.put("targetAccountSetNo", "200001");
-            request.put("amount", 100L);
+            request.put("sourceAccountSetNo", "100001");
+            request.put("targetBizUserId", "qiye02");
+            request.put("targetAccountSetNo", "200126");
+            request.put("amount", 800L);
             request.put("remark", "平台转账");
 
             String res = YunClient.request(request);
