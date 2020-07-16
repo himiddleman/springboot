@@ -10,6 +10,7 @@ import java.util.*;
 
 public class MerchantApiController {
     public static void main(String[] args) throws Exception {
+        //审核通过：55258105399685T
         testMchIn();
 //        testQuery();
         testQueryStatus();
@@ -110,7 +111,7 @@ public class MerchantApiController {
         params.put("legal", "杨伟炜");
         params.put("legalidno", "320121198612050016");
         params.put("legalidtype", "05");
-        params.put("legalidexpire", "1970-01-19");
+        params.put("legalidexpire", "2023-08-16");
         params.put("address", "杭行路666号万达金街东区223号");
         params.put("contactperson", "杨伟炜1");
         params.put("contactphone", "13913866163");
@@ -244,14 +245,14 @@ public class MerchantApiController {
         params.put("bankcode", "0308");
         params.put("cnapsno", "308581002257");
         params.put("contractdate", "2019-01-14");
-        params.put("expanduser", "技术测试(13800000000)");
-        params.put("notifyurl", "http://113.108.182.3:10080/vo-apidemo/NotifyServlet");
+        params.put("expanduser", "技术测试(13800000000)");//
+        params.put("notifyurl", "http:test.pay.zj.cn/jzt/vsp/callback");
         params.put("settidno", "0308123123213");
 
         params.put("corpbuspic", "http://e.hiphotos.baidu.com/image/h%3D300/sign=8d3a9ea62c7f9e2f6f351b082f31e962/500fd9f9d72a6059099ccd5a2334349b023bbae5.jpg");
-        params.put("legalpic", "http://b.hiphotos.baidu.com/image/h%3D300/sign=0e422b4e90504fc2bd5fb605d5dce7f0/c8177f3e6709c93d51a3a9b1943df8dcd1005426.jpg");
-        params.put("legalidpicback", "https://baike.baidu.com/pic/%E5%B1%85%E6%B0%91%E8%BA%AB%E4%BB%BD%E8%AF%81%E5%8F%B7%E7%A0%81/3400358/1/342ac65c103853436d22772c9413b07ecb8088ca?fr=lemma#aid=1&pic=6a63f6246b600c335d2d8bb5154c510fd9f9a173");
-        params.put("legalidpicfront", "https://baike.baidu.com/pic/%E5%B1%85%E6%B0%91%E8%BA%AB%E4%BB%BD%E8%AF%81%E5%8F%B7%E7%A0%81/3400358/1/342ac65c103853436d22772c9413b07ecb8088ca?fr=lemma#aid=1&pic=f9dcd100baa1cd114b39c73eb512c8fcc3ce2d24");
+        params.put("legalpic", "http://122.224.90.229:8080/manage/etcimg/front.jpg");
+        params.put("legalidpicback", "http://122.224.90.229:8080/manage/etcimg/back.jpg");
+        params.put("legalidpicfront", "http://122.224.90.229:8080/manage/etcimg/front.jpg");
         params.put("storepic", "http://h.hiphotos.baidu.com/image/h%3D300/sign=a76b226e943df8dcb93d8991fd1072bf/aec379310a55b3193c60aeec48a98226cefc1789.jpg");
         params.put("storeinnerpic", "http://h.hiphotos.baidu.com/image/h%3D300/sign=a76b226e943df8dcb93d8991fd1072bf/aec379310a55b3193c60aeec48a98226cefc1789.jpg");
 
@@ -277,13 +278,13 @@ public class MerchantApiController {
         Map<String, String> prodmap = new HashMap<String, String>();
         prodmap.put("pid", "P0001");
         prodmap.put("mtrxcode", "VSP501");//收银宝微信
-        prodmap.put("feerate", "3.6");
+        prodmap.put("feerate", "4.6");
         prodlist.add(prodmap);
 
         Map<String, String> prodmap2 = new HashMap<String, String>();
         prodmap2.put("pid", "P0001");
         prodmap2.put("mtrxcode", "VSP001");//收银宝消费
-        prodmap2.put("feerate", "3.6");
+        prodmap2.put("feerate", "4.6");
         prodmap2.put("toplimit", "16.25");
         //	prodmap2.put("lowlimit", "A10");
         prodmap2.put("creditrate", "5.8");
@@ -293,7 +294,7 @@ public class MerchantApiController {
         Map<String, String> prodmap3 = new HashMap<String, String>();
         prodmap3.put("pid", "P0001");
         prodmap3.put("mtrxcode", "VSP511");//收银宝支付宝
-        prodmap3.put("feerate", "3.6");
+        prodmap3.put("feerate", "4.6");
         prodlist.add(prodmap3);
 
         params.put("prodlist", JSON.toJSONString(prodlist));

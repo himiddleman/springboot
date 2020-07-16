@@ -16,23 +16,40 @@ import java.util.TreeMap;
 @Controller
 public class SybH5PayController {
     public static void main(String[] args) throws Exception {
-        HttpConnectionUtil connection = new HttpConnectionUtil(SybConstant.H5_URL + "unionorder");
+//        HttpConnectionUtil connection = new HttpConnectionUtil(SybConstant.H5_URL + "unionorder");
+//        connection.init();
+//        TreeMap<String, String> params = new TreeMap<>();
+//        params.put("appid", "00190530");
+//        //通联分配的二维码编码
+//        params.put("cusid", "561331065130BYU");
+//        params.put("version", "12");
+//        params.put("trxamt", "1");
+//        params.put("reqsn", "shlh123");
+//        params.put("charset", "utf-8");
+//        params.put("returl", "http://47.99.172.60:10010/h5/policy/returl");
+//        params.put("notify_url", "http://47.99.172.60:10010/h5/policy/notify");
+//        params.put("body", "谭光");
+//        //上限：150个字符
+////        params.put("remark", param);
+//        params.put("randomstr", System.currentTimeMillis() + "");
+//        params.put("sign", MD5Util.sign(params, "888888"));
+//        byte[] bytes = connection.postParams(params, true);
+//        String result = new String(bytes, "utf-8");
+//        System.out.println(result);
+
+        HttpConnectionUtil connection = new HttpConnectionUtil(SybConstant.SYB_APIURL + "/refund");
         connection.init();
         TreeMap<String, String> params = new TreeMap<>();
-        params.put("appid", "00190530");
+        params.put("orgid", "100581048160005");
+        params.put("appid", "00003351");
         //通联分配的二维码编码
-        params.put("cusid", "561331065130BYU");
+        params.put("cusid", "990440148166000");
         params.put("version", "12");
+        params.put("reqsn", System.currentTimeMillis() + "");
+        params.put("oldtrxid", "112094120001139185");
         params.put("trxamt", "1");
-        params.put("reqsn", "shlh111333");
-        params.put("charset", "utf-8");
-        params.put("returl", "http://47.99.172.60:10010/h5/policy/returl");
-        params.put("notify_url", "http://47.99.172.60:10010/h5/policy/notify");
-        params.put("body", "谭光");
-        //上限：150个字符
-//        params.put("remark", param);
         params.put("randomstr", System.currentTimeMillis() + "");
-        params.put("sign", MD5Util.sign(params, "888888"));
+        params.put("sign", MD5Util.sign(params, "a0ea3fa20dbd7bb4d5abf1d59d63bae8"));
         byte[] bytes = connection.postParams(params, true);
         String result = new String(bytes, "utf-8");
         System.out.println(result);
