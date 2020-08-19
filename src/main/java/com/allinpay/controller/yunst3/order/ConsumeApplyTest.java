@@ -128,7 +128,7 @@ public class ConsumeApplyTest {
 
             // 组装支付方式
             HashMap<String, Object> payMethod = new HashMap<>();
-//            payMethod.put("GATEWAY_VSP", GATEWAY);
+            payMethod.put("GATEWAY_VSP", GATEWAY);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
 //            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
 //			payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
@@ -137,7 +137,7 @@ public class ConsumeApplyTest {
 //			payMethod.put("SCAN_WEIXIN_ORG", SCAN_WEIXIN_ORG);
 //            payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
 //			payMethod.put("WECHATPAY_APP_OPEN", WECHATPAY_APP_OPEN);
-            payMethod.put("BALANCE", balancePay);
+//            payMethod.put("BALANCE", balancePay);
 //			payMethod.put("COUPON", COUPON);
 //			payMethod.put("REALNAMEPAY_BATCH", realnamePay_batch);
 //			payMethod.put("REALNAMEPAY", realnamePay);
@@ -154,9 +154,9 @@ public class ConsumeApplyTest {
             request.put("payerId", "ceshi01");
             request.put("recieverId", "qiye02");
             request.put("bizOrderNo", System.currentTimeMillis() + "whyxf");
-            request.put("amount", 10L);
+            request.put("amount", 1L);
             request.put("fee", 0L);
-            request.put("validateType", 1L);
+            request.put("validateType", 0L);
 
             // *** split rule
             JSONArray splitRule = new JSONArray();
@@ -192,10 +192,10 @@ public class ConsumeApplyTest {
 //			request.put("splitRule", splitRule);
 
             request.put("frontUrl", "http://192.168.14.165:8080/yundemo/servletUI/jumpback");
-            request.put("backUrl", "http://116.228.64.58/yst/zfb/yibu");
+            request.put("backUrl", "http://test.pay.zj.cn/jzt/vsp/callback");
             request.put("ordErexpireDatetime", ordErexpireDatetime);
             request.put("payMethod", payMethod);
-            request.put("goodsName", "computer");
+            request.put("goodsName", "我是谁呢哦吼哦吼哦吼");
             request.put("goodsDesc", "computer made in china");
             request.put("industryCode", "1010");
             request.put("industryName", "保险代理");

@@ -16,7 +16,7 @@ public class AgentCollectApplySimplifyTest {
     @Test
     public void testMethod() {
 
-        final YunRequest request = new YunRequest("OrderService", "agentCollectApplySimplify");
+        final YunRequest request = new YunRequest("OrderService", "agentCollectApplySimplifyCheck");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         try {
@@ -88,18 +88,23 @@ public class AgentCollectApplySimplifyTest {
             QUICKPAY_VSP.put("bankCardNo", RSAUtil.encrypt("4391880821317777"));
             QUICKPAY_VSP.put("amount", 1L);
 
+            HashMap<String, Object> SCAN_WEIXIN = new HashMap<>();
+            SCAN_WEIXIN.put("amount", 1);
+            SCAN_WEIXIN.put("limitPay", "no_credit");
+
             // 组装支付方式
             HashMap<String, Object> payMethod = new HashMap<>();
 //			payMethod.put("REALNAMEPAY", realnamePay);
 //			payMethod.put("CODEPAY_VSP", CODEPAY_VSP);
 //			payMethod.put("QUICKPAY_TLT", QUICKPAY_TLT);
-            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
+//            payMethod.put("QUICKPAY_VSP", QUICKPAY_VSP);
 //			payMethod.put("CODEPAY_VSP_ORG", CODEPAY_VSP_ORG);
 //			payMethod.put("GATEWAY", getwayPay);
 //			payMethod.put("BALANCE", balancePay);
 //			payMethod.put("COUPONLIST", couponList);
 //			payMethod.put("COUPON", COUPON);
 //			payMethod.put("REALNAMEPAY_BATCH", realnamePay_batch);
+            payMethod.put("SCAN_WEIXIN", SCAN_WEIXIN);
 
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.HOUR, 15);
@@ -123,9 +128,9 @@ public class AgentCollectApplySimplifyTest {
 //			receiver3.put("amount", 10L);			
 //			receiverList.add(new JSONObject(receiver3));
 
-            request.put("bizOrderNo", System.currentTimeMillis() + "cz");
-            request.put("payerId", "zhuyqgr"); // bizUserId  付款方
-            request.put("recieverList", receiverList);
+            request.put("bizOrderNo", System.currentTimeMillis() + "SDS");
+            request.put("payerId", "ceshi01"); // bizUserId  付款方
+//            request.put("recieverList", receiverList);
 //			request.put("goodsType", 2L);
 //			request.put("bizGoodsNo", "12121133211122234");
             request.put("tradeCode", "1003");

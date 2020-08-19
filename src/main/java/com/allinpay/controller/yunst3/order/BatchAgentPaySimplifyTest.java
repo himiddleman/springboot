@@ -14,40 +14,28 @@ public class BatchAgentPaySimplifyTest {
     @Test
     public void testMethod() {
 
-        final YunRequest request = new YunRequest("OrderService", "batchAgentPaySimplify");
+        final YunRequest request = new YunRequest("OrderService", "batchAgentPaySimplifyCheck");
 
         try {
 
             // 批量托管代付列表
             JSONArray batchPayList = new JSONArray();
             HashMap<String, Object> pay1 = new HashMap<>();
-            pay1.put("bizOrderNo", System.currentTimeMillis() + "cz");
-            pay1.put("extendInfo", "888");
+            pay1.put("bizOrderNo", System.currentTimeMillis() + "SDF");
 
-            JSONArray collectPayList = new JSONArray();
-            HashMap<String, Object> collect1 = new HashMap<>();
-            collect1.put("bizOrderNo", "1543805998508cz");
-            collect1.put("amount", 10L);
-            HashMap<String, Object> collect2 = new HashMap<>();
-            collect2.put("bizOrderNo", "1543805998508cz");
-            collect2.put("amount", 10L);
-            collectPayList.add(new JSONObject(collect1));
-            collectPayList.add(new JSONObject(collect2));
-
-
-            pay1.put("collectPayList", collectPayList);
-            pay1.put("bizUserId", "zhuyqgr");
-            pay1.put("accountSetNo", "200001");
+            pay1.put("collectbizOrderNo", "1595223529023SDS");
+            pay1.put("bizUserId", "qiye01");
+            pay1.put("accountSetNo", "200126");
             pay1.put("backUrl", "http://192.168.14.165:8080/yundemo/servletUI/notice");
-            pay1.put("amount", 10L);
-            pay1.put("fee", 1L);
+            pay1.put("amount", 1L);
+            pay1.put("fee", 0L);
             pay1.put("extendInfo", "222222222222222");
             batchPayList.add(new JSONObject(pay1));
 
-            request.put("bizBatchNo", System.currentTimeMillis() + "cz");
+            request.put("bizBatchNo", System.currentTimeMillis() + "bp");
             request.put("batchPayList", batchPayList);
-            request.put("goodsType", 1L);
-            request.put("goodsNo", "A0001");
+//            request.put("goodsType", 1L);
+//            request.put("goodsNo", "A0001");
             request.put("tradeCode", "2003");
 
             String res = YunClient.request(request);
