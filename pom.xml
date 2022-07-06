@@ -19,7 +19,7 @@
         <jersey.version>1.8</jersey.version>
         <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
         <thymeleaf-layout-dialect.version>2.0.4</thymeleaf-layout-dialect.version>
-        <shiro.version>1.4.2</shiro.version>
+        <shiro.version>1.9.1</shiro.version>
     </properties>
 
     <dependencies>
